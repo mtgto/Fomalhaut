@@ -5,5 +5,15 @@
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
+    @import Cocoa;
+    #import <MagicalRecord/MagicalRecord.h>
+    #import <MagicalRecord/CoreData+MagicalRecord.h>
+#endif
+
+#import <CocoaLumberjack/DDLog.h>
+#import <CocoaLumberjack/DDTTYLogger.h>
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif

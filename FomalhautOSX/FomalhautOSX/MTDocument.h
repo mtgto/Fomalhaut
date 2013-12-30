@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 mtgto. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 @interface MTDocument : NSPersistentDocument
 
