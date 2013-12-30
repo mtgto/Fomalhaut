@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MTDocument">
             <connections>
+                <outlet property="pageController" destination="5vt-ow-SX3" id="kGX-nj-FCH"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
         </customObject>
@@ -21,19 +22,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="507" height="413"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="20">
-                        <rect key="frame" x="120" y="195" width="266" height="22"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Your document contents here" id="100020">
-                            <font key="font" metaFont="system" size="18"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                    <box autoresizesSubviews="NO" borderWidth="0.0" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="j9V-us-gIl">
+                        <rect key="frame" x="0.0" y="0.0" width="507" height="413"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="0.0" y="0.0" width="507" height="413"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="20" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="100025"/>
-                    <constraint firstItem="20" firstAttribute="centerY" secondItem="6" secondAttribute="centerY" id="100026"/>
+                    <constraint firstAttribute="trailing" secondItem="j9V-us-gIl" secondAttribute="trailing" id="WJL-TO-iE6"/>
+                    <constraint firstItem="j9V-us-gIl" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="c3h-TM-BsK"/>
+                    <constraint firstAttribute="bottom" secondItem="j9V-us-gIl" secondAttribute="bottom" id="fzV-tN-ITC"/>
+                    <constraint firstItem="j9V-us-gIl" firstAttribute="top" secondItem="6" secondAttribute="top" id="vH6-Mz-XJt"/>
                 </constraints>
             </view>
             <connections>
@@ -41,5 +45,11 @@
             </connections>
         </window>
         <customObject id="-3" userLabel="Application"/>
+        <pagecontroller transitionStyle="horizontalStrip" id="5vt-ow-SX3">
+            <connections>
+                <outlet property="delegate" destination="-2" id="Bx3-If-GgN"/>
+                <outlet property="view" destination="j9V-us-gIl" id="eIy-EV-90V"/>
+            </connections>
+        </pagecontroller>
     </objects>
 </document>

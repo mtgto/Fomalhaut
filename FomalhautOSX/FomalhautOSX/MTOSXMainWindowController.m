@@ -7,6 +7,7 @@
 //
 
 #import "MTOSXMainWindowController.h"
+#import "MTFile.h"
 
 @interface MTOSXMainWindowController ()
 
@@ -29,6 +30,13 @@
     [self.fileArrayController setManagedObjectContext:[NSManagedObjectContext MR_defaultContext]];
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
+}
+
+- (void)doubleClicked:(NSArray *)selectedObjects {
+    for (MTFile *file in selectedObjects) {
+        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri] display:YES error:nil];
+    }
+
 }
 
 @end

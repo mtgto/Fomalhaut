@@ -10,6 +10,8 @@
 
 @interface NSArray (Function)
 
-- (NSArray *)mapWithBlocks:(id(^)(id obj, NSUInteger index))block;
+- (NSArray *)mapWithBlocks:(id(^)(id obj))block;
+
+- (NSArray *)withFilterBlock:(BOOL(^)(id obj))filterBlock mapBlock:(id(^)(id obj))mapBlock;
 
 @end

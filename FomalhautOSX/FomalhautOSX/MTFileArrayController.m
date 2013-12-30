@@ -20,7 +20,7 @@
     NSPasteboard *pasteboard = [info draggingPasteboard];
     if ([[pasteboard types] containsObject:NSFilenamesPboardType]) {
         NSDictionary *options = @{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)};
-        NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] mapWithBlocks:^id(id obj, NSUInteger index) {
+        NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] mapWithBlocks:^id(id obj) {
             NSURL *fileURL = (NSURL *)obj;
             MTFile *file = [MTFile MR_createEntity];
             file.name = [fileURL lastPathComponent];

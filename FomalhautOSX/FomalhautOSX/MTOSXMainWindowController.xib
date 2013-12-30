@@ -126,7 +126,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="393" minWidth="40" maxWidth="1000" id="zLx-Wd-qeX">
+                                                <tableColumn editable="NO" width="393" minWidth="40" maxWidth="1000" id="zLx-Wd-qeX">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -144,6 +144,16 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
+                                                <binding destination="yXh-lo-881" name="doubleClickArgument" keyPath="selectedObjects" id="5Gu-St-a4a">
+                                                    <dictionary key="options">
+                                                        <string key="NSSelectorName">doubleClicked:</string>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="-2" name="doubleClickTarget" keyPath="self" previousBinding="5Gu-St-a4a" id="RDy-cr-ZLu">
+                                                    <dictionary key="options">
+                                                        <string key="NSSelectorName">doubleClicked:</string>
+                                                    </dictionary>
+                                                </binding>
                                                 <outlet property="dataSource" destination="yXh-lo-881" id="X3E-Ft-qKf"/>
                                             </connections>
                                         </tableView>

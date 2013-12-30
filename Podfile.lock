@@ -22,15 +22,18 @@ PODS:
   - CocoaLumberjack/Extensions (1.7.0):
     - CocoaLumberjack/Core
   - MagicalRecord (2.2)
+  - zipzap (5.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0.3)
   - CocoaLumberjack (~> 1.7.0)
   - MagicalRecord (~> 2.2)
+  - zipzap (~> 5.0)
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   CocoaLumberjack: be87113f649942f020a37c061c58009b6ee5ff68
   MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
+  zipzap: 494a6a28fa71a0a0d78a19c4c5377557b89d7b94
 
 COCOAPODS: 0.29.0

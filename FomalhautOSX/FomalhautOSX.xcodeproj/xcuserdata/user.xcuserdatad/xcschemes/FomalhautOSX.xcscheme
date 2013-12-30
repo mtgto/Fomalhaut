@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE02E0151870180400094EFD"
-               BuildableName = "FomalhautOSX.app"
+               BuildableName = "Fomalhaut.app"
                BlueprintName = "FomalhautOSX"
                ReferencedContainer = "container:FomalhautOSX.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE02E0151870180400094EFD"
-            BuildableName = "FomalhautOSX.app"
+            BuildableName = "Fomalhaut.app"
             BlueprintName = "FomalhautOSX"
             ReferencedContainer = "container:FomalhautOSX.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE02E0151870180400094EFD"
-            BuildableName = "FomalhautOSX.app"
+            BuildableName = "Fomalhaut.app"
             BlueprintName = "FomalhautOSX"
             ReferencedContainer = "container:FomalhautOSX.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE02E0151870180400094EFD"
-            BuildableName = "FomalhautOSX.app"
+            BuildableName = "Fomalhaut.app"
             BlueprintName = "FomalhautOSX"
             ReferencedContainer = "container:FomalhautOSX.xcodeproj">
          </BuildableReference>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F4CB5F9C6C84FD8BE411D6D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F238F245F1A40B2A13356EA /* libPods.a */; };
+		9273FC6A36244837BA84B03D /* libPods-FomalhautOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D094171245EF432E9B3191B1 /* libPods-FomalhautOSX.a */; };
 		CE02E01A1870180400094EFD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02E0191870180400094EFD /* Cocoa.framework */; };
 		CE02E0241870180400094EFD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0221870180400094EFD /* InfoPlist.strings */; };
 		CE02E0261870180400094EFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E0251870180400094EFD /* main.m */; };
@@ -24,6 +25,8 @@
 		CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12718710DAA00094EFD /* MTOSXAppDelegate.m */; };
 		CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */; };
 		CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */; };
+		CE0E77821871CC3D000EF722 /* MTImagePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0E77811871CC3D000EF722 /* MTImagePageView.xib */; };
+		CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 		CE9E237718717AC70069BED0 /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E237618717AC70069BED0 /* MTFile.m */; };
@@ -40,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14DFC61476834A4383EA4957 /* Pods-FomalhautOSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FomalhautOSX.xcconfig"; path = "../Pods/Pods-FomalhautOSX.xcconfig"; sourceTree = "<group>"; };
 		8F238F245F1A40B2A13356EA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C185B4837B4D4D8580F0FF95 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CE02E0161870180400094EFD /* Fomalhaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fomalhaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,12 +72,16 @@
 		CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTOSXMainWindowController.xib; sourceTree = "<group>"; };
+		CE0E77811871CC3D000EF722 /* MTImagePageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTImagePageView.xib; sourceTree = "<group>"; };
+		CE0E77831871D5CC000EF722 /* AutoSizingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoSizingImageView.h; sourceTree = "<group>"; };
+		CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoSizingImageView.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE9E23731871770E0069BED0 /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
 		CE9E237518717AC70069BED0 /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
 		CE9E237618717AC70069BED0 /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
+		D094171245EF432E9B3191B1 /* libPods-FomalhautOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FomalhautOSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 			files = (
 				CE02E01A1870180400094EFD /* Cocoa.framework in Frameworks */,
 				2F4CB5F9C6C84FD8BE411D6D /* libPods.a in Frameworks */,
+				9273FC6A36244837BA84B03D /* libPods-FomalhautOSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +115,7 @@
 				CE02E0181870180400094EFD /* Frameworks */,
 				CE02E0171870180400094EFD /* Products */,
 				C185B4837B4D4D8580F0FF95 /* Pods.xcconfig */,
+				14DFC61476834A4383EA4957 /* Pods-FomalhautOSX.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +135,7 @@
 				CE02E03E1870180400094EFD /* XCTest.framework */,
 				CE02E01B1870180400094EFD /* Other Frameworks */,
 				8F238F245F1A40B2A13356EA /* libPods.a */,
+				D094171245EF432E9B3191B1 /* libPods-FomalhautOSX.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 				CE02E02B1870180400094EFD /* MTDocument.h */,
 				CE02E02C1870180400094EFD /* MTDocument.m */,
 				CE02E02E1870180400094EFD /* MTDocument.xib */,
+				CE0E77811871CC3D000EF722 /* MTImagePageView.xib */,
 				CE02E0371870180400094EFD /* Images.xcassets */,
 				CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */,
 				CE02E12618710DAA00094EFD /* MTOSXAppDelegate.h */,
@@ -160,6 +172,8 @@
 				CE9E237518717AC70069BED0 /* MTFile.h */,
 				CE9E237618717AC70069BED0 /* MTFile.m */,
 				CE02E0201870180400094EFD /* Supporting Files */,
+				CE0E77831871D5CC000EF722 /* AutoSizingImageView.h */,
+				CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */,
 			);
 			path = FomalhautOSX;
 			sourceTree = "<group>";
@@ -276,6 +290,7 @@
 				CE02E0301870180400094EFD /* MTDocument.xib in Resources */,
 				CE02E0381870180400094EFD /* Images.xcassets in Resources */,
 				CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */,
+				CE0E77821871CC3D000EF722 /* MTImagePageView.xib in Resources */,
 				CE02E0241870180400094EFD /* InfoPlist.strings in Resources */,
 				CE02E02A1870180400094EFD /* Credits.rtf in Resources */,
 				CE02E0331870180400094EFD /* MainMenu.xib in Resources */,
@@ -305,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Pods-FomalhautOSX-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C1B285593E9146EE83F628DA /* Check Pods Manifest.lock */ = {
@@ -332,6 +347,7 @@
 			files = (
 				CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */,
 				CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */,
+				CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
 				CE02E0261870180400094EFD /* main.m in Sources */,
 				CE9E237718717AC70069BED0 /* MTFile.m in Sources */,
@@ -473,7 +489,7 @@
 		};
 		CE02E04E1870180400094EFD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C185B4837B4D4D8580F0FF95 /* Pods.xcconfig */;
+			baseConfigurationReference = 14DFC61476834A4383EA4957 /* Pods-FomalhautOSX.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -488,7 +504,7 @@
 		};
 		CE02E04F1870180400094EFD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C185B4837B4D4D8580F0FF95 /* Pods.xcconfig */;
+			baseConfigurationReference = 14DFC61476834A4383EA4957 /* Pods-FomalhautOSX.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

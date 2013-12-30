@@ -8,6 +8,6 @@
 
 @import Cocoa;
 
-@interface MTDocument : NSPersistentDocument
+@interface MTDocument : NSDocument <NSPageControllerDelegate>
 
 @end

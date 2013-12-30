@@ -10,10 +10,20 @@
 
 @implementation NSArray (Function)
 
-- (NSArray *)mapWithBlocks:(id(^)(id obj, NSUInteger index))block {
+- (NSArray *)mapWithBlocks:(id(^)(id obj))block {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [result addObject:block(obj, idx)];
+        [result addObject:block(obj)];
+    }];
+    return result;
+}
+
+- (NSArray *)withFilterBlock:(BOOL(^)(id obj))filterBlock mapBlock:(id(^)(id obj))mapBlock {
+    NSMutableArray *result = [NSMutableArray array];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if (filterBlock(obj)) {
+            [result addObject:mapBlock(obj)];
+        }
     }];
     return result;
 }
