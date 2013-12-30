@@ -27,6 +27,8 @@
 {
     [super windowDidLoad];
     [self.fileArrayController setManagedObjectContext:[NSManagedObjectContext MR_defaultContext]];
+    [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
+    [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
 }
 
 @end

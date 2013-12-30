@@ -7,8 +7,10 @@
 //
 
 @import Cocoa;
+#import "MTFileArrayController.h"
 
 @interface MTOSXMainWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
-@property (strong) IBOutlet NSArrayController *fileArrayController;
+@property (strong) IBOutlet MTFileArrayController *fileArrayController;
+@property (weak) IBOutlet NSTableView *tableView;
 
 @end

@@ -24,7 +24,9 @@
 		CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12718710DAA00094EFD /* MTOSXAppDelegate.m */; };
 		CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */; };
 		CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */; };
-		CE02E1361871411C00094EFD /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E1351871411C00094EFD /* MTFile.m */; };
+		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
+		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
+		CE9E237718717AC70069BED0 /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E237618717AC70069BED0 /* MTFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,7 @@
 /* Begin PBXFileReference section */
 		8F238F245F1A40B2A13356EA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C185B4837B4D4D8580F0FF95 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		CE02E0161870180400094EFD /* FomalhautOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FomalhautOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE02E0161870180400094EFD /* Fomalhaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fomalhaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE02E0191870180400094EFD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CE02E01C1870180400094EFD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CE02E01D1870180400094EFD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -66,8 +68,12 @@
 		CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTOSXMainWindowController.xib; sourceTree = "<group>"; };
-		CE02E1341871411C00094EFD /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
-		CE02E1351871411C00094EFD /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
+		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
+		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
+		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
+		CE9E23731871770E0069BED0 /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
+		CE9E237518717AC70069BED0 /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
+		CE9E237618717AC70069BED0 /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +112,7 @@
 		CE02E0171870180400094EFD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE02E0161870180400094EFD /* FomalhautOSX.app */,
+				CE02E0161870180400094EFD /* Fomalhaut.app */,
 				CE02E03D1870180400094EFD /* FomalhautOSXTests.xctest */,
 			);
 			name = Products;
@@ -147,8 +153,12 @@
 				CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */,
 				CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */,
 				CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */,
-				CE02E1341871411C00094EFD /* MTFile.h */,
-				CE02E1351871411C00094EFD /* MTFile.m */,
+				CE9E236F1871565F0069BED0 /* MTFileArrayController.h */,
+				CE9E23701871565F0069BED0 /* MTFileArrayController.m */,
+				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
+				CE9E23731871770E0069BED0 /* NSArray+Function.m */,
+				CE9E237518717AC70069BED0 /* MTFile.h */,
+				CE9E237618717AC70069BED0 /* MTFile.m */,
 				CE02E0201870180400094EFD /* Supporting Files */,
 			);
 			path = FomalhautOSX;
@@ -203,7 +213,7 @@
 			);
 			name = FomalhautOSX;
 			productName = FomalhautOSX;
-			productReference = CE02E0161870180400094EFD /* FomalhautOSX.app */;
+			productReference = CE02E0161870180400094EFD /* Fomalhaut.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CE02E03C1870180400094EFD /* FomalhautOSXTests */ = {
@@ -320,11 +330,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE02E1361871411C00094EFD /* MTFile.m in Sources */,
+				CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */,
 				CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
 				CE02E0261870180400094EFD /* main.m in Sources */,
+				CE9E237718717AC70069BED0 /* MTFile.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
+				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +481,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FomalhautOSX/FomalhautOSX-Prefix.pch";
 				INFOPLIST_FILE = "FomalhautOSX/FomalhautOSX-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fomalhaut;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -484,7 +496,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FomalhautOSX/FomalhautOSX-Prefix.pch";
 				INFOPLIST_FILE = "FomalhautOSX/FomalhautOSX-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fomalhaut;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
