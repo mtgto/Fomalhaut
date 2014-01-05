@@ -63,6 +63,16 @@
     return YES;
 }
 
+#pragma -
+
+- (NSUInteger)numberOfPages {
+    return [[self.archive entries] count];
+}
+
+- (NSData *)dataOfIndex:(NSUInteger)index {
+    return [[self.archive entries][index] data];
+}
+
 #pragma mark - NSPageControllerDelegate
 
 - (NSString *)pageController:(NSPageController *)pageController identifierForObject:(id)object {

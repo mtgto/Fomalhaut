@@ -10,4 +10,8 @@
 
 @interface MTDocument : NSDocument <NSPageControllerDelegate>
 
+- (NSUInteger)numberOfPages;
+
+- (NSData *)dataOfIndex:(NSUInteger)index;
+
 @end

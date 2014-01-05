@@ -8,8 +8,12 @@
 
 #import "MTOSXMainWindowController.h"
 #import "MTFile.h"
+#import <RoutingHTTPServer/RoutingHTTPServer.h>
+#import <GRMustache/GRMustache.h>
 
 @interface MTOSXMainWindowController ()
+
+@property (strong) RoutingHTTPServer *server;
 
 @end
 
@@ -20,6 +24,40 @@
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
+        self.server = [[RoutingHTTPServer alloc] init];
+        [self.server setPort:25491];
+        [self.server setDefaultHeader:@"Server" value:@"Fomalhaut/1.0"];
+        [self.server get:@"/hello/:name" withBlock:^(RouteRequest *request, RouteResponse *response) {
+            [response setHeader:@"Content-Type" value:@"text/plain"];
+            [response respondWithString:[NSString stringWithFormat:@"Hello %@!", [request param:@"name"]]];
+        }];
+        [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
+            [response setHeader:@"Content-Type" value:@"text/html"];
+            NSArray *files = [MTFile MR_findAll];
+            GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"list.html" bundle:[NSBundle mainBundle] error:nil];
+            [response respondWithString:[template renderObject:@{@"items": files} error:nil]];
+        }];
+        [self.server get:@"/assets/css/:file" withBlock:^(RouteRequest *request, RouteResponse *response) {
+            NSString *cssFileName = [request param:@"file"];
+            NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:cssFileName withExtension:@"css"]];
+            if ([cssFileName hasSuffix:@"css"] && data) {
+                [response setHeader:@"Content-Type" value:@"text/css"];
+                [response respondWithData:data];
+            } else {
+                [response setStatusCode:404];
+            }
+        }];
+        [self.server get:@"/assets/js/:file" withBlock:^(RouteRequest *request, RouteResponse *response) {
+            NSString *cssFileName = [request param:@"file"];
+            NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:cssFileName withExtension:@"js"]];
+            if ([cssFileName hasSuffix:@"js"] && data) {
+                [response setHeader:@"Content-Type" value:@"application/javascript"];
+                [response respondWithData:data];
+            } else {
+                [response setStatusCode:404];
+            }
+        }];
+        [self.server start:nil];
     }
     return self;
 }

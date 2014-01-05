@@ -27,6 +27,11 @@
 		CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */; };
 		CE0E77821871CC3D000EF722 /* MTImagePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0E77811871CC3D000EF722 /* MTImagePageView.xib */; };
 		CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */; };
+		CE789F9518792893005E928E /* list.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9418792893005E928E /* list.html.mustache */; };
+		CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9818792B87005E928E /* bootstrap-theme.min.css */; };
+		CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9918792B87005E928E /* bootstrap.min.css */; };
+		CE789F9E18792B91005E928E /* bootstrap.min.js in Sources */ = {isa = PBXBuildFile; fileRef = CE789F9C18792B91005E928E /* bootstrap.min.js */; };
+		CE789F9F18792B91005E928E /* jquery-2.0.3.min.js in Sources */ = {isa = PBXBuildFile; fileRef = CE789F9D18792B91005E928E /* jquery-2.0.3.min.js */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 		CE9E237718717AC70069BED0 /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E237618717AC70069BED0 /* MTFile.m */; };
@@ -75,6 +80,11 @@
 		CE0E77811871CC3D000EF722 /* MTImagePageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTImagePageView.xib; sourceTree = "<group>"; };
 		CE0E77831871D5CC000EF722 /* AutoSizingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoSizingImageView.h; sourceTree = "<group>"; };
 		CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoSizingImageView.m; sourceTree = "<group>"; };
+		CE789F9418792893005E928E /* list.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.html.mustache; sourceTree = "<group>"; };
+		CE789F9818792B87005E928E /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
+		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
+		CE789F9C18792B91005E928E /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.min.js; sourceTree = "<group>"; };
+		CE789F9D18792B91005E928E /* jquery-2.0.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.0.3.min.js"; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
@@ -171,6 +181,7 @@
 				CE9E23731871770E0069BED0 /* NSArray+Function.m */,
 				CE9E237518717AC70069BED0 /* MTFile.h */,
 				CE9E237618717AC70069BED0 /* MTFile.m */,
+				CE789F931879287A005E928E /* templates */,
 				CE02E0201870180400094EFD /* Supporting Files */,
 				CE0E77831871D5CC000EF722 /* AutoSizingImageView.h */,
 				CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */,
@@ -206,6 +217,34 @@
 				CE02E0461870180400094EFD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE789F931879287A005E928E /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				CE789F9718792B6A005E928E /* js */,
+				CE789F9618792B5D005E928E /* css */,
+				CE789F9418792893005E928E /* list.html.mustache */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
+		CE789F9618792B5D005E928E /* css */ = {
+			isa = PBXGroup;
+			children = (
+				CE789F9818792B87005E928E /* bootstrap-theme.min.css */,
+				CE789F9918792B87005E928E /* bootstrap.min.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		CE789F9718792B6A005E928E /* js */ = {
+			isa = PBXGroup;
+			children = (
+				CE789F9C18792B91005E928E /* bootstrap.min.js */,
+				CE789F9D18792B91005E928E /* jquery-2.0.3.min.js */,
+			);
+			path = js;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +326,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */,
 				CE02E0301870180400094EFD /* MTDocument.xib in Resources */,
+				CE789F9518792893005E928E /* list.html.mustache in Resources */,
 				CE02E0381870180400094EFD /* Images.xcassets in Resources */,
 				CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */,
 				CE0E77821871CC3D000EF722 /* MTImagePageView.xib in Resources */,
 				CE02E0241870180400094EFD /* InfoPlist.strings in Resources */,
 				CE02E02A1870180400094EFD /* Credits.rtf in Resources */,
+				CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */,
 				CE02E0331870180400094EFD /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,11 +389,13 @@
 			files = (
 				CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */,
 				CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */,
+				CE789F9F18792B91005E928E /* jquery-2.0.3.min.js in Sources */,
 				CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
 				CE02E0261870180400094EFD /* main.m in Sources */,
 				CE9E237718717AC70069BED0 /* MTFile.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
+				CE789F9E18792B91005E928E /* bootstrap.min.js in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
 			);
