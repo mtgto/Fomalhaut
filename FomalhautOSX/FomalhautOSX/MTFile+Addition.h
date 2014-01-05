@@ -1,5 +1,5 @@
 //
-//  MTFile.m
+//  MTFile+Addition.h
 //  FomalhautOSX
 //
 //  Created by User on 1/5/14.
@@ -8,13 +8,6 @@
 
 #import "MTFile.h"
 
-
-@implementation MTFile
-
-@dynamic name;
-@dynamic uri;
-@dynamic uuid;
-@dynamic readCount;
-@dynamic created;
+@interface MTFile (Addition)
 
 @end

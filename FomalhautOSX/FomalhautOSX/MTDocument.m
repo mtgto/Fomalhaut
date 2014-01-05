@@ -13,7 +13,10 @@
 @interface MTDocument()
 
 @property (nonatomic, strong) ZZArchive *archive;
+@property (nonatomic, strong) NSArray *entries;
 @property (strong) IBOutlet NSPageController *pageController;
+
+- (NSArray *)getSortedEntries;
 
 @end
 
@@ -40,17 +43,8 @@
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
-    NSArray *entries = [[self.archive.entries withFilterBlock:^BOOL(id obj) {
-        ZZArchiveEntry *entry = (ZZArchiveEntry *)obj;
-        return [entry.fileName hasSuffix:@".jpg"];
-    } mapBlock:^id(id obj) {
-        return obj;
-    }] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        ZZArchiveEntry *entry1 = (ZZArchiveEntry *)obj1;
-        ZZArchiveEntry *entry2 = (ZZArchiveEntry *)obj2;
-        return [entry1.fileName compare:entry2.fileName options:NSNumericSearch];
-    }];
-    [self.pageController setArrangedObjects:entries];
+
+    [self.pageController setArrangedObjects:[self getSortedEntries]];
 }
 
 + (BOOL)autosavesInPlace
@@ -63,14 +57,31 @@
     return YES;
 }
 
+- (NSArray *)getSortedEntries {
+    if (self.entries) {
+        return self.entries;
+    }
+    self.entries = [[self.archive.entries withFilterBlock:^BOOL(id obj) {
+        ZZArchiveEntry *entry = (ZZArchiveEntry *)obj;
+        return [entry.fileName hasSuffix:@".jpg"] || [entry.fileName hasSuffix:@".png"];
+    } mapBlock:^id(id obj) {
+        return obj;
+    }] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        ZZArchiveEntry *entry1 = (ZZArchiveEntry *)obj1;
+        ZZArchiveEntry *entry2 = (ZZArchiveEntry *)obj2;
+        return [entry1.fileName compare:entry2.fileName options:NSNumericSearch];
+    }];
+    return self.entries;
+}
+
 #pragma -
 
 - (NSUInteger)numberOfPages {
-    return [[self.archive entries] count];
+    return [[self getSortedEntries] count];
 }
 
 - (NSData *)dataOfIndex:(NSUInteger)index {
-    return [[self.archive entries][index] data];
+    return [[self getSortedEntries][index] data];
 }
 
 #pragma mark - NSPageControllerDelegate
