@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MTOSXMainWindowController">
             <connections>
+                <outlet property="bookmarkOutlineView" destination="Jhy-We-zXP" id="N7W-qR-lbJ"/>
                 <outlet property="fileArrayController" destination="yXh-lo-881" id="hXZ-oa-B8P"/>
                 <outlet property="tableView" destination="mdr-kY-Wug" id="rTV-Eh-v8F"/>
                 <outlet property="window" destination="1" id="3"/>
@@ -99,6 +100,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-2" id="57b-W7-UyD"/>
+                                                <outlet property="delegate" destination="-2" id="uf7-7J-cIx"/>
+                                            </connections>
                                         </outlineView>
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -38,6 +38,8 @@
 		CE789FAD187AEAD9005E928E /* MTWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FAC187AEAD9005E928E /* MTWebServer.m */; };
 		CE789FAF187B9582005E928E /* 404.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789FAE187B9582005E928E /* 404.html.mustache */; };
 		CE789FB8187C48E2005E928E /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FB7187C48E2005E928E /* MTFile.m */; };
+		CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FBE187C53C8005E928E /* MTBookmarkAll.m */; };
+		CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC1187C5422005E928E /* MTBookmarkUnread.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,11 @@
 		CE789FAE187B9582005E928E /* 404.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 404.html.mustache; sourceTree = "<group>"; };
 		CE789FB6187C48E2005E928E /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
 		CE789FB7187C48E2005E928E /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
+		CE789FBC187C52A5005E928E /* MTBookmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTBookmark.h; sourceTree = "<group>"; };
+		CE789FBD187C53C8005E928E /* MTBookmarkAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkAll.h; sourceTree = "<group>"; };
+		CE789FBE187C53C8005E928E /* MTBookmarkAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkAll.m; sourceTree = "<group>"; };
+		CE789FC0187C5422005E928E /* MTBookmarkUnread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkUnread.h; sourceTree = "<group>"; };
+		CE789FC1187C5422005E928E /* MTBookmarkUnread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkUnread.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
@@ -195,6 +202,11 @@
 				CE9E23701871565F0069BED0 /* MTFileArrayController.m */,
 				CE789FAB187AEAD9005E928E /* MTWebServer.h */,
 				CE789FAC187AEAD9005E928E /* MTWebServer.m */,
+				CE789FBC187C52A5005E928E /* MTBookmark.h */,
+				CE789FBD187C53C8005E928E /* MTBookmarkAll.h */,
+				CE789FBE187C53C8005E928E /* MTBookmarkAll.m */,
+				CE789FC0187C5422005E928E /* MTBookmarkUnread.h */,
+				CE789FC1187C5422005E928E /* MTBookmarkUnread.m */,
 				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
 				CE9E23731871770E0069BED0 /* NSArray+Function.m */,
 				CE789F931879287A005E928E /* templates */,
@@ -422,6 +434,7 @@
 				CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */,
 				CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */,
 				CE789FAD187AEAD9005E928E /* MTWebServer.m in Sources */,
+				CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */,
 				CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */,
 				CE789FB8187C48E2005E928E /* MTFile.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
@@ -429,6 +442,7 @@
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
 				CE789FA518796F6A005E928E /* MTFile+Addition.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
+				CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

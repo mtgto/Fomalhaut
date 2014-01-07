@@ -9,8 +9,9 @@
 @import Cocoa;
 #import "MTFileArrayController.h"
 
-@interface MTOSXMainWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
+@interface MTOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate>
 @property (strong) IBOutlet MTFileArrayController *fileArrayController;
 @property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSOutlineView *bookmarkOutlineView;
 
 @end
