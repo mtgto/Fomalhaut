@@ -13,7 +13,7 @@
 - (void) awakeFromInsert {
     [super awakeFromInsert];
     self.uuid = [[NSUUID UUID] UUIDString];
-    self.created = [NSDate date];
+    self.created = [NSDate timeIntervalSinceReferenceDate];
 }
 
 @end

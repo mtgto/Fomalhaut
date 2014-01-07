@@ -120,7 +120,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
-                                            <rect key="frame" x="0.0" y="0.0" width="417" height="359"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="463" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,6 +142,22 @@
                                                         <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.name" id="h92-5w-bSK"/>
                                                     </connections>
                                                 </tableColumn>
+                                                <tableColumn editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Read Count">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="emh-Qa-gIx">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <connections>
+                                                        <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.readCount" id="qhC-GU-eZA"/>
+                                                    </connections>
+                                                </tableColumn>
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="yXh-lo-881" name="doubleClickArgument" keyPath="selectedObjects" id="5Gu-St-a4a">
@@ -160,8 +176,8 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
-                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
+                                    <rect key="frame" x="1" y="360" width="417" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6IT-2e-HPF">
@@ -169,7 +185,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="cOY-3i-pkr">
-                                    <rect key="frame" x="0.0" y="0.0" width="417" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="463" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>

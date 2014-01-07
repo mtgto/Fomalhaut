@@ -77,6 +77,9 @@
                     DDLogInfo(@"selectedFile uri = %@", self.selectedFile.uri);
                     NSURL *fileURL = [NSURL URLWithString:self.selectedFile.uri];
                     self.selectedDocument = [[NSDocumentController sharedDocumentController] makeDocumentWithContentsOfURL:fileURL ofType:@"zip" error:nil];
+                    self.selectedFile.readCount++;
+                    self.selectedFile.lastOpened = [NSDate timeIntervalSinceReferenceDate];
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
                 }
             }
             if (self.selectedDocument) {

@@ -9,6 +9,7 @@
 #import "MTOSXMainWindowController.h"
 #import "MTFile.h"
 #import "MTWebServer.h"
+#import "MTDocument.h"
 
 @interface MTOSXMainWindowController ()
 
@@ -39,7 +40,17 @@
 
 - (void)doubleClicked:(NSArray *)selectedObjects {
     for (MTFile *file in selectedObjects) {
-        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri] display:YES error:nil];
+        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri]
+                                                                               display:YES
+                                                                     completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
+                                                                         if (error) {
+                                                                             // TODO show error dialog
+                                                                         } else if (!documentWasAlreadyOpen) {
+                                                                             file.readCount++;
+                                                                             file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
+                                                                             [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                                                                         }
+                                                                     }];
     }
 
 }

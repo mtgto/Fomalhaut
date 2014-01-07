@@ -32,12 +32,12 @@
 		CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9918792B87005E928E /* bootstrap.min.css */; };
 		CE789F9E18792B91005E928E /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9C18792B91005E928E /* bootstrap.min.js */; };
 		CE789F9F18792B91005E928E /* jquery-2.0.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9D18792B91005E928E /* jquery-2.0.3.min.js */; };
-		CE789FA218796F3C005E928E /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FA118796F3C005E928E /* MTFile.m */; };
 		CE789FA518796F6A005E928E /* MTFile+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FA418796F6A005E928E /* MTFile+Addition.m */; };
 		CE789FA718798E48005E928E /* book.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789FA618798E48005E928E /* book.html.mustache */; };
 		CE789FAA18799999005E928E /* glyphicons-halflings-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = CE789FA918799951005E928E /* glyphicons-halflings-regular.woff */; };
 		CE789FAD187AEAD9005E928E /* MTWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FAC187AEAD9005E928E /* MTWebServer.m */; };
 		CE789FAF187B9582005E928E /* 404.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789FAE187B9582005E928E /* 404.html.mustache */; };
+		CE789FB8187C48E2005E928E /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FB7187C48E2005E928E /* MTFile.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 /* End PBXBuildFile section */
@@ -90,8 +90,6 @@
 		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
 		CE789F9C18792B91005E928E /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.min.js; sourceTree = "<group>"; };
 		CE789F9D18792B91005E928E /* jquery-2.0.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.0.3.min.js"; sourceTree = "<group>"; };
-		CE789FA018796F3C005E928E /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
-		CE789FA118796F3C005E928E /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CE789FA318796F6A005E928E /* MTFile+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTFile+Addition.h"; sourceTree = "<group>"; };
 		CE789FA418796F6A005E928E /* MTFile+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MTFile+Addition.m"; sourceTree = "<group>"; };
 		CE789FA618798E48005E928E /* book.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = book.html.mustache; sourceTree = "<group>"; };
@@ -99,6 +97,8 @@
 		CE789FAB187AEAD9005E928E /* MTWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWebServer.h; sourceTree = "<group>"; };
 		CE789FAC187AEAD9005E928E /* MTWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTWebServer.m; sourceTree = "<group>"; };
 		CE789FAE187B9582005E928E /* 404.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 404.html.mustache; sourceTree = "<group>"; };
+		CE789FB6187C48E2005E928E /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
+		CE789FB7187C48E2005E928E /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
@@ -187,8 +187,8 @@
 				CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */,
 				CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */,
 				CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */,
-				CE789FA018796F3C005E928E /* MTFile.h */,
-				CE789FA118796F3C005E928E /* MTFile.m */,
+				CE789FB6187C48E2005E928E /* MTFile.h */,
+				CE789FB7187C48E2005E928E /* MTFile.m */,
 				CE789FA318796F6A005E928E /* MTFile+Addition.h */,
 				CE789FA418796F6A005E928E /* MTFile+Addition.m */,
 				CE9E236F1871565F0069BED0 /* MTFileArrayController.h */,
@@ -423,7 +423,7 @@
 				CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */,
 				CE789FAD187AEAD9005E928E /* MTWebServer.m in Sources */,
 				CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */,
-				CE789FA218796F3C005E928E /* MTFile.m in Sources */,
+				CE789FB8187C48E2005E928E /* MTFile.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
 				CE02E0261870180400094EFD /* main.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,

@@ -2,10 +2,14 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="MTFile" representedClassName="MTFile" syncable="YES">
         <attribute name="created" attributeType="Date" syncable="YES"/>
+        <attribute name="lastOpened" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="readCount" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="uri" attributeType="String" syncable="YES"/>
         <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
+        <fetchedProperty name="unreadFile" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="MTFile" predicateString="readCount = 0"/>
+        </fetchedProperty>
     </entity>
     <elements>
         <element name="MTFile" positionX="0" positionY="0" width="0" height="0"/>

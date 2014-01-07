@@ -2,7 +2,7 @@
 //  MTFile.h
 //  FomalhautOSX
 //
-//  Created by User on 1/5/14.
+//  Created by User on 1/7/14.
 //  Copyright (c) 2014 mtgto. All rights reserved.
 //
 
@@ -12,10 +12,11 @@
 
 @interface MTFile : NSManagedObject
 
+@property (nonatomic) NSTimeInterval created;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic) int16_t readCount;
 @property (nonatomic, retain) NSString * uri;
 @property (nonatomic, retain) NSString * uuid;
-@property (nonatomic, retain) NSNumber * readCount;
-@property (nonatomic, retain) NSDate * created;
+@property (nonatomic) NSTimeInterval lastOpened;
 
 @end
