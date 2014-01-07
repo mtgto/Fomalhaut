@@ -46,6 +46,10 @@
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
     [self.bookmarkOutlineView expandItem:nil expandChildren:YES];
+    NSInteger row = [self.bookmarkOutlineView rowForItem:[self.bookmarks firstObject]];
+    if (row >= 0) {
+        [self.bookmarkOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:YES];
+    }
 }
 
 - (void)doubleClicked:(NSArray *)selectedObjects {
@@ -143,7 +147,7 @@
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
     id item = [self.bookmarkOutlineView itemAtRow:self.bookmarkOutlineView.selectedRow];
     NSObject<MTBookmark> *bookmark = (NSObject<MTBookmark> *)item;
-    [self.fileArrayController setFilterPredicate:[bookmark predicate]];
+    [self.fileArrayController setFetchPredicate:[bookmark predicate]];
 }
 
 @end

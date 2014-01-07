@@ -24,7 +24,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="570" height="397"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView focusRingType="none" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-Yy-5EB">
+                    <splitView focusRingType="none" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-Yy-5EB" customClass="MTZeroWidthSplitView">
                         <rect key="frame" x="0.0" y="20" width="570" height="377"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -124,21 +124,21 @@
                                     <rect key="frame" x="1" y="17" width="417" height="359"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
-                                            <rect key="frame" x="0.0" y="0.0" width="463" height="359"/>
+                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
+                                            <rect key="frame" x="0.0" y="0.0" width="417" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn editable="NO" width="393" minWidth="40" maxWidth="1000" id="zLx-Wd-qeX">
+                                                <tableColumn editable="NO" width="297" minWidth="40" maxWidth="1000" id="zLx-Wd-qeX">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
                                                     <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="A4z-lV-Pv8">
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" size="13" name="LucidaGrande"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -147,7 +147,7 @@
                                                         <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.name" id="h92-5w-bSK"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
+                                                <tableColumn editable="NO" width="70" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Read Count">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -181,16 +181,16 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
-                                    <rect key="frame" x="1" y="360" width="417" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
+                                    <rect key="frame" x="1" y="1" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6IT-2e-HPF">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="cOY-3i-pkr">
-                                    <rect key="frame" x="0.0" y="0.0" width="463" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="417" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -208,19 +208,36 @@
                     <constraint firstItem="R5b-Yy-5EB" firstAttribute="top" secondItem="2" secondAttribute="top" id="tp6-dg-FN9"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="F9220689-31CE-4781-991E-3BF2242A5F4D" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="hvK-fE-2iw">
+            <toolbar key="toolbar" implicitIdentifier="F9220689-31CE-4781-991E-3BF2242A5F4D" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="hvK-fE-2iw">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="wUM-ft-C90"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="4Zi-Ve-n5t"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="kEl-vl-dYV"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ljC-bW-19Z"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="I2g-R5-Fbz"/>
+                    <toolbarItem implicitItemIdentifier="6E6BC834-69E8-4BBE-995E-8DE7DB5517A6" label="" paletteLabel="Search" id="lxf-55-feh">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="96" height="22"/>
+                        <size key="maxSize" width="96" height="22"/>
+                        <searchField key="view" verticalHuggingPriority="750" id="Se3-kz-AVw">
+                            <rect key="frame" x="0.0" y="14" width="96" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search" usesSingleLineMode="YES" bezelStyle="round" id="FwZ-zd-H7d">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </searchFieldCell>
+                            <connections>
+                                <binding destination="yXh-lo-881" name="predicate" keyPath="filterPredicate" id="8NO-Nn-xhc">
+                                    <dictionary key="options">
+                                        <string key="NSDisplayName">predicate</string>
+                                        <string key="NSPredicateFormat">name contains $value</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </searchField>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="wUM-ft-C90"/>
-                    <toolbarItem reference="4Zi-Ve-n5t"/>
                     <toolbarItem reference="I2g-R5-Fbz"/>
-                    <toolbarItem reference="kEl-vl-dYV"/>
+                    <toolbarItem reference="lxf-55-feh"/>
                 </defaultToolbarItems>
             </toolbar>
             <connections>
