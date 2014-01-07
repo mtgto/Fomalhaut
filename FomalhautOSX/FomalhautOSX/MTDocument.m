@@ -61,6 +61,7 @@
     if (self.entries) {
         return self.entries;
     }
+    id hoge = self.archive.entries;
     self.entries = [[self.archive.entries withFilterBlock:^BOOL(id obj) {
         ZZArchiveEntry *entry = (ZZArchiveEntry *)obj;
         return [entry.fileName hasSuffix:@".jpg"] || [entry.fileName hasSuffix:@".png"];
