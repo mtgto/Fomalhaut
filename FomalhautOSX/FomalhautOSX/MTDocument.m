@@ -28,6 +28,7 @@
     if (self) {
         // Add your subclass-specific initialization here.
         self.archive = [ZZArchive archiveWithContentsOfURL:url];
+        self.displayName = [url lastPathComponent];
     }
     return self;
 }
