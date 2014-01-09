@@ -8,15 +8,16 @@
 
 #import "MTOSXMainWindowController.h"
 #import "MTFile.h"
-#import "MTWebServer.h"
 #import "MTDocument.h"
 #import "MTBookmark.h"
 #import "MTBookmarkAll.h"
 #import "MTBookmarkUnread.h"
 
-@interface MTOSXMainWindowController ()
+extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
+extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
+extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 
-@property (nonatomic, strong) MTWebServer *server;
+@interface MTOSXMainWindowController ()
 
 @property (nonatomic, strong) NSArray *topLevelItems;
 
@@ -30,9 +31,14 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
-        self.server = [[MTWebServer alloc] init];
-        [self.server start];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        UInt16 port = (UInt16)[defaults integerForKey:SERVER_INT_PORT_CONFIG_KEY];
+        BOOL useHTTPS = [defaults boolForKey:SERVER_BOOL_HTTPS_CONFIG_KEY];
+        BOOL startServer = [defaults boolForKey:SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY];
+//        self.server = [[MTWebServer alloc] init];
+//        if (startServer) {
+//            [self.server start:port];
+//        }
         self.topLevelItems = @[@"Library"];
         self.bookmarks = @[[MTBookmarkAll sharedInstance], [MTBookmarkUnread sharedInstance]];
     }

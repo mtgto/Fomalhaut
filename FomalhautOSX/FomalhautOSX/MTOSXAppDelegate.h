@@ -7,7 +7,11 @@
 //
 
 @import Foundation;
+#import "MTWebServer.h"
 
 @interface MTOSXAppDelegate : NSObject <NSApplicationDelegate>
+
+@property (weak) IBOutlet MTWebServer *server;
+@property (weak) IBOutlet NSMenuItem *startServerMenuItem;
 
 @end

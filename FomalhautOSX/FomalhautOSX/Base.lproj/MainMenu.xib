@@ -26,7 +26,17 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Start Server" id="QUq-8V-ZKT">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleServer:" target="SEC-c9-h4I" id="mgY-Zc-kwR"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="showWindow:" target="8Nw-x3-bPU" id="Re5-1d-wgL"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -648,6 +658,14 @@
             </items>
         </menu>
         <customObject id="419" customClass="NSFontManager"/>
-        <customObject id="SEC-c9-h4I" customClass="MTOSXAppDelegate"/>
+        <customObject id="SEC-c9-h4I" customClass="MTOSXAppDelegate">
+            <connections>
+                <outlet property="server" destination="lpy-7b-Xi5" id="IN3-co-qr4"/>
+                <outlet property="startServerMenuItem" destination="QUq-8V-ZKT" id="LBt-78-Jq9"/>
+            </connections>
+        </customObject>
+        <customObject id="lpy-7b-Xi5" customClass="MTWebServer"/>
+        <customObject id="8Nw-x3-bPU" customClass="MTPreferencesWindowController"/>
+        <userDefaultsController representsSharedInstance="YES" id="WDm-jO-dyh"/>
     </objects>
 </document>

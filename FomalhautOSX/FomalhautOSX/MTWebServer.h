@@ -10,7 +10,7 @@
 
 @interface MTWebServer : NSObject
 
-- (void)start;
+- (void)start:(UInt16)port;
 
 - (void)stop;
 

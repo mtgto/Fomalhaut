@@ -25,7 +25,6 @@
 - (id)init {
     if (self = [super init]) {
         self.server = [[RoutingHTTPServer alloc] init];
-        [self.server setPort:25491];
         [self.server setDefaultHeader:@"Server" value:@"Fomalhaut/1.0"];
         [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"text/html"];
@@ -114,7 +113,8 @@
     return self;
 }
 
-- (void)start {
+- (void)start:(UInt16)port {
+    [self.server setPort:port];
     [self.server start:nil];
 }
 

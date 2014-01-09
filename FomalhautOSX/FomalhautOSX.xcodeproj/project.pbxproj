@@ -41,6 +41,9 @@
 		CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FBE187C53C8005E928E /* MTBookmarkAll.m */; };
 		CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC1187C5422005E928E /* MTBookmarkUnread.m */; };
 		CE789FC5187C6590005E928E /* MTZeroWidthSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC4187C6590005E928E /* MTZeroWidthSplitView.m */; };
+		CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC8187EEAFC005E928E /* MTPreferencesWindowController.m */; };
+		CE789FCB187EEAFC005E928E /* MTPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE789FC9187EEAFC005E928E /* MTPreferencesWindowController.xib */; };
+		CE789FCE187EF101005E928E /* static.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FCD187EF101005E928E /* static.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 /* End PBXBuildFile section */
@@ -109,6 +112,10 @@
 		CE789FC1187C5422005E928E /* MTBookmarkUnread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkUnread.m; sourceTree = "<group>"; };
 		CE789FC3187C6590005E928E /* MTZeroWidthSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZeroWidthSplitView.h; sourceTree = "<group>"; };
 		CE789FC4187C6590005E928E /* MTZeroWidthSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZeroWidthSplitView.m; sourceTree = "<group>"; };
+		CE789FC7187EEAFC005E928E /* MTPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPreferencesWindowController.h; sourceTree = "<group>"; };
+		CE789FC8187EEAFC005E928E /* MTPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPreferencesWindowController.m; sourceTree = "<group>"; };
+		CE789FC9187EEAFC005E928E /* MTPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTPreferencesWindowController.xib; sourceTree = "<group>"; };
+		CE789FCD187EF101005E928E /* static.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = static.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
@@ -197,6 +204,9 @@
 				CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */,
 				CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */,
 				CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */,
+				CE789FC7187EEAFC005E928E /* MTPreferencesWindowController.h */,
+				CE789FC8187EEAFC005E928E /* MTPreferencesWindowController.m */,
+				CE789FC9187EEAFC005E928E /* MTPreferencesWindowController.xib */,
 				CE789FB6187C48E2005E928E /* MTFile.h */,
 				CE789FB7187C48E2005E928E /* MTFile.m */,
 				CE789FA318796F6A005E928E /* MTFile+Addition.h */,
@@ -218,6 +228,7 @@
 				CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */,
 				CE789FC3187C6590005E928E /* MTZeroWidthSplitView.h */,
 				CE789FC4187C6590005E928E /* MTZeroWidthSplitView.m */,
+				CE789FCD187EF101005E928E /* static.m */,
 			);
 			path = FomalhautOSX;
 			sourceTree = "<group>";
@@ -373,6 +384,7 @@
 				CE789F9E18792B91005E928E /* bootstrap.min.js in Resources */,
 				CE789F9F18792B91005E928E /* jquery-2.0.3.min.js in Resources */,
 				CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */,
+				CE789FCB187EEAFC005E928E /* MTPreferencesWindowController.xib in Resources */,
 				CE02E0301870180400094EFD /* MTDocument.xib in Resources */,
 				CE789F9518792893005E928E /* list.html.mustache in Resources */,
 				CE02E0381870180400094EFD /* Images.xcassets in Resources */,
@@ -446,6 +458,8 @@
 				CE02E0261870180400094EFD /* main.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
 				CE789FA518796F6A005E928E /* MTFile+Addition.m in Sources */,
+				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
+				CE789FCE187EF101005E928E /* static.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
 				CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,

@@ -28,7 +28,8 @@
     if (self) {
         // Add your subclass-specific initialization here.
         self.archive = [ZZArchive archiveWithContentsOfURL:url];
-        self.displayName = [url lastPathComponent];
+        //self.displayName = [url lastPathComponent];
+        [self setFileURL:url];
     }
     return self;
 }
@@ -62,7 +63,6 @@
     if (self.entries) {
         return self.entries;
     }
-    id hoge = self.archive.entries;
     self.entries = [[self.archive.entries withFilterBlock:^BOOL(id obj) {
         ZZArchiveEntry *entry = (ZZArchiveEntry *)obj;
         return [entry.fileName hasSuffix:@".jpg"] || [entry.fileName hasSuffix:@".png"];
