@@ -44,6 +44,8 @@
 		CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC8187EEAFC005E928E /* MTPreferencesWindowController.m */; };
 		CE789FCB187EEAFC005E928E /* MTPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE789FC9187EEAFC005E928E /* MTPreferencesWindowController.xib */; };
 		CE789FCE187EF101005E928E /* static.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FCD187EF101005E928E /* static.m */; };
+		CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */; };
+		CE789FDF187F0E7E005E928E /* https.p12 in Resources */ = {isa = PBXBuildFile; fileRef = CE789FDE187F0E7E005E928E /* https.p12 */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 /* End PBXBuildFile section */
@@ -116,6 +118,10 @@
 		CE789FC8187EEAFC005E928E /* MTPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPreferencesWindowController.m; sourceTree = "<group>"; };
 		CE789FC9187EEAFC005E928E /* MTPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTPreferencesWindowController.xib; sourceTree = "<group>"; };
 		CE789FCD187EF101005E928E /* static.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = static.m; sourceTree = "<group>"; };
+		CE789FD5187F0816005E928E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RoutingConnection+Secure.h"; sourceTree = "<group>"; };
+		CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RoutingConnection+Secure.m"; sourceTree = "<group>"; };
+		CE789FDE187F0E7E005E928E /* https.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = https.p12; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 		CE02E0181870180400094EFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE789FD5187F0816005E928E /* Security.framework */,
 				CE02E0191870180400094EFD /* Cocoa.framework */,
 				CE02E03E1870180400094EFD /* XCTest.framework */,
 				CE02E01B1870180400094EFD /* Other Frameworks */,
@@ -220,6 +227,8 @@
 				CE789FBE187C53C8005E928E /* MTBookmarkAll.m */,
 				CE789FC0187C5422005E928E /* MTBookmarkUnread.h */,
 				CE789FC1187C5422005E928E /* MTBookmarkUnread.m */,
+				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
+				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
 				CE9E23731871770E0069BED0 /* NSArray+Function.m */,
 				CE789F931879287A005E928E /* templates */,
@@ -236,6 +245,7 @@
 		CE02E0201870180400094EFD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE789FDE187F0E7E005E928E /* https.p12 */,
 				CE02E0211870180400094EFD /* FomalhautOSX-Info.plist */,
 				CE02E0221870180400094EFD /* InfoPlist.strings */,
 				CE02E0251870180400094EFD /* main.m */,
@@ -387,6 +397,7 @@
 				CE789FCB187EEAFC005E928E /* MTPreferencesWindowController.xib in Resources */,
 				CE02E0301870180400094EFD /* MTDocument.xib in Resources */,
 				CE789F9518792893005E928E /* list.html.mustache in Resources */,
+				CE789FDF187F0E7E005E928E /* https.p12 in Resources */,
 				CE02E0381870180400094EFD /* Images.xcassets in Resources */,
 				CE789FA718798E48005E928E /* book.html.mustache in Resources */,
 				CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */,
@@ -458,6 +469,7 @@
 				CE02E0261870180400094EFD /* main.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
 				CE789FA518796F6A005E928E /* MTFile+Addition.m in Sources */,
+				CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */,
 				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
 				CE789FCE187EF101005E928E /* static.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
