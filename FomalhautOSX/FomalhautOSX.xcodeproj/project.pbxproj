@@ -46,6 +46,7 @@
 		CE789FCE187EF101005E928E /* static.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FCD187EF101005E928E /* static.m */; };
 		CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */; };
 		CE789FDF187F0E7E005E928E /* https.p12 in Resources */ = {isa = PBXBuildFile; fileRef = CE789FDE187F0E7E005E928E /* https.p12 */; };
+		CE789FE21880450A005E928E /* MTUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FE11880450A005E928E /* MTUUID.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,8 @@
 		CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RoutingConnection+Secure.h"; sourceTree = "<group>"; };
 		CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RoutingConnection+Secure.m"; sourceTree = "<group>"; };
 		CE789FDE187F0E7E005E928E /* https.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = https.p12; sourceTree = "<group>"; };
+		CE789FE01880450A005E928E /* MTUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUUID.h; sourceTree = "<group>"; };
+		CE789FE11880450A005E928E /* MTUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUUID.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				CE789FBE187C53C8005E928E /* MTBookmarkAll.m */,
 				CE789FC0187C5422005E928E /* MTBookmarkUnread.h */,
 				CE789FC1187C5422005E928E /* MTBookmarkUnread.m */,
+				CE789FE01880450A005E928E /* MTUUID.h */,
+				CE789FE11880450A005E928E /* MTUUID.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
@@ -472,6 +477,7 @@
 				CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */,
 				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
 				CE789FCE187EF101005E928E /* static.m in Sources */,
+				CE789FE21880450A005E928E /* MTUUID.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
 				CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,

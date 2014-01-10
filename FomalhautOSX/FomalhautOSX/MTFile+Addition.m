@@ -7,12 +7,13 @@
 //
 
 #import "MTFile+Addition.h"
+#import "MTUUID.h"
 
 @implementation MTFile (Addition)
 
 - (void) awakeFromInsert {
     [super awakeFromInsert];
-    self.uuid = [[NSUUID UUID] UUIDString];
+    self.uuid = [MTUUID generateUUID];
     self.created = [NSDate timeIntervalSinceReferenceDate];
 }
 
