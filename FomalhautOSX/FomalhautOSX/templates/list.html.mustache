@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta charset="utf-8">
     <title>Fomalhaut</title>
   </head>
@@ -15,5 +16,14 @@
         {{/items}}
       </ul>
     </div>
+    <script src="/assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('a').click(function(){
+                location.href = $(this).attr('href');
+                return false;
+            });
+        });
+    </script>
   </body>
 </html>
