@@ -29,7 +29,7 @@
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" id="IgG-4y-HPD">
                                 <rect key="frame" x="0.0" y="0.0" width="242" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="right" imageScaling="proportionallyDown" id="rdc-M1-pcX"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="rdc-M1-pcX"/>
                                 <connections>
                                     <binding destination="x0O-oL-C8l" name="value" keyPath="selection.firstPage.image" id="fRM-9M-oFe"/>
                                 </connections>
@@ -37,14 +37,14 @@
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" id="HnZ-ku-VvQ">
                                 <rect key="frame" x="243" y="0.0" width="237" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" id="b1Q-sP-7YI"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="b1Q-sP-7YI"/>
                                 <connections>
+                                    <binding destination="x0O-oL-C8l" name="value" keyPath="selection.secondPage.image" id="RZk-iD-x4A"/>
                                     <binding destination="x0O-oL-C8l" name="hidden" keyPath="selection.secondPage.image" id="ruD-p6-qh7">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">NSIsNil</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="x0O-oL-C8l" name="value" keyPath="selection.secondPage.image" id="RZk-iD-x4A"/>
                                 </connections>
                             </imageView>
                         </subviews>

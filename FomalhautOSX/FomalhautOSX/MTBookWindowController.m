@@ -55,10 +55,11 @@
 - (void)mouseUp:(NSEvent *)theEvent
 {
     [self.arrayController selectNext:self];
-//    MTSpreadPage *page = [self.arrayController selectedObjects][0];
-//    if (page) {
-//        [self.imageView setImage:[page image]];
-//    }
+}
+
+- (void)rightMouseUp:(NSEvent *)theEvent
+{
+    [self.arrayController selectPrevious:self];
 }
 
 @end
