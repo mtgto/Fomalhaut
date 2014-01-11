@@ -23,10 +23,10 @@
 		CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12718710DAA00094EFD /* MTOSXAppDelegate.m */; };
 		CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */; };
 		CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */; };
-		CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */; };
 		CE67D8B31880E4F40069A3D5 /* MTPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B21880E4F40069A3D5 /* MTPage.m */; };
 		CE67D8B61880E5400069A3D5 /* MTZipEntryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */; };
 		CE67D8B91880FC1E0069A3D5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8B71880FC1E0069A3D5 /* MainMenu.xib */; };
+		CE67D8BC188105E20069A3D5 /* MTSpreadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */; };
 		CE789F9518792893005E928E /* list.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9418792893005E928E /* list.html.mustache */; };
 		CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9818792B87005E928E /* bootstrap-theme.min.css */; };
 		CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9918792B87005E928E /* bootstrap.min.css */; };
@@ -91,13 +91,13 @@
 		CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTOSXMainWindowController.xib; sourceTree = "<group>"; };
-		CE0E77831871D5CC000EF722 /* AutoSizingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoSizingImageView.h; sourceTree = "<group>"; };
-		CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoSizingImageView.m; sourceTree = "<group>"; };
 		CE67D8B11880E4F40069A3D5 /* MTPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPage.h; sourceTree = "<group>"; };
 		CE67D8B21880E4F40069A3D5 /* MTPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPage.m; sourceTree = "<group>"; };
 		CE67D8B41880E5400069A3D5 /* MTZipEntryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZipEntryPage.h; sourceTree = "<group>"; };
 		CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZipEntryPage.m; sourceTree = "<group>"; };
 		CE67D8B81880FC1E0069A3D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CE67D8BA188105E20069A3D5 /* MTSpreadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSpreadPage.h; sourceTree = "<group>"; };
+		CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSpreadPage.m; sourceTree = "<group>"; };
 		CE789F9418792893005E928E /* list.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.html.mustache; sourceTree = "<group>"; };
 		CE789F9818792B87005E928E /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
 		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
@@ -244,14 +244,14 @@
 				CE67D8B21880E4F40069A3D5 /* MTPage.m */,
 				CE67D8B41880E5400069A3D5 /* MTZipEntryPage.h */,
 				CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */,
+				CE67D8BA188105E20069A3D5 /* MTSpreadPage.h */,
+				CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
 				CE9E23731871770E0069BED0 /* NSArray+Function.m */,
 				CE789F931879287A005E928E /* templates */,
 				CE02E0201870180400094EFD /* Supporting Files */,
-				CE0E77831871D5CC000EF722 /* AutoSizingImageView.h */,
-				CE0E77841871D5CC000EF722 /* AutoSizingImageView.m */,
 				CE789FC3187C6590005E928E /* MTZeroWidthSplitView.h */,
 				CE789FC4187C6590005E928E /* MTZeroWidthSplitView.m */,
 				CE789FCD187EF101005E928E /* static.m */,
@@ -479,7 +479,7 @@
 				CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */,
 				CE789FAD187AEAD9005E928E /* MTWebServer.m in Sources */,
 				CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */,
-				CE0E77851871D5CC000EF722 /* AutoSizingImageView.m in Sources */,
+				CE67D8BC188105E20069A3D5 /* MTSpreadPage.m in Sources */,
 				CE789FB8187C48E2005E928E /* MTFile.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
 				CE67D8B61880E5400069A3D5 /* MTZipEntryPage.m in Sources */,
