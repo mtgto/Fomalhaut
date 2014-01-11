@@ -8,7 +8,7 @@
 
 @import Cocoa;
 
-@interface MTDocument : NSDocument <NSPageControllerDelegate>
+@interface MTDocument : NSDocument
 
 - (NSUInteger)numberOfPages;
 

@@ -31,14 +31,6 @@ extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 {
     self = [super initWithWindow:window];
     if (self) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        UInt16 port = (UInt16)[defaults integerForKey:SERVER_INT_PORT_CONFIG_KEY];
-        BOOL useHTTPS = [defaults boolForKey:SERVER_BOOL_HTTPS_CONFIG_KEY];
-        BOOL startServer = [defaults boolForKey:SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY];
-//        self.server = [[MTWebServer alloc] init];
-//        if (startServer) {
-//            [self.server start:port];
-//        }
         self.topLevelItems = @[@"Library"];
         self.bookmarks = @[[MTBookmarkAll sharedInstance], [MTBookmarkUnread sharedInstance]];
     }

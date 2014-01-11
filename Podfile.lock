@@ -15,6 +15,8 @@ PODS:
   - AFNetworking/Reachability (2.0.3)
   - AFNetworking/Security (2.0.3)
   - AFNetworking/Serialization (2.0.3)
+  - AFNetworking/UIKit (2.0.3):
+    - AFNetworking/NSURLConnection
   - CocoaAsyncSocket (7.3.3)
   - CocoaHTTPServer (2.3):
     - CocoaAsyncSocket

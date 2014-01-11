@@ -9,12 +9,12 @@
 #import "MTDocument.h"
 #import <zipzap/zipzap.h>
 #import "NSArray+Function.h"
+#import "MTBookWindowController.h"
 
 @interface MTDocument()
 
 @property (nonatomic, strong) ZZArchive *archive;
 @property (nonatomic, strong) NSArray *entries;
-@property (strong) IBOutlet NSPageController *pageController;
 
 - (NSArray *)getSortedEntries;
 
@@ -34,24 +34,16 @@
     return self;
 }
 
-- (NSString *)windowNibName
+- (void)makeWindowControllers
 {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
-    return @"MTDocument";
+    MTBookWindowController *windowController = [[MTBookWindowController alloc] initWithWindowNibName:@"MTBookWindowController"];
+    [self addWindowController:windowController];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
-
-    [self.pageController setArrangedObjects:[self getSortedEntries]];
-}
-
-+ (BOOL)autosavesInPlace
-{
-    return YES;
+    // Add any code here that needs to be executed once the windowContror
 }
 
 - (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
@@ -84,31 +76,6 @@
 
 - (NSData *)dataOfIndex:(NSUInteger)index {
     return [[self getSortedEntries][index] data];
-}
-
-#pragma mark - NSPageControllerDelegate
-
-- (NSString *)pageController:(NSPageController *)pageController identifierForObject:(id)object {
-    return @"imagePageView";
-}
-
-- (NSViewController *)pageController:(NSPageController *)pageController viewControllerForIdentifier:(NSString *)identifier {
-    return [[NSViewController alloc] initWithNibName:@"MTImagePageView" bundle:nil];
-}
-
--(void)pageController:(NSPageController *)pageController prepareViewController:(NSViewController *)viewController withObject:(id)object {
-    // viewControllers may be reused... make sure to reset important stuff like the current magnification factor.
-
-    // Normally, we want to reset the magnification value to 1 as the user swipes to other images. However if the user cancels the swipe, we want to leave the original magnificaiton and scroll position alone.
-
-//    BOOL isRepreparingOriginalView = (self.initialSelectedObject && self.initialSelectedObject == object) ? YES : NO;
-//    if (!isRepreparingOriginalView) {
-//        [(NSScrollView*)viewController.view setMagnification:1.0];
-//    }
-
-    // Since we implement this delegate method, we are reponsible for setting the representedObject.
-    ZZArchiveEntry *entry = (ZZArchiveEntry *)object;
-    viewController.representedObject = [[NSImage alloc] initWithData:[entry data]];
 }
 
 @end

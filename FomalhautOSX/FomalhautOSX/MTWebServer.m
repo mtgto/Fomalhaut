@@ -115,7 +115,6 @@
 
 - (void)start:(UInt16)port {
     [self.server setPort:port];
-    //[self.server setConnectionClass:[MTSecureHTTPConnection class]];
     [self.server start:nil];
 }
 
