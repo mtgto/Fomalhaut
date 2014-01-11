@@ -10,6 +10,11 @@
 
 @interface MTDocument : NSDocument
 
+/**
+ * retrieve the sorted array of MTPage instances.
+ */
+- (NSArray *)getPages;
+
 - (NSUInteger)numberOfPages;
 
 - (NSData *)dataOfIndex:(NSUInteger)index;

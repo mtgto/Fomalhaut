@@ -104,8 +104,13 @@
                 NSURL *fileURL = [NSURL URLWithString:self.selectedFile.uri];
                 self.selectedDocument = [[NSDocumentController sharedDocumentController] makeDocumentWithContentsOfURL:fileURL ofType:@"zip" error:nil];
             }
-            if (self.selectedDocument) {
-                [response respondWithData:[self.selectedDocument dataOfIndex:index]];
+            NSData *data = [self.selectedDocument dataOfIndex:index];
+            if (self.selectedDocument && data) {
+                [response respondWithData:data];
+            } else {
+                [response setStatusCode:404];
+                GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"404.html" bundle:[NSBundle mainBundle] error:nil];
+                [response respondWithString:[template renderObject:@{@"path": [[request url] path]} error:nil]];
             }
 
         }];

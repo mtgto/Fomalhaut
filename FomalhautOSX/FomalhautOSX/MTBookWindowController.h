@@ -10,4 +10,6 @@
 
 @interface MTBookWindowController : NSWindowController
 
+@property (strong) IBOutlet NSArrayController *arrayController;
+
 @end

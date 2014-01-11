@@ -8,9 +8,11 @@
 
 #import "MTBookWindowController.h"
 #import "MTDocument.h"
+#import "MTPage.h"
 
 @interface MTBookWindowController ()
 @property (weak) IBOutlet NSImageView *imageView;
+@property (strong) NSArray *pages;
 
 @end
 
@@ -31,8 +33,16 @@
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     MTDocument *document = (MTDocument *)self.document;
-    NSImage *image = [[NSImage alloc] initWithData:[document dataOfIndex:0]];
-    [self.imageView setImage:image];
+    self.pages = [document getPages];
+}
+
+- (void)mouseUp:(NSEvent *)theEvent
+{
+    [self.arrayController selectNext:self];
+    MTPage *page = [self.arrayController selectedObjects][0];
+    if (page) {
+        [self.imageView setImage:[page image]];
+    }
 }
 
 @end

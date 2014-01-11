@@ -10,13 +10,14 @@
 #import <zipzap/zipzap.h>
 #import "NSArray+Function.h"
 #import "MTBookWindowController.h"
+#import "MTZipEntryPage.h"
 
 @interface MTDocument()
 
 @property (nonatomic, strong) ZZArchive *archive;
 @property (nonatomic, strong) NSArray *entries;
 
-- (NSArray *)getSortedEntries;
+- (NSArray *)getPages;
 
 @end
 
@@ -40,30 +41,26 @@
     [self addWindowController:windowController];
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
-    [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowContror
-}
-
 - (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
 {
     return YES;
 }
 
-- (NSArray *)getSortedEntries {
+- (NSArray *)getPages {
     if (self.entries) {
         return self.entries;
     }
     self.entries = [[self.archive.entries withFilterBlock:^BOOL(id obj) {
         ZZArchiveEntry *entry = (ZZArchiveEntry *)obj;
-        return [entry.fileName hasSuffix:@".jpg"] || [entry.fileName hasSuffix:@".png"];
+        NSString *fileName = [entry.fileName lowercaseString];
+        return [fileName hasSuffix:@".jpg"] || [fileName hasSuffix:@".png"];
     } mapBlock:^id(id obj) {
-        return obj;
+        ZZArchiveEntry *entry = (ZZArchiveEntry *)obj;
+        return [[MTZipEntryPage alloc] initWithZipEntry:entry];
     }] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        ZZArchiveEntry *entry1 = (ZZArchiveEntry *)obj1;
-        ZZArchiveEntry *entry2 = (ZZArchiveEntry *)obj2;
-        return [entry1.fileName compare:entry2.fileName options:NSNumericSearch];
+        MTZipEntryPage *page1 = (MTZipEntryPage *)obj1;
+        MTZipEntryPage *page2 = (MTZipEntryPage *)obj2;
+        return [page1.fileName compare:page2.fileName options:NSNumericSearch];
     }];
     return self.entries;
 }
@@ -71,11 +68,11 @@
 #pragma -
 
 - (NSUInteger)numberOfPages {
-    return [[self getSortedEntries] count];
+    return [[self getPages] count];
 }
 
 - (NSData *)dataOfIndex:(NSUInteger)index {
-    return [[self getSortedEntries][index] data];
+    return [[self getPages][index] data];
 }
 
 @end
