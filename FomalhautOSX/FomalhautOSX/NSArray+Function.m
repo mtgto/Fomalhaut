@@ -11,6 +11,9 @@
 @implementation NSArray (Function)
 
 - (NSArray *)mapWithBlocks:(id(^)(id obj))block {
+    if (![self count]) {
+        return self;
+    }
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [result addObject:block(obj)];
@@ -19,6 +22,9 @@
 }
 
 - (NSArray *)withFilterBlock:(BOOL(^)(id obj))filterBlock mapBlock:(id(^)(id obj))mapBlock {
+    if (![self count]) {
+        return self;
+    }
     NSMutableArray *result = [NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (filterBlock(obj)) {

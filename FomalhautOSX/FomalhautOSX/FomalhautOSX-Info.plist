@@ -10,6 +10,7 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>zip</string>
+				<string>cbz</string>
 			</array>
 			<key>CFBundleTypeMIMETypes</key>
 			<array/>

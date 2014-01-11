@@ -10,6 +10,12 @@
 #import "NSArray+Function.h"
 #import "MTFile.h"
 
+@interface MTFileArrayController()
+
+@property (nonatomic, strong) NSSet *availableFileExtensions;
+
+@end
+
 @implementation MTFileArrayController
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
@@ -19,8 +25,22 @@
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id < NSDraggingInfo >)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation {
     NSPasteboard *pasteboard = [info draggingPasteboard];
     if ([[pasteboard types] containsObject:NSFilenamesPboardType]) {
+        if (!self.availableFileExtensions) {
+            // TODO: auto generate or retrive from current application.
+            self.availableFileExtensions = [NSSet setWithObjects:@"zip", @"cbz", nil];
+        }
         NSDictionary *options = @{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)};
-        NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] mapWithBlocks:^id(id obj) {
+        NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] withFilterBlock:^BOOL(id obj) {
+            NSURL *fileURL = (NSURL *)obj;
+            NSString *pathExtension = [[fileURL pathExtension] lowercaseString];
+            if (![self.availableFileExtensions containsObject:pathExtension]) {
+                return NO;
+            }
+            if ([MTFile MR_findFirstByAttribute:@"uri" withValue:[fileURL absoluteString]]) {
+                return NO;
+            }
+            return YES;
+        } mapBlock:^id(id obj) {
             NSURL *fileURL = (NSURL *)obj;
             MTFile *file = [MTFile MR_createEntity];
             file.name = [fileURL lastPathComponent];
@@ -36,6 +56,8 @@
 
 - (NSDragOperation)tableView:(NSTableView *)aTableView validateDrop:(id < NSDraggingInfo >)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation {
     if ([[[info draggingPasteboard] types] containsObject:NSFilenamesPboardType]) {
+        NSArray *files = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
+        DDLogInfo(@"files = %@", files);
         return NSDragOperationCopy;
     }
     return NSDragOperationNone;
