@@ -281,6 +281,12 @@
                                     <action selector="openWithMangao:" target="-2" id="oe1-9x-nzd"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Mangao Kai" id="FQE-hh-c4t">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openWithMangaoKai:" target="-2" id="B8S-Re-yxp"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Simple Comic" id="2QH-WP-iFx">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>

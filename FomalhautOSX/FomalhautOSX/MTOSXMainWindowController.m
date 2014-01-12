@@ -20,6 +20,7 @@ extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 extern NSString *const HELPER_INOUT_INT_INDEX;
 extern NSString *const HELPER_VIEWER_INT_INDEX;
 extern NSString *const HELPER_VIEWER_APP_ID_MANGAO;
+extern NSString *const HELPER_VIEWER_APP_ID_MANGAO_KAI;
 extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 
 
@@ -72,7 +73,7 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
     if (useInternalViewer) {
         [self openFilesWithInternalViewer:files];
     } else {
-        NSString *appIdentifier = @[HELPER_VIEWER_APP_ID_MANGAO, HELPER_VIEWER_APP_ID_SIMPLE_COMIC][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
+        NSString *appIdentifier = @[HELPER_VIEWER_APP_ID_MANGAO, HELPER_VIEWER_APP_ID_MANGAO_KAI, HELPER_VIEWER_APP_ID_SIMPLE_COMIC][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
         [self openFiles:files withApplicationIdentifier:appIdentifier];
     }
 }
@@ -127,6 +128,17 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
             [self openFiles:[self.fileArrayController selectedObjects] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO];
         } else {
             [self openFiles:@[[self.fileArrayController arrangedObjects][row]] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO];
+        }
+    }
+}
+
+- (IBAction)openWithMangaoKai:(id)sender {
+    NSInteger row = [self.tableView clickedRow];
+    if (row >= 0) {
+        if ([[self.tableView selectedRowIndexes] containsIndex:row]) {
+            [self openFiles:[self.fileArrayController selectedObjects] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO_KAI];
+        } else {
+            [self openFiles:@[[self.fileArrayController arrangedObjects][row]] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO_KAI];
         }
     }
 }

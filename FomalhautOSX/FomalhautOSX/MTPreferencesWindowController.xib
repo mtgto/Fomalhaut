@@ -134,12 +134,15 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="182" id="Zg6-j1-TIE"/>
                                             </constraints>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="YtI-Wu-FYF">
+                                            <popUpButtonCell key="cell" type="push" title="Mangao Kai" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="oRB-1o-KBA" id="YtI-Wu-FYF">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                                 <menu key="menu" title="OtherViews" id="sXE-iE-gDi">
                                                     <items>
                                                         <menuItem title="Mangao" id="F4r-eN-6VF"/>
+                                                        <menuItem title="Mangao Kai" state="on" id="oRB-1o-KBA">
+                                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                                        </menuItem>
                                                         <menuItem title="Simple Comic" id="uQY-ck-eAY"/>
                                                     </items>
                                                 </menu>
