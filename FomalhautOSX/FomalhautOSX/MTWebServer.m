@@ -1,10 +1,20 @@
-//
-//  MTWebServer.m
-//  FomalhautOSX
-//
-//  Created by User on 1/6/14.
-//  Copyright (c) 2014 mtgto. All rights reserved.
-//
+/*
+ Fomalhaut
+ Copyright (C) 2014 mtgto
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #import <RoutingHTTPServer/RoutingHTTPServer.h>
 #import <GRMustache/GRMustache.h>
@@ -15,7 +25,6 @@
 @interface MTWebServer()
 
 @property (strong) RoutingHTTPServer *server;
-@property (strong) MTFile *selectedFile;
 @property (strong) MTDocument *selectedDocument;
 
 @end
@@ -70,17 +79,14 @@
         }];
         [self.server get:@"/book/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
             NSString *uuid = [request param:@"uuid"];
-            if (!self.selectedFile || ![self.selectedFile.uuid isEqualToString:uuid]) {
-                self.selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
-                if (self.selectedFile) {
-                    DDLogInfo(@"selectedFile url = %@", self.selectedFile.url);
-                    NSURL *fileURL = [NSURL URLWithString:self.selectedFile.url];
-                    NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
-                    self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
-                    self.selectedFile.readCount++;
-                    self.selectedFile.lastOpened = [NSDate timeIntervalSinceReferenceDate];
-                    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                }
+            MTFile *selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
+            if (selectedFile) {
+                NSURL *fileURL = [NSURL URLWithString:selectedFile.url];
+                NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
+                self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
+                selectedFile.readCount++;
+                selectedFile.lastOpened = [NSDate timeIntervalSinceReferenceDate];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
             }
             if (self.selectedDocument) {
                 NSUInteger count = [self.selectedDocument numberOfPages];
@@ -89,7 +95,7 @@
                     [pageIndexes addObject:[NSNumber numberWithInteger:i]];
                 }
                 GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"book.html" bundle:[NSBundle mainBundle] error:nil];
-                [response respondWithString:[template renderObject:@{@"uuid": uuid, @"title": self.selectedFile.name, @"pageIndexes": pageIndexes} error:nil]];
+                [response respondWithString:[template renderObject:@{@"uuid": uuid, @"title": selectedFile.name, @"pageIndexes": pageIndexes} error:nil]];
             } else {
                 [response setStatusCode:404];
                 GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"404.html" bundle:[NSBundle mainBundle] error:nil];
@@ -100,12 +106,10 @@
         [self.server get:@"/book/:uuid/:index" withBlock:^(RouteRequest *request, RouteResponse *response) {
             NSString *uuid = [request param:@"uuid"];
             NSInteger index = [[request param:@"index"] integerValue];
-            if (!self.selectedFile || ![self.selectedFile.uuid isEqualToString:uuid]) {
-                self.selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
-                NSURL *fileURL = [NSURL URLWithString:self.selectedFile.url];
-                NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
-                self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
-            }
+            MTFile *selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
+            NSURL *fileURL = [NSURL URLWithString:selectedFile.url];
+            NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
+            self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
             CGSize screenSize = CGSizeZero;
             NSString *requestCookieHeader = [request header:@"Cookie"];
             if (requestCookieHeader) {
