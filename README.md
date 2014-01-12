@@ -22,5 +22,8 @@ Fomalhaut is Mac GUI application for management of books and providing html view
 - Mac OS X 10.7 or later
 - Intel Mac
 
+# Acknowledgements
+See [Detail](./Acknowledgements.md).
+
 # License
 Fomalhaut is licensed by under the GNU GPL v3. See [Detail](https://github.com/mtgto/Fomalhaut/blob/master/LICENSE).
