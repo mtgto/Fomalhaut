@@ -27,7 +27,7 @@
     if ([[pasteboard types] containsObject:NSFilenamesPboardType]) {
         if (!self.availableFileExtensions) {
             // TODO: auto generate or retrive from current application.
-            self.availableFileExtensions = [NSSet setWithObjects:@"zip", @"cbz", nil];
+            self.availableFileExtensions = [NSSet setWithObjects:@"zip", @"cbz", @"pdf", nil];
         }
         NSDictionary *options = @{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)};
         NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] withFilterBlock:^BOOL(id obj) {
@@ -57,7 +57,6 @@
 - (NSDragOperation)tableView:(NSTableView *)aTableView validateDrop:(id < NSDraggingInfo >)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation {
     if ([[[info draggingPasteboard] types] containsObject:NSFilenamesPboardType]) {
         NSArray *files = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-        DDLogInfo(@"files = %@", files);
         return NSDragOperationCopy;
     }
     return NSDragOperationNone;

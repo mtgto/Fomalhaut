@@ -21,9 +21,23 @@
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSDocumentClass</key>
-			<string>MTDocument</string>
+			<string>MTZipDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>pdf</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Pdf</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSTypeIsPackage</key>
+			<integer>0</integer>
+			<key>NSDocumentClass</key>
+			<string>MTPDFDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

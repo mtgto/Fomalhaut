@@ -29,6 +29,10 @@
 		CE67D8BC188105E20069A3D5 /* MTSpreadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */; };
 		CE67D8BF188136AC0069A3D5 /* MTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8BE188136AC0069A3D5 /* MTImageView.m */; };
 		CE67D8C218823AA00069A3D5 /* MTUnreadColumnFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C118823AA00069A3D5 /* MTUnreadColumnFormatter.m */; };
+		CE67D8C6188240F00069A3D5 /* MTPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C4188240F00069A3D5 /* MTPDFDocument.m */; };
+		CE67D8CB188241210069A3D5 /* MTZipDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C9188241210069A3D5 /* MTZipDocument.m */; };
+		CE67D8CE1882430A0069A3D5 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67D8CD1882430A0069A3D5 /* Quartz.framework */; };
+		CE67D8D1188243990069A3D5 /* MTPDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8D0188243990069A3D5 /* MTPDFPage.m */; };
 		CE789F9518792893005E928E /* list.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9418792893005E928E /* list.html.mustache */; };
 		CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9818792B87005E928E /* bootstrap-theme.min.css */; };
 		CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9918792B87005E928E /* bootstrap.min.css */; };
@@ -104,6 +108,13 @@
 		CE67D8BE188136AC0069A3D5 /* MTImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageView.m; sourceTree = "<group>"; };
 		CE67D8C018823AA00069A3D5 /* MTUnreadColumnFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUnreadColumnFormatter.h; sourceTree = "<group>"; };
 		CE67D8C118823AA00069A3D5 /* MTUnreadColumnFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUnreadColumnFormatter.m; sourceTree = "<group>"; };
+		CE67D8C3188240F00069A3D5 /* MTPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPDFDocument.h; sourceTree = "<group>"; };
+		CE67D8C4188240F00069A3D5 /* MTPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPDFDocument.m; sourceTree = "<group>"; };
+		CE67D8C8188241210069A3D5 /* MTZipDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZipDocument.h; sourceTree = "<group>"; };
+		CE67D8C9188241210069A3D5 /* MTZipDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZipDocument.m; sourceTree = "<group>"; };
+		CE67D8CD1882430A0069A3D5 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		CE67D8CF188243990069A3D5 /* MTPDFPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPDFPage.h; sourceTree = "<group>"; };
+		CE67D8D0188243990069A3D5 /* MTPDFPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPDFPage.m; sourceTree = "<group>"; };
 		CE789F9418792893005E928E /* list.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.html.mustache; sourceTree = "<group>"; };
 		CE789F9818792B87005E928E /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
 		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
@@ -150,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE67D8CE1882430A0069A3D5 /* Quartz.framework in Frameworks */,
 				CE02E01A1870180400094EFD /* Cocoa.framework in Frameworks */,
 				2F4CB5F9C6C84FD8BE411D6D /* libPods.a in Frameworks */,
 				9273FC6A36244837BA84B03D /* libPods-FomalhautOSX.a in Frameworks */,
@@ -192,6 +204,7 @@
 		CE02E0181870180400094EFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE67D8CD1882430A0069A3D5 /* Quartz.framework */,
 				CE789FD5187F0816005E928E /* Security.framework */,
 				CE02E0191870180400094EFD /* Cocoa.framework */,
 				CE02E03E1870180400094EFD /* XCTest.framework */,
@@ -218,6 +231,10 @@
 				CE67D8B71880FC1E0069A3D5 /* MainMenu.xib */,
 				CE02E02B1870180400094EFD /* MTDocument.h */,
 				CE02E02C1870180400094EFD /* MTDocument.m */,
+				CE67D8C8188241210069A3D5 /* MTZipDocument.h */,
+				CE67D8C9188241210069A3D5 /* MTZipDocument.m */,
+				CE67D8C3188240F00069A3D5 /* MTPDFDocument.h */,
+				CE67D8C4188240F00069A3D5 /* MTPDFDocument.m */,
 				CE02E0371870180400094EFD /* Images.xcassets */,
 				CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */,
 				CE02E12618710DAA00094EFD /* MTOSXAppDelegate.h */,
@@ -250,6 +267,8 @@
 				CE67D8B21880E4F40069A3D5 /* MTPage.m */,
 				CE67D8B41880E5400069A3D5 /* MTZipEntryPage.h */,
 				CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */,
+				CE67D8CF188243990069A3D5 /* MTPDFPage.h */,
+				CE67D8D0188243990069A3D5 /* MTPDFPage.m */,
 				CE67D8BA188105E20069A3D5 /* MTSpreadPage.h */,
 				CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */,
 				CE789FC3187C6590005E928E /* MTZeroWidthSplitView.h */,
@@ -499,12 +518,15 @@
 				CE789FE61880491F005E928E /* MTBookWindowController.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
 				CE789FA518796F6A005E928E /* MTFile+Addition.m in Sources */,
+				CE67D8CB188241210069A3D5 /* MTZipDocument.m in Sources */,
 				CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */,
 				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
 				CE789FCE187EF101005E928E /* static.m in Sources */,
 				CE789FE21880450A005E928E /* MTUUID.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
 				CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */,
+				CE67D8C6188240F00069A3D5 /* MTPDFDocument.m in Sources */,
+				CE67D8D1188243990069A3D5 /* MTPDFPage.m in Sources */,
 				CE67D8B31880E4F40069A3D5 /* MTPage.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
 				CE789FC5187C6590005E928E /* MTZeroWidthSplitView.m in Sources */,
