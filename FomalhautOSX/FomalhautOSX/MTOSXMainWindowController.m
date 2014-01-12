@@ -12,10 +12,13 @@
 #import "MTBookmark.h"
 #import "MTBookmarkAll.h"
 #import "MTBookmarkUnread.h"
+#import "NSArray+Function.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
+extern NSString *const HELPER_INOUT_INT_INDEX;
+extern NSString *const HELPER_VIEWER_INT_INDEX;
 
 @interface MTOSXMainWindowController ()
 
@@ -51,18 +54,37 @@ extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 }
 
 - (void)doubleClicked:(NSArray *)selectedObjects {
-    for (MTFile *file in selectedObjects) {
-        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri]
-                                                                               display:YES
-                                                                     completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
-                                                                         if (error) {
-                                                                             // TODO show error dialog
-                                                                         } else if (!documentWasAlreadyOpen) {
-                                                                             file.readCount++;
-                                                                             file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
-                                                                             [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                                                                         }
-                                                                     }];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL useInternalViewer = [defaults integerForKey:HELPER_INOUT_INT_INDEX] == 0;
+    NSString *appIdentifier = @[@"com.RyotaMinami93.Mangao", @"com.tsst.simplecomic"][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
+    void (^updateFile)(MTFile *) = ^(MTFile *file) {
+        file.readCount++;
+        file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    };
+    if (useInternalViewer) {
+        for (MTFile *file in selectedObjects) {
+            [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri]
+                                                                                   display:YES
+                                                                         completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
+                                                                             if (error) {
+                                                                                 // TODO show error dialog
+                                                                             } else if (!documentWasAlreadyOpen) {
+                                                                                 updateFile(file);
+                                                                             }
+                                                                         }];
+        }
+    } else {
+        NSArray *urls = [selectedObjects mapWithBlocks:^id(id obj) {
+            return [NSURL URLWithString:((MTFile *)obj).uri];
+        }];
+        if ([[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:appIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:Nil launchIdentifiers:NULL]) {
+            for (MTFile *file in selectedObjects) {
+                updateFile(file);
+            }
+        } else {
+            // TODO show error dialog
+        }
     }
 
 }

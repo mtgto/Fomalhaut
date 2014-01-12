@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
+        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -85,10 +85,80 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Related" identifier="" id="bCM-HR-QEH">
-                                <view key="view" ambiguous="YES" id="L0U-3D-EDy">
+                            <tabViewItem label="Helper" identifier="" id="bCM-HR-QEH">
+                                <view key="view" id="L0U-3D-EDy">
                                     <rect key="frame" x="10" y="33" width="434" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gds-AU-WPl">
+                                            <rect key="frame" x="15" y="188" width="73" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Open with:" id="qPz-d3-QdO">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxZ-e2-PrQ">
+                                            <rect key="frame" x="17" y="135" width="400" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="400" id="nrh-WS-DdO"/>
+                                            </constraints>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="cellSize" width="184" height="18"/>
+                                            <size key="intercellSpacing" width="4" height="2"/>
+                                            <buttonCell key="prototype" type="radio" imagePosition="left" alignment="left" inset="2" id="1WY-YF-m1H">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <cells>
+                                                <column>
+                                                    <buttonCell type="radio" title="Open with internal viewer" imagePosition="left" alignment="left" state="on" tag="1" inset="2" id="EMz-xT-DFa">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <buttonCell type="radio" title="Other" imagePosition="left" alignment="left" inset="2" id="Ir0-hs-GoR">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </column>
+                                            </cells>
+                                            <connections>
+                                                <binding destination="AAB-Il-udj" name="selectedIndex" keyPath="values.helper.inout.index" id="Ijt-Ve-0Dt"/>
+                                            </connections>
+                                        </matrix>
+                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-Jm-YEx">
+                                            <rect key="frame" x="27" y="103" width="187" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="182" id="Zg6-j1-TIE"/>
+                                            </constraints>
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="YtI-Wu-FYF">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <menu key="menu" title="OtherViews" id="sXE-iE-gDi">
+                                                    <items>
+                                                        <menuItem title="Mangao" id="F4r-eN-6VF"/>
+                                                        <menuItem title="Simple Comic" id="uQY-ck-eAY"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <binding destination="AAB-Il-udj" name="selectedIndex" keyPath="values.helper.viewer.index" id="q8O-pi-aKt"/>
+                                            </connections>
+                                        </popUpButton>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GxZ-e2-PrQ" firstAttribute="leading" secondItem="gds-AU-WPl" secondAttribute="leading" id="5XW-bZ-uye"/>
+                                        <constraint firstItem="GxZ-e2-PrQ" firstAttribute="top" secondItem="gds-AU-WPl" secondAttribute="bottom" constant="15" id="LMM-UT-Te4"/>
+                                        <constraint firstItem="IUc-Jm-YEx" firstAttribute="top" secondItem="GxZ-e2-PrQ" secondAttribute="bottom" constant="8" id="Pvh-Yr-flu"/>
+                                        <constraint firstItem="gds-AU-WPl" firstAttribute="leading" secondItem="L0U-3D-EDy" secondAttribute="leading" constant="17" id="Q3j-HR-TAd"/>
+                                        <constraint firstItem="IUc-Jm-YEx" firstAttribute="leading" secondItem="L0U-3D-EDy" secondAttribute="leading" constant="29" id="TXH-tX-QZQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="GxZ-e2-PrQ" secondAttribute="trailing" constant="17" id="e9O-od-E1c"/>
+                                        <constraint firstItem="GxZ-e2-PrQ" firstAttribute="top" secondItem="L0U-3D-EDy" secondAttribute="top" constant="35" id="eT3-Be-rIy"/>
+                                        <constraint firstAttribute="bottom" secondItem="GxZ-e2-PrQ" secondAttribute="bottom" constant="135" id="vQe-bo-xkj"/>
+                                    </constraints>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
