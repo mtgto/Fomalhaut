@@ -8,6 +8,7 @@
 
 #import "MTOSXAppDelegate.h"
 #import "MTOSXMainWindowController.h"
+#import "MTAcknowledgementWindowController.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
@@ -17,6 +18,7 @@ extern NSString *const HELPER_VIEWER_INT_INDEX;
 
 @interface MTOSXAppDelegate()
 @property (strong) MTOSXMainWindowController *mainWindowController;
+@property (strong) MTAcknowledgementWindowController *acknowledgementWindowController;
 @end
 
 @implementation MTOSXAppDelegate
@@ -64,5 +66,10 @@ extern NSString *const HELPER_VIEWER_INT_INDEX;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UInt16 port = (UInt16)[defaults integerForKey:SERVER_INT_PORT_CONFIG_KEY];
     [self.server start:port];
+}
+
+- (IBAction)showAcknowledgements:(id)sender {
+    self.acknowledgementWindowController = [[MTAcknowledgementWindowController alloc] initWithWindowNibName:@"MTAcknowledgementWindowController"];
+    [self.acknowledgementWindowController showWindow:self];
 }
 @end
