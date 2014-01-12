@@ -5,7 +5,8 @@
         <attribute name="lastOpened" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="readCount" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="uri" attributeType="String" syncable="YES"/>
+        <attribute name="url" attributeType="String" valueTransformerName="MTBookmarkURLTransformer" indexed="YES" syncable="YES"/>
+        <attribute name="urlBookmark" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
         <fetchedProperty name="unreadFile" optional="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="MTFile" predicateString="readCount = 0"/>

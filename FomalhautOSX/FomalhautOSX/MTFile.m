@@ -2,7 +2,7 @@
 //  MTFile.m
 //  FomalhautOSX
 //
-//  Created by User on 1/7/14.
+//  Created by User on 1/12/14.
 //  Copyright (c) 2014 mtgto. All rights reserved.
 //
 
@@ -12,10 +12,11 @@
 @implementation MTFile
 
 @dynamic created;
+@dynamic lastOpened;
 @dynamic name;
 @dynamic readCount;
-@dynamic uri;
+@dynamic url;
 @dynamic uuid;
-@dynamic lastOpened;
+@dynamic urlBookmark;
 
 @end

@@ -9,6 +9,7 @@
 #import "MTFileArrayController.h"
 #import "NSArray+Function.h"
 #import "MTFile.h"
+#import "MTFile+Addition.h"
 
 @interface MTFileArrayController()
 
@@ -36,16 +37,13 @@
             if (![self.availableFileExtensions containsObject:pathExtension]) {
                 return NO;
             }
-            if ([MTFile MR_findFirstByAttribute:@"uri" withValue:[fileURL absoluteString]]) {
+            if ([MTFile MR_findFirstByAttribute:@"url" withValue:[fileURL absoluteString]]) {
                 return NO;
             }
             return YES;
         } mapBlock:^id(id obj) {
             NSURL *fileURL = (NSURL *)obj;
-            MTFile *file = [MTFile MR_createEntity];
-            file.name = [fileURL lastPathComponent];
-            file.uri = [fileURL absoluteString];
-            return file;
+            return [MTFile createEntityWithURL:fileURL];
         }];
         [self insertObjects:files atArrangedObjectIndexes:[NSIndexSet indexSetWithIndex:row]];
         [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];

@@ -80,7 +80,7 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 
 - (void)openFilesWithInternalViewer:(NSArray *)files {
     for (MTFile *file in files) {
-        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri]
+        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.url]
                                                                                display:YES
                                                                      completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
                                                                          if (error) {
@@ -97,7 +97,7 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 
 - (void)openFiles:(NSArray *)files withApplicationIdentifier:(NSString *)applicationIdentifier {
     NSArray *urls = [files mapWithBlocks:^id(id obj) {
-        return [NSURL URLWithString:((MTFile *)obj).uri];
+        return [NSURL URLWithString:((MTFile *)obj).url];
     }];
     if ([[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:applicationIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:NULL]) {
         for (MTFile *file in files) {

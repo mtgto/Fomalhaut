@@ -73,8 +73,8 @@
             if (!self.selectedFile || ![self.selectedFile.uuid isEqualToString:uuid]) {
                 self.selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
                 if (self.selectedFile) {
-                    DDLogInfo(@"selectedFile uri = %@", self.selectedFile.uri);
-                    NSURL *fileURL = [NSURL URLWithString:self.selectedFile.uri];
+                    DDLogInfo(@"selectedFile url = %@", self.selectedFile.url);
+                    NSURL *fileURL = [NSURL URLWithString:self.selectedFile.url];
                     NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
                     self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
                     self.selectedFile.readCount++;
@@ -102,7 +102,7 @@
             NSInteger index = [[request param:@"index"] integerValue];
             if (!self.selectedFile || ![self.selectedFile.uuid isEqualToString:uuid]) {
                 self.selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
-                NSURL *fileURL = [NSURL URLWithString:self.selectedFile.uri];
+                NSURL *fileURL = [NSURL URLWithString:self.selectedFile.url];
                 NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
                 self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
             }

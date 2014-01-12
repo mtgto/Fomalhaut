@@ -36,6 +36,7 @@
 		CE67D8D31882588F0069A3D5 /* fomalhaut.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8D21882588F0069A3D5 /* fomalhaut.min.js */; };
 		CE67D8D6188261780069A3D5 /* NSImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8D5188261780069A3D5 /* NSImage+Resize.m */; };
 		CE67D8D81882A1070069A3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8D71882A1070069A3D5 /* Localizable.strings */; };
+		CE67D8EA1882AAA50069A3D5 /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8E91882AAA50069A3D5 /* MTFile.m */; };
 		CE789F9518792893005E928E /* list.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9418792893005E928E /* list.html.mustache */; };
 		CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9818792B87005E928E /* bootstrap-theme.min.css */; };
 		CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9918792B87005E928E /* bootstrap.min.css */; };
@@ -46,7 +47,6 @@
 		CE789FAA18799999005E928E /* glyphicons-halflings-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = CE789FA918799951005E928E /* glyphicons-halflings-regular.woff */; };
 		CE789FAD187AEAD9005E928E /* MTWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FAC187AEAD9005E928E /* MTWebServer.m */; };
 		CE789FAF187B9582005E928E /* 404.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789FAE187B9582005E928E /* 404.html.mustache */; };
-		CE789FB8187C48E2005E928E /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FB7187C48E2005E928E /* MTFile.m */; };
 		CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FBE187C53C8005E928E /* MTBookmarkAll.m */; };
 		CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC1187C5422005E928E /* MTBookmarkUnread.m */; };
 		CE789FC5187C6590005E928E /* MTZeroWidthSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE789FC4187C6590005E928E /* MTZeroWidthSplitView.m */; };
@@ -122,6 +122,8 @@
 		CE67D8D4188261780069A3D5 /* NSImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Resize.h"; sourceTree = "<group>"; };
 		CE67D8D5188261780069A3D5 /* NSImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Resize.m"; sourceTree = "<group>"; };
 		CE67D8D71882A1070069A3D5 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE67D8E81882AAA50069A3D5 /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
+		CE67D8E91882AAA50069A3D5 /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CE789F9418792893005E928E /* list.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.html.mustache; sourceTree = "<group>"; };
 		CE789F9818792B87005E928E /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
 		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
@@ -134,8 +136,6 @@
 		CE789FAB187AEAD9005E928E /* MTWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWebServer.h; sourceTree = "<group>"; };
 		CE789FAC187AEAD9005E928E /* MTWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTWebServer.m; sourceTree = "<group>"; };
 		CE789FAE187B9582005E928E /* 404.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 404.html.mustache; sourceTree = "<group>"; };
-		CE789FB6187C48E2005E928E /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
-		CE789FB7187C48E2005E928E /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CE789FBC187C52A5005E928E /* MTBookmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTBookmark.h; sourceTree = "<group>"; };
 		CE789FBD187C53C8005E928E /* MTBookmarkAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkAll.h; sourceTree = "<group>"; };
 		CE789FBE187C53C8005E928E /* MTBookmarkAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkAll.m; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 				CE789FE31880491F005E928E /* MTBookWindowController.h */,
 				CE789FE41880491F005E928E /* MTBookWindowController.m */,
 				CE789FE51880491F005E928E /* MTBookWindowController.xib */,
-				CE789FB6187C48E2005E928E /* MTFile.h */,
-				CE789FB7187C48E2005E928E /* MTFile.m */,
+				CE67D8E81882AAA50069A3D5 /* MTFile.h */,
+				CE67D8E91882AAA50069A3D5 /* MTFile.m */,
 				CE789FA318796F6A005E928E /* MTFile+Addition.h */,
 				CE789FA418796F6A005E928E /* MTFile+Addition.m */,
 				CE9E236F1871565F0069BED0 /* MTFileArrayController.h */,
@@ -524,8 +524,8 @@
 				CE67D8BF188136AC0069A3D5 /* MTImageView.m in Sources */,
 				CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */,
 				CE67D8BC188105E20069A3D5 /* MTSpreadPage.m in Sources */,
-				CE789FB8187C48E2005E928E /* MTFile.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
+				CE67D8EA1882AAA50069A3D5 /* MTFile.m in Sources */,
 				CE67D8B61880E5400069A3D5 /* MTZipEntryPage.m in Sources */,
 				CE67D8C218823AA00069A3D5 /* MTUnreadColumnFormatter.m in Sources */,
 				CE02E0261870180400094EFD /* main.m in Sources */,

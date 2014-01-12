@@ -10,4 +10,6 @@
 
 @interface MTFile (Addition)
 
++ (MTFile *)createEntityWithURL:(NSURL *)url;
+
 @end
