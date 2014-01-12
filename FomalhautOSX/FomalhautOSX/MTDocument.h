@@ -19,4 +19,6 @@
 
 - (NSData *)dataOfIndex:(NSUInteger)index;
 
+- (NSData *)dataOfIndex:(NSUInteger)index withSize:(CGSize)size;
+
 @end

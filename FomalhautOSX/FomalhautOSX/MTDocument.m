@@ -11,6 +11,7 @@
 #import "NSArray+Function.h"
 #import "MTBookWindowController.h"
 #import "MTZipEntryPage.h"
+#import "NSImage+Resize.h"
 
 @implementation MTDocument
 
@@ -44,6 +45,15 @@
 
 - (NSData *)dataOfIndex:(NSUInteger)index {
     DDLogError(@"You need to implement - (NSData *)dataOfIndex:(NSUInteger)index");
+    return nil;
+}
+
+- (NSData *)dataOfIndex:(NSUInteger)index withSize:(CGSize)size {
+    NSImage *image = [[self getPages][index] image];
+    if (image) {
+        NSBitmapImageRep *rep = [NSBitmapImageRep imageRepWithData:[[image resizeKeepAspectWithSize:size] TIFFRepresentation]];
+        return [rep representationUsingType:NSJPEGFileType properties:nil];
+    }
     return nil;
 }
 

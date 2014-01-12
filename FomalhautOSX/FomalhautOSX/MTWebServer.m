@@ -103,9 +103,29 @@
             if (!self.selectedFile || ![self.selectedFile.uuid isEqualToString:uuid]) {
                 self.selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
                 NSURL *fileURL = [NSURL URLWithString:self.selectedFile.uri];
-                self.selectedDocument = [[NSDocumentController sharedDocumentController] makeDocumentWithContentsOfURL:fileURL ofType:@"zip" error:nil];
+                NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
+                self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
             }
-            NSData *data = [self.selectedDocument dataOfIndex:index];
+            CGSize screenSize = CGSizeZero;
+            NSString *requestCookieHeader = [request header:@"Cookie"];
+            if (requestCookieHeader) {
+                NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:@{@"Set-Cookie": [request header:@"Cookie"]} forURL:[request url]];
+                for (NSHTTPCookie *cookie in cookies) {
+                    if ([[cookie name] isEqualToString:@"screen"]) {
+                        NSArray *components = [[[cookie value] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
+                        if ([components count] == 2) {
+                            screenSize = CGSizeMake([components[0] floatValue], [components[1] floatValue]);
+                        }
+                        break;
+                    }
+                }
+            }
+            NSData *data;
+            if (screenSize.width > 0 && screenSize.height > 0) {
+                data = [self.selectedDocument dataOfIndex:index withSize:screenSize];
+            } else {
+                data = [self.selectedDocument dataOfIndex:index];
+            }
             if (self.selectedDocument && data) {
                 [response respondWithData:data];
             } else {
