@@ -131,6 +131,23 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
+                                                <tableColumn identifier="unreadHeader" width="16" minWidth="10" maxWidth="3.4028234663852886e+38" id="b8c-ps-IbV">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Unread">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="fNB-Wc-xCM">
+                                                        <customFormatter key="formatter" id="gut-4a-cfV" customClass="MTUnreadColumnFormatter"/>
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <connections>
+                                                        <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.readCount" id="kSI-Eo-bXk"/>
+                                                    </connections>
+                                                </tableColumn>
                                                 <tableColumn identifier="nameHeader" editable="NO" width="297" minWidth="40" maxWidth="1000" id="zLx-Wd-qeX">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -182,7 +199,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
-                                    <rect key="frame" x="1" y="1" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="360" width="417" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6IT-2e-HPF">
