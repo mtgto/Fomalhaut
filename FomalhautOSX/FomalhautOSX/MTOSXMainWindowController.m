@@ -84,7 +84,8 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
                                                                                display:YES
                                                                      completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
                                                                          if (error) {
-                                                                             // TODO show error dialog
+                                                                             NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"ALERT_FAIL_TO_OPEN_TITLE", nil) defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:nil];
+                                                                             [alert runModal];
                                                                          } else if (!documentWasAlreadyOpen) {
                                                                              file.readCount++;
                                                                              file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
@@ -98,14 +99,15 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
     NSArray *urls = [files mapWithBlocks:^id(id obj) {
         return [NSURL URLWithString:((MTFile *)obj).uri];
     }];
-    if ([[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:applicationIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:Nil launchIdentifiers:NULL]) {
+    if ([[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:applicationIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:NULL]) {
         for (MTFile *file in files) {
             file.readCount++;
             file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
         }
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     } else {
-        // TODO show error dialog
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"ALERT_FAIL_TO_OPEN_WITH_EXTERNAL_APP_TITLE", nil) defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+        [alert runModal];
     }
 }
 

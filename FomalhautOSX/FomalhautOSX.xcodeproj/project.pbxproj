@@ -35,6 +35,7 @@
 		CE67D8D1188243990069A3D5 /* MTPDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8D0188243990069A3D5 /* MTPDFPage.m */; };
 		CE67D8D31882588F0069A3D5 /* fomalhaut.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8D21882588F0069A3D5 /* fomalhaut.min.js */; };
 		CE67D8D6188261780069A3D5 /* NSImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8D5188261780069A3D5 /* NSImage+Resize.m */; };
+		CE67D8D81882A1070069A3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8D71882A1070069A3D5 /* Localizable.strings */; };
 		CE789F9518792893005E928E /* list.html.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9418792893005E928E /* list.html.mustache */; };
 		CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9818792B87005E928E /* bootstrap-theme.min.css */; };
 		CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CE789F9918792B87005E928E /* bootstrap.min.css */; };
@@ -120,6 +121,7 @@
 		CE67D8D21882588F0069A3D5 /* fomalhaut.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fomalhaut.min.js; sourceTree = "<group>"; };
 		CE67D8D4188261780069A3D5 /* NSImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Resize.h"; sourceTree = "<group>"; };
 		CE67D8D5188261780069A3D5 /* NSImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Resize.m"; sourceTree = "<group>"; };
+		CE67D8D71882A1070069A3D5 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CE789F9418792893005E928E /* list.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.html.mustache; sourceTree = "<group>"; };
 		CE789F9818792B87005E928E /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
 		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				CE02E0251870180400094EFD /* main.m */,
 				CE02E0271870180400094EFD /* FomalhautOSX-Prefix.pch */,
 				CE02E0281870180400094EFD /* Credits.rtf */,
+				CE67D8D71882A1070069A3D5 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				CE789F9B18792B87005E928E /* bootstrap.min.css in Resources */,
 				CE789FCB187EEAFC005E928E /* MTPreferencesWindowController.xib in Resources */,
 				CE789FE71880491F005E928E /* MTBookWindowController.xib in Resources */,
+				CE67D8D81882A1070069A3D5 /* Localizable.strings in Resources */,
 				CE789F9518792893005E928E /* list.html.mustache in Resources */,
 				CE789FDF187F0E7E005E928E /* https.p12 in Resources */,
 				CE67D8B91880FC1E0069A3D5 /* MainMenu.xib in Resources */,
