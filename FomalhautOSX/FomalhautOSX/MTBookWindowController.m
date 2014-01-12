@@ -61,4 +61,22 @@
     [self.arrayController selectPrevious:self];
 }
 
+- (void)keyDown:(NSEvent *)theEvent
+{
+    switch ([[theEvent charactersIgnoringModifiers] characterAtIndex:0]) {
+        case NSUpArrowFunctionKey:
+        case NSLeftArrowFunctionKey:
+            [self.arrayController selectPrevious:self];
+            break;
+        case NSDownArrowFunctionKey:
+        case NSRightArrowFunctionKey:
+        case 0x20: // space
+            [self.arrayController selectNext:self];
+            break;
+        default:
+            break;
+    }
+    
+}
+
 @end
