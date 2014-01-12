@@ -124,7 +124,7 @@
                                     <rect key="frame" x="1" y="17" width="417" height="359"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
+                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
                                             <rect key="frame" x="0.0" y="0.0" width="417" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -193,6 +193,7 @@
                                                     </dictionary>
                                                 </binding>
                                                 <outlet property="dataSource" destination="yXh-lo-881" id="X3E-Ft-qKf"/>
+                                                <outlet property="menu" destination="F9T-Nh-kpp" id="wwf-1u-Rx1"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -262,6 +263,42 @@
             </connections>
         </window>
         <arrayController mode="entity" entityName="MTFile" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
+        <menu id="F9T-Nh-kpp">
+            <items>
+                <menuItem title="Open" id="QAV-hY-2Lh">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="open:" target="-2" id="636-8X-hwC"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Open with..." id="pgP-Ip-4xj">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Open with..." id="xMC-CW-knU">
+                        <items>
+                            <menuItem title="Mangao" id="YZ5-pl-8Fx">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openWithMangao:" target="-2" id="oe1-9x-nzd"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Simple Comic" id="2QH-WP-iFx">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openWithSimpleComic:" target="-2" id="wHu-GV-J9N"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="ZY4-fE-wCJ"/>
+                <menuItem title="Delete" id="yQy-xk-OgU">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="delete:" target="-2" id="jOg-b8-Gka"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

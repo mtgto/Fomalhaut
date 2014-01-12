@@ -19,12 +19,21 @@ extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 extern NSString *const HELPER_INOUT_INT_INDEX;
 extern NSString *const HELPER_VIEWER_INT_INDEX;
+extern NSString *const HELPER_VIEWER_APP_ID_MANGAO;
+extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
+
 
 @interface MTOSXMainWindowController ()
 
 @property (nonatomic, strong) NSArray *topLevelItems;
 
 @property (nonatomic, strong) NSArray *bookmarks;
+
+- (void)openFiles:(NSArray *)files;
+
+- (void)openFilesWithInternalViewer:(NSArray *)files;
+
+- (void)openFiles:(NSArray *)files withApplicationIdentifier:(NSString *)applicationIdentifier;
 
 @end
 
@@ -54,39 +63,94 @@ extern NSString *const HELPER_VIEWER_INT_INDEX;
 }
 
 - (void)doubleClicked:(NSArray *)selectedObjects {
+    [self openFiles:selectedObjects];
+}
+
+- (void)openFiles:(NSArray *)files {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL useInternalViewer = [defaults integerForKey:HELPER_INOUT_INT_INDEX] == 0;
-    NSString *appIdentifier = @[@"com.RyotaMinami93.Mangao", @"com.tsst.simplecomic"][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
-    void (^updateFile)(MTFile *) = ^(MTFile *file) {
-        file.readCount++;
-        file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    };
     if (useInternalViewer) {
-        for (MTFile *file in selectedObjects) {
-            [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri]
-                                                                                   display:YES
-                                                                         completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
-                                                                             if (error) {
-                                                                                 // TODO show error dialog
-                                                                             } else if (!documentWasAlreadyOpen) {
-                                                                                 updateFile(file);
-                                                                             }
-                                                                         }];
-        }
+        [self openFilesWithInternalViewer:files];
     } else {
-        NSArray *urls = [selectedObjects mapWithBlocks:^id(id obj) {
-            return [NSURL URLWithString:((MTFile *)obj).uri];
-        }];
-        if ([[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:appIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:Nil launchIdentifiers:NULL]) {
-            for (MTFile *file in selectedObjects) {
-                updateFile(file);
-            }
+        NSString *appIdentifier = @[HELPER_VIEWER_APP_ID_MANGAO, HELPER_VIEWER_APP_ID_SIMPLE_COMIC][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
+        [self openFiles:files withApplicationIdentifier:appIdentifier];
+    }
+}
+
+- (void)openFilesWithInternalViewer:(NSArray *)files {
+    for (MTFile *file in files) {
+        [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:[NSURL URLWithString:file.uri]
+                                                                               display:YES
+                                                                     completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
+                                                                         if (error) {
+                                                                             // TODO show error dialog
+                                                                         } else if (!documentWasAlreadyOpen) {
+                                                                             file.readCount++;
+                                                                             file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
+                                                                             [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                                                                         }
+                                                                     }];
+    }
+}
+
+- (void)openFiles:(NSArray *)files withApplicationIdentifier:(NSString *)applicationIdentifier {
+    NSArray *urls = [files mapWithBlocks:^id(id obj) {
+        return [NSURL URLWithString:((MTFile *)obj).uri];
+    }];
+    if ([[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:applicationIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:Nil launchIdentifiers:NULL]) {
+        for (MTFile *file in files) {
+            file.readCount++;
+            file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
+        }
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    } else {
+        // TODO show error dialog
+    }
+}
+
+#pragma mark - IBOutlet
+- (IBAction)open:(id)sender {
+    NSInteger row = [self.tableView clickedRow];
+    if (row >= 0) {
+        if ([[self.tableView selectedRowIndexes] containsIndex:row]) {
+            [self openFiles:[self.fileArrayController selectedObjects]];
         } else {
-            // TODO show error dialog
+            [self openFiles:@[[self.fileArrayController arrangedObjects][row]]];
         }
     }
+}
 
+- (IBAction)openWithMangao:(id)sender {
+    NSInteger row = [self.tableView clickedRow];
+    if (row >= 0) {
+        if ([[self.tableView selectedRowIndexes] containsIndex:row]) {
+            [self openFiles:[self.fileArrayController selectedObjects] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO];
+        } else {
+            [self openFiles:@[[self.fileArrayController arrangedObjects][row]] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO];
+        }
+    }
+}
+
+- (IBAction)openWithSimpleComic:(id)sender {
+    NSInteger row = [self.tableView clickedRow];
+    if (row >= 0) {
+        if ([[self.tableView selectedRowIndexes] containsIndex:row]) {
+            [self openFiles:[self.fileArrayController selectedObjects] withApplicationIdentifier:HELPER_VIEWER_APP_ID_SIMPLE_COMIC];
+        } else {
+            [self openFiles:@[[self.fileArrayController arrangedObjects][row]] withApplicationIdentifier:HELPER_VIEWER_APP_ID_SIMPLE_COMIC];
+        }
+    }
+}
+
+- (IBAction)delete:(id)sender {
+    NSInteger row = [self.tableView clickedRow];
+    if (row >= 0) {
+        if ([[self.tableView selectedRowIndexes] containsIndex:row]) {
+            [self.fileArrayController removeObjectsAtArrangedObjectIndexes:[self.tableView selectedRowIndexes]];
+        } else {
+            [self.fileArrayController removeObjectAtArrangedObjectIndex:row];
+        }
+    }
 }
 
 #pragma mark - NSOutlineViewDataSource

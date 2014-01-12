@@ -25,7 +25,7 @@
     self = [super initWithContentsOfURL:url ofType:typeName error:outError];
     if (self) {
         // Add your subclass-specific initialization here.
-        self.archive = [ZZArchive archiveWithContentsOfURL:url];
+        self.archive = [[ZZArchive alloc] initWithContentsOfURL:url encoding:NSShiftJISStringEncoding];
         [self setFileURL:url];
     }
     return self;
