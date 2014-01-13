@@ -16,18 +16,12 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTSmartBookmark.h"
+#import <Cocoa/Cocoa.h>
 
+@interface MTBookmarkOutlineView : NSOutlineView
 
-@implementation MTSmartBookmark
+@property (nonatomic, weak) NSMenu *normalBookmarkMenu;
 
-@dynamic uuid;
-@dynamic name;
-@dynamic predicate;
-@dynamic created;
-
-- (NSString *)displayName {
-    return self.name;
-}
+@property (nonatomic, weak) NSMenu *smartBookmarkMenu;
 
 @end

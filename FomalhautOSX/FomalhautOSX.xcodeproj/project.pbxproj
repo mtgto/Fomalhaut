@@ -68,6 +68,9 @@
 		CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97ED1F18841DCC0008DB37 /* MTSmartBookmark.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
+		CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */; };
+		CEE2DC89188443C20082D5BB /* MTSmartBookmarkWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */; };
+		CEE2DC8C188455ED0082D5BB /* MTBookmarkOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2DC8B188455ED0082D5BB /* MTBookmarkOutlineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +186,11 @@
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE9E23731871770E0069BED0 /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
+		CEE2DC85188443C20082D5BB /* MTSmartBookmarkWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSmartBookmarkWindowController.h; sourceTree = "<group>"; };
+		CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSmartBookmarkWindowController.m; sourceTree = "<group>"; };
+		CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTSmartBookmarkWindowController.xib; sourceTree = "<group>"; };
+		CEE2DC8A188455ED0082D5BB /* MTBookmarkOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkOutlineView.h; sourceTree = "<group>"; };
+		CEE2DC8B188455ED0082D5BB /* MTBookmarkOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkOutlineView.m; sourceTree = "<group>"; };
 		D094171245EF432E9B3191B1 /* libPods-FomalhautOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FomalhautOSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -279,6 +287,9 @@
 				CE67D8EB1882BAAB0069A3D5 /* MTAcknowledgementWindowController.h */,
 				CE67D8EC1882BAAB0069A3D5 /* MTAcknowledgementWindowController.m */,
 				CE67D8ED1882BAAB0069A3D5 /* MTAcknowledgementWindowController.xib */,
+				CEE2DC85188443C20082D5BB /* MTSmartBookmarkWindowController.h */,
+				CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */,
+				CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */,
 				CE67D8E81882AAA50069A3D5 /* MTFile.h */,
 				CE67D8E91882AAA50069A3D5 /* MTFile.m */,
 				CE789FA318796F6A005E928E /* MTFile+Addition.h */,
@@ -318,6 +329,8 @@
 				CE67D8C118823AA00069A3D5 /* MTUnreadColumnFormatter.m */,
 				CE67D8F218838F5B0069A3D5 /* MTOutlineBottomBarView.h */,
 				CE67D8F318838F5B0069A3D5 /* MTOutlineBottomBarView.m */,
+				CEE2DC8A188455ED0082D5BB /* MTBookmarkOutlineView.h */,
+				CEE2DC8B188455ED0082D5BB /* MTBookmarkOutlineView.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
@@ -503,6 +516,7 @@
 				CE02E02A1870180400094EFD /* Credits.rtf in Resources */,
 				CE789FAA18799999005E928E /* glyphicons-halflings-regular.woff in Resources */,
 				CE67D8F11882BCC40069A3D5 /* acknowledgements.rtf in Resources */,
+				CEE2DC89188443C20082D5BB /* MTSmartBookmarkWindowController.xib in Resources */,
 				CE789FAF187B9582005E928E /* 404.html.mustache in Resources */,
 				CE789F9A18792B87005E928E /* bootstrap-theme.min.css in Resources */,
 			);
@@ -578,6 +592,7 @@
 				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
 				CE789FCE187EF101005E928E /* static.m in Sources */,
 				CE67D8F418838F5B0069A3D5 /* MTOutlineBottomBarView.m in Sources */,
+				CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */,
 				CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */,
 				CE789FE21880450A005E928E /* MTUUID.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
@@ -587,6 +602,7 @@
 				CE67D8EE1882BAAB0069A3D5 /* MTAcknowledgementWindowController.m in Sources */,
 				CE67D8D1188243990069A3D5 /* MTPDFPage.m in Sources */,
 				CE67D8B31880E4F40069A3D5 /* MTPage.m in Sources */,
+				CEE2DC8C188455ED0082D5BB /* MTBookmarkOutlineView.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
 				CE789FC5187C6590005E928E /* MTZeroWidthSplitView.m in Sources */,
 			);

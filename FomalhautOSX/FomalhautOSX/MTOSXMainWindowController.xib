@@ -9,6 +9,9 @@
             <connections>
                 <outlet property="bookmarkOutlineView" destination="Jhy-We-zXP" id="N7W-qR-lbJ"/>
                 <outlet property="fileArrayController" destination="yXh-lo-881" id="hXZ-oa-B8P"/>
+                <outlet property="normalBookmarkMenu" destination="fIi-P6-VSu" id="cOl-p8-EwI"/>
+                <outlet property="smartBookmarkMenu" destination="dQM-M1-Ip4" id="Bjg-SS-gUa"/>
+                <outlet property="smartBookmarkWindowController" destination="bzn-ha-s8q" id="v9e-X0-FB5"/>
                 <outlet property="tableView" destination="mdr-kY-Wug" id="rTV-Eh-v8F"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
@@ -39,7 +42,7 @@
                                             <rect key="frame" x="1" y="1" width="157" height="344"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="14" outlineTableColumn="LcT-JV-Lqv" id="Jhy-We-zXP">
+                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="14" outlineTableColumn="LcT-JV-Lqv" id="Jhy-We-zXP" customClass="MTBookmarkOutlineView">
                                                     <rect key="frame" x="0.0" y="0.0" width="157" height="344"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="0.0"/>
@@ -142,7 +145,11 @@
                                                                     <action selector="addNewNormalBookmark:" target="-2" id="dDS-9m-8Wi"/>
                                                                 </connections>
                                                             </menuItem>
-                                                            <menuItem title="Add a new smart bookmark" id="jZE-gh-8sc"/>
+                                                            <menuItem title="Add a new smart bookmark" id="jZE-gh-8sc">
+                                                                <connections>
+                                                                    <action selector="addNewSmartBookmark:" target="-2" id="0om-Zb-LhH"/>
+                                                                </connections>
+                                                            </menuItem>
                                                         </items>
                                                     </menu>
                                                 </popUpButtonCell>
@@ -304,6 +311,7 @@
             </connections>
         </window>
         <arrayController mode="entity" entityName="MTFile" fetchPredicateFormat="ORDER BY created" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
+        <customObject id="bzn-ha-s8q" customClass="MTSmartBookmarkWindowController"/>
         <menu id="F9T-Nh-kpp">
             <items>
                 <menuItem title="Open" id="QAV-hY-2Lh">
@@ -342,6 +350,33 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="delete:" target="-2" id="9Pm-gS-DPm"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <menu title="SmartBookmarkMenu" id="dQM-M1-Ip4">
+            <items>
+                <menuItem title="Edit..." id="711-8J-GbY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="editSmartBookmark:" target="-2" id="etq-WO-PDM"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="kb1-Or-u29"/>
+                <menuItem title="Delete" id="kFV-od-5qm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="deleteSmartBookmark:" target="-2" id="JKy-zQ-8rx"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <menu title="NormalBookmarkMenu" id="fIi-P6-VSu">
+            <items>
+                <menuItem title="Delete" id="AEI-4e-9bY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="deleteNormalBookmark:" target="-2" id="zMX-9o-TO3"/>
                     </connections>
                 </menuItem>
             </items>

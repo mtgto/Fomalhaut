@@ -16,18 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import "MTBookmarkOutlineView.h"
+#import "MTNormalBookmark.h"
 #import "MTSmartBookmark.h"
 
+@implementation MTBookmarkOutlineView
 
-@implementation MTSmartBookmark
-
-@dynamic uuid;
-@dynamic name;
-@dynamic predicate;
-@dynamic created;
-
-- (NSString *)displayName {
-    return self.name;
+- (NSMenu*)menuForEvent:(NSEvent*)theEvent
+{
+    NSInteger row = [self selectedRow];
+    if (row >= 0) {
+        if ([[self itemAtRow:row] isKindOfClass:[MTNormalBookmark class]]) {
+            return self.normalBookmarkMenu;
+        } else if ([[self itemAtRow:row] isKindOfClass:[MTSmartBookmark class]]) {
+            return self.smartBookmarkMenu;
+        }
+    }
+    return nil;
 }
 
 @end

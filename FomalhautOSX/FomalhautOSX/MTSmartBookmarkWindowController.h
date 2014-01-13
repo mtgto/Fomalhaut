@@ -16,18 +16,12 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import <Cocoa/Cocoa.h>
 #import "MTSmartBookmark.h"
 
+@interface MTSmartBookmarkWindowController : NSWindowController
 
-@implementation MTSmartBookmark
-
-@dynamic uuid;
-@dynamic name;
-@dynamic predicate;
-@dynamic created;
-
-- (NSString *)displayName {
-    return self.name;
-}
+@property (nonatomic, strong) MTSmartBookmark *bookmark;
+//@property (nonatomic, strong) NSPredicate *predicate;
 
 @end

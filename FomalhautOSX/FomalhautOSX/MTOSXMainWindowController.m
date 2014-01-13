@@ -25,6 +25,7 @@
 #import "NSArray+Function.h"
 #import "MTNormalBookmark.h"
 #import "MTSmartBookmark.h"
+#import "MTSmartBookmarkWindowController.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
@@ -40,6 +41,8 @@ extern NSString *const FILE_TYPE;
 @interface MTOSXMainWindowController ()
 @property (strong) IBOutlet NSTreeController *bookmarkTreeController;
 
+@property (strong) IBOutlet MTSmartBookmarkWindowController *smartBookmarkWindowController;
+
 @property (nonatomic, strong) NSArray *topLevelItems;
 
 /**
@@ -53,6 +56,10 @@ extern NSString *const FILE_TYPE;
 @property (nonatomic, strong) NSArray *normalBookmarks;
 
 @property (nonatomic, strong) NSArray *smartBookmarks;
+
+@property (strong) IBOutlet NSMenu *normalBookmarkMenu;
+
+@property (strong) IBOutlet NSMenu *smartBookmarkMenu;
 
 - (void)openFiles:(NSArray *)files;
 
@@ -82,15 +89,14 @@ extern NSString *const FILE_TYPE;
     [self.fileArrayController setManagedObjectContext:[NSManagedObjectContext MR_defaultContext]];
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
-    [self.bookmarkOutlineView expandItem:nil expandChildren:YES];
     [self.bookmarkOutlineView registerForDraggedTypes:@[FILE_TYPE]];
+    self.bookmarkOutlineView.smartBookmarkMenu = self.smartBookmarkMenu;
+    self.bookmarkOutlineView.normalBookmarkMenu = self.normalBookmarkMenu;
+    [self.bookmarkOutlineView expandItem:nil expandChildren:YES];
     NSInteger row = [self.bookmarkOutlineView rowForItem:[self.fixedBookmarks firstObject]];
     if (row >= 0) {
         [self.bookmarkOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:YES];
     }
-    CGFloat red, green, blue, alpha, cyan, magenda, yellow, black;
-    [[self.bookmarkOutlineView.backgroundColor colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]] getRed:&red green:&green blue:&blue alpha:&alpha];
-    [[self.bookmarkOutlineView.backgroundColor colorUsingColorSpace:[NSColorSpace genericCMYKColorSpace]] getCyan:&cyan magenta:&magenda yellow:&yellow black:&black alpha:&alpha];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(managedObjectChanged:)
                                                  name:NSManagedObjectContextObjectsDidChangeNotification
@@ -214,6 +220,50 @@ extern NSString *const FILE_TYPE;
     [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
 }
 
+- (IBAction)deleteNormalBookmark:(id)sender {
+    NSInteger row = [self.bookmarkOutlineView selectedRow];
+    if (row >= 0) {
+        id item = [self.bookmarkOutlineView itemAtRow:row];
+        if ([item isKindOfClass:[MTNormalBookmark class]]) {
+            MTNormalBookmark *bookmark = (MTNormalBookmark *)item;
+            [bookmark MR_deleteEntity];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        }
+    }
+}
+
+- (IBAction)addNewSmartBookmark:(id)sender {
+    MTSmartBookmark *bookmark = [MTSmartBookmark MR_createEntity];
+    bookmark.name = @"New smart bookmark";
+    bookmark.predicate = [NSPredicate predicateWithFormat:@"name contains ''"];
+    self.smartBookmarkWindowController.bookmark = bookmark;
+    [self.smartBookmarkWindowController showWindow:self];
+}
+
+- (IBAction)editSmartBookmark:(id)sender {
+    NSInteger row = [self.bookmarkOutlineView selectedRow];
+    if (row >= 0) {
+        id item = [self.bookmarkOutlineView itemAtRow:row];
+        if ([item isKindOfClass:[MTSmartBookmark class]]) {
+            MTSmartBookmark *bookmark = (MTSmartBookmark *)item;
+            self.smartBookmarkWindowController.bookmark = bookmark;
+            [self.smartBookmarkWindowController showWindow:self];
+        }
+    }
+}
+
+- (IBAction)deleteSmartBookmark:(id)sender {
+    NSInteger row = [self.bookmarkOutlineView selectedRow];
+    if (row >= 0) {
+        id item = [self.bookmarkOutlineView itemAtRow:row];
+        if ([item isKindOfClass:[MTSmartBookmark class]]) {
+            MTSmartBookmark *bookmark = (MTSmartBookmark *)item;
+            [bookmark MR_deleteEntity];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        }
+    }
+}
+
 #pragma mark - NSOutlineViewDataSource
 
 - (NSArray *)_childrenForItem:(id)item {
@@ -253,7 +303,7 @@ extern NSString *const FILE_TYPE;
         [fileUuids enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
             [fileSet addObject:[MTFile MR_findFirstByAttribute:@"uuid" withValue:obj]];
         }];
-        [item addEntries:fileSet];
+        [bookmark addEntries:fileSet];
         return YES;
     }
     return NO;
@@ -298,10 +348,16 @@ extern NSString *const FILE_TYPE;
         NSTableCellView *view = [outlineView makeViewWithIdentifier:@"DataCell" owner:self];
         if ([item isKindOfClass:[MTNormalBookmark class]]) {
             MTNormalBookmark *bookmark = (MTNormalBookmark *)item;
+            view.menu = nil;
             view.textField.stringValue = bookmark.name;
             [view.textField setEditable:YES];
-            view.imageView.image = [NSImage imageNamed:NSImageNameFolder];
+            view.imageView.image = [NSImage imageNamed:NSImageNameBookmarksTemplate];
         } else {
+            if ([item isKindOfClass:[MTSmartBookmark class]]) {
+                view.menu = self.smartBookmarkMenu;
+            } else {
+                view.menu = nil;
+            }
             NSObject<MTBookmark> *bookmark = (NSObject<MTBookmark> *)item;
             view.textField.stringValue = [bookmark displayName];
             [view.textField setEditable:NO];
@@ -314,7 +370,7 @@ extern NSString *const FILE_TYPE;
                     break;
                 }
                 case 1: {
-                    view.imageView.image = [NSImage imageNamed:NSImageNameSmartBadgeTemplate];
+                    view.imageView.image = [NSImage imageNamed:NSImageNameFolderSmart];
                     break;
                 }
             }
@@ -364,6 +420,8 @@ extern NSString *const FILE_TYPE;
 
 - (void)managedObjectChanged:(NSNotification *)notification {
     DDLogInfo(@"managedObjectChanged: %@", [notification userInfo]);
+    self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"created" ascending:YES];
+    self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"created" ascending:YES];
     [self.bookmarkOutlineView reloadData];
 }
 
