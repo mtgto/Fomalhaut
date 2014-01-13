@@ -310,7 +310,7 @@
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
         </window>
-        <arrayController mode="entity" entityName="MTFile" fetchPredicateFormat="ORDER BY created" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
+        <arrayController mode="entity" entityName="MTFile" fetchPredicateFormat="" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
         <customObject id="bzn-ha-s8q" customClass="MTSmartBookmarkWindowController"/>
         <menu id="F9T-Nh-kpp">
             <items>

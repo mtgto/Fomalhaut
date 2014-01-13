@@ -8,6 +8,7 @@
         <attribute name="url" attributeType="String" valueTransformerName="MTBookmarkURLTransformer" indexed="YES" syncable="YES"/>
         <attribute name="urlBookmark" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="bookmarks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MTNormalBookmark" inverseName="entries" inverseEntity="MTNormalBookmark" syncable="YES"/>
         <fetchedProperty name="unreadFile" optional="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="MTFile" predicateString="readCount = 0"/>
         </fetchedProperty>
@@ -16,7 +17,7 @@
         <attribute name="created" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" minValueString="1" syncable="YES"/>
         <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MTFile" syncable="YES"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MTFile" inverseName="bookmarks" inverseEntity="MTFile" syncable="YES"/>
     </entity>
     <entity name="MTSmartBookmark" representedClassName="MTSmartBookmark" syncable="YES">
         <attribute name="created" attributeType="Date" indexed="YES" syncable="YES"/>
@@ -25,8 +26,8 @@
         <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MTNormalBookmark" positionX="0" positionY="0" width="128" height="88"/>
-        <element name="MTFile" positionX="0" positionY="0" width="128" height="176"/>
-        <element name="MTSmartBookmark" positionX="0" positionY="63" width="128" height="88"/>
+        <element name="MTFile" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MTNormalBookmark" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MTSmartBookmark" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
