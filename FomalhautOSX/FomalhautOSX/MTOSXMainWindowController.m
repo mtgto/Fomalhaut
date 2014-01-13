@@ -71,6 +71,10 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
     if (row >= 0) {
         [self.bookmarkOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:YES];
     }
+    CGFloat red, green, blue, alpha, cyan, magenda, yellow, black;
+    [[self.bookmarkOutlineView.backgroundColor colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]] getRed:&red green:&green blue:&blue alpha:&alpha];
+    [[self.bookmarkOutlineView.backgroundColor colorUsingColorSpace:[NSColorSpace genericCMYKColorSpace]] getCyan:&cyan magenta:&magenda yellow:&yellow black:&black alpha:&alpha];
+
 }
 
 - (void)doubleClicked:(NSArray *)selectedObjects {
