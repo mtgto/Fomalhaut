@@ -21,6 +21,8 @@
 #import "MTFile.h"
 #import "MTFile+Addition.h"
 
+extern NSString *const FILE_TYPE;
+
 @interface MTFileArrayController()
 
 @property (nonatomic, strong) NSSet *availableFileExtensions;
@@ -68,6 +70,18 @@
         return NSDragOperationCopy;
     }
     return NSDragOperationNone;
+}
+
+- (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
+    NSMutableSet *uuidSet = [NSMutableSet setWithCapacity:[rowIndexes count]];
+    [rowIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        MTFile *file = [self arrangedObjects][idx];
+        [uuidSet addObject:file.uuid];
+    }];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:uuidSet];
+    [pboard declareTypes:@[FILE_TYPE] owner:self];
+    [pboard setData:data forType:FILE_TYPE];
+    return YES;
 }
 
 @end

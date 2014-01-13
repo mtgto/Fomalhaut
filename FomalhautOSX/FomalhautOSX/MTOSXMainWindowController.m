@@ -23,6 +23,8 @@
 #import "MTBookmarkAll.h"
 #import "MTBookmarkUnread.h"
 #import "NSArray+Function.h"
+#import "MTNormalBookmark.h"
+#import "MTSmartBookmark.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
@@ -32,13 +34,25 @@ extern NSString *const HELPER_VIEWER_INT_INDEX;
 extern NSString *const HELPER_VIEWER_APP_ID_MANGAO;
 extern NSString *const HELPER_VIEWER_APP_ID_MANGAO_KAI;
 extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
+extern NSString *const FILE_TYPE;
 
 
 @interface MTOSXMainWindowController ()
+@property (strong) IBOutlet NSTreeController *bookmarkTreeController;
 
 @property (nonatomic, strong) NSArray *topLevelItems;
 
-@property (nonatomic, strong) NSArray *bookmarks;
+/**
+ * Predefined bookmarks. currently there are two bookmarks: "All", "Unread"
+ */
+@property (nonatomic, strong) NSArray *fixedBookmarks;
+
+/**
+ * Array of MTNormalBookmark.
+ */
+@property (nonatomic, strong) NSArray *normalBookmarks;
+
+@property (nonatomic, strong) NSArray *smartBookmarks;
 
 - (void)openFiles:(NSArray *)files;
 
@@ -54,8 +68,10 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 {
     self = [super initWithWindow:window];
     if (self) {
-        self.topLevelItems = @[@"Library"];
-        self.bookmarks = @[[MTBookmarkAll sharedInstance], [MTBookmarkUnread sharedInstance]];
+        self.topLevelItems = @[@"Library", @"Bookmarks"];
+        self.fixedBookmarks = @[[MTBookmarkAll sharedInstance], [MTBookmarkUnread sharedInstance]];
+        self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"created" ascending:YES];
+        self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"created" ascending:YES];
     }
     return self;
 }
@@ -67,14 +83,24 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
     [self.bookmarkOutlineView expandItem:nil expandChildren:YES];
-    NSInteger row = [self.bookmarkOutlineView rowForItem:[self.bookmarks firstObject]];
+    [self.bookmarkOutlineView registerForDraggedTypes:@[FILE_TYPE]];
+    NSInteger row = [self.bookmarkOutlineView rowForItem:[self.fixedBookmarks firstObject]];
     if (row >= 0) {
         [self.bookmarkOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:YES];
     }
     CGFloat red, green, blue, alpha, cyan, magenda, yellow, black;
     [[self.bookmarkOutlineView.backgroundColor colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]] getRed:&red green:&green blue:&blue alpha:&alpha];
     [[self.bookmarkOutlineView.backgroundColor colorUsingColorSpace:[NSColorSpace genericCMYKColorSpace]] getCyan:&cyan magenta:&magenda yellow:&yellow black:&black alpha:&alpha];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(managedObjectChanged:)
+                                                 name:NSManagedObjectContextObjectsDidChangeNotification
+                                               object:nil];
+}
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSManagedObjectContextObjectsDidChangeNotification
+                                                  object:nil];
 }
 
 - (void)doubleClicked:(NSArray *)selectedObjects {
@@ -181,13 +207,22 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
     }
 }
 
+- (IBAction)addNewNormalBookmark:(id)sender {
+    MTNormalBookmark *bookmark = [MTNormalBookmark MR_createEntity];
+    // TODO make unique name
+    bookmark.name = @"New Bookmark";
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
+}
+
 #pragma mark - NSOutlineViewDataSource
 
 - (NSArray *)_childrenForItem:(id)item {
     if (item == nil) {
         return self.topLevelItems;
     } else if ([item isEqual:@"Library"]) {
-        return self.bookmarks;
+        return self.fixedBookmarks;
+    } else if ([item isEqual:@"Bookmarks"]) {
+        return [self.normalBookmarks arrayByAddingObjectsFromArray:self.smartBookmarks];
     } else {
         DDLogError(@"Unsupported item: %@", item);
         return nil;
@@ -207,6 +242,29 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
     return [[self _childrenForItem:item] count];
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView acceptDrop:(id < NSDraggingInfo >)info item:(id)item childIndex:(NSInteger)index {
+    if ([item isKindOfClass:[MTNormalBookmark class]]) {
+        MTNormalBookmark *bookmark = (MTNormalBookmark *)item;
+        NSPasteboard *pasteboard = [info draggingPasteboard];
+        NSSet *fileUuids = [NSKeyedUnarchiver unarchiveObjectWithData:[pasteboard dataForType:FILE_TYPE]];
+        NSMutableSet *fileSet = [NSMutableSet setWithCapacity:[fileUuids count]];
+        [fileUuids enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+            [fileSet addObject:[MTFile MR_findFirstByAttribute:@"uuid" withValue:obj]];
+        }];
+        [item addEntries:fileSet];
+        return YES;
+    }
+    return NO;
+}
+
+- (NSDragOperation)outlineView:(NSOutlineView *)outlineView validateDrop:(id < NSDraggingInfo >)info proposedItem:(id)item proposedChildIndex:(NSInteger)index {
+    if ([item isKindOfClass:[MTNormalBookmark class]]) {
+        return NSDragOperationMove;
+    } else {
+        return NSDragOperationNone;
+    }
 }
 
 #pragma mark - NSOutlineViewDelegate
@@ -232,34 +290,81 @@ extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
         // Uppercase the string value, but don't set anything else. NSOutlineView automatically applies attributes as necessary
         NSString *value = [item uppercaseString];
         view.textField.stringValue = value;
+        [view.textField setEditable:NO];
         return view;
     } else {
         // The cell is setup in IB. The textField and imageView outlets are properly setup.
         // Special attributes are automatically applied by NSTableView/NSOutlineView for the source list
         NSTableCellView *view = [outlineView makeViewWithIdentifier:@"DataCell" owner:self];
-        NSObject<MTBookmark> *bookmark = (NSObject<MTBookmark> *)item;
-        view.textField.stringValue = [bookmark displayName];
-        // Setup the icon based on our section
-        id parent = [outlineView parentForItem:item];
-        NSInteger index = [_topLevelItems indexOfObject:parent];
-        switch (index) {
-            case 0: {
-                view.imageView.image = [NSImage imageNamed:NSImageNameBookmarksTemplate];
-                break;
-            }
-            case 1: {
-                view.imageView.image = [NSImage imageNamed:NSImageNameSmartBadgeTemplate];
-                break;
+        if ([item isKindOfClass:[MTNormalBookmark class]]) {
+            MTNormalBookmark *bookmark = (MTNormalBookmark *)item;
+            view.textField.stringValue = bookmark.name;
+            [view.textField setEditable:YES];
+            view.imageView.image = [NSImage imageNamed:NSImageNameFolder];
+        } else {
+            NSObject<MTBookmark> *bookmark = (NSObject<MTBookmark> *)item;
+            view.textField.stringValue = [bookmark displayName];
+            [view.textField setEditable:NO];
+            // Setup the icon based on our section
+            id parent = [outlineView parentForItem:item];
+            NSInteger index = [_topLevelItems indexOfObject:parent];
+            switch (index) {
+                case 0: {
+                    view.imageView.image = [NSImage imageNamed:NSImageNameBookmarksTemplate];
+                    break;
+                }
+                case 1: {
+                    view.imageView.image = [NSImage imageNamed:NSImageNameSmartBadgeTemplate];
+                    break;
+                }
             }
         }
         return view;
     }
 }
 
+// TODO use NSTreeController
+//- (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+//    return [item isKindOfClass:[MTNormalBookmark class]];
+//}
+//
+//- (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
+//    
+//}
+//
+//- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
+//    return YES;
+//}
+
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
     id item = [self.bookmarkOutlineView itemAtRow:self.bookmarkOutlineView.selectedRow];
-    NSObject<MTBookmark> *bookmark = (NSObject<MTBookmark> *)item;
-    [self.fileArrayController setFetchPredicate:[bookmark predicate]];
+    if ([item isKindOfClass:[MTNormalBookmark class]]) {
+        MTNormalBookmark *bookmark = (MTNormalBookmark *)item;
+        [self.fileArrayController setContent:bookmark.entries];
+//        [self.bookmarkOutlineView editColumn:0 row:self.bookmarkOutlineView.selectedRow withEvent:nil select:YES];
+    } else {
+        NSObject<MTBookmark> *bookmark = (NSObject<MTBookmark> *)item;
+        [self.fileArrayController setFetchPredicate:[bookmark predicate]];
+    }
+}
+
+#pragma mark - NSTextFieldDelegate
+
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
+    id item = [self.bookmarkOutlineView itemAtRow:self.bookmarkOutlineView.selectedRow];
+    if ([item isKindOfClass:[MTNormalBookmark class]]) {
+        MTNormalBookmark *bookmark = (MTNormalBookmark *)item;
+        bookmark.name = control.stringValue;
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    }
+    return YES;
+}
+
+#pragma mark - Notification
+
+- (void)managedObjectChanged:(NSNotification *)notification {
+    DDLogInfo(@"managedObjectChanged: %@", [notification userInfo]);
+    [self.bookmarkOutlineView reloadData];
 }
 
 @end

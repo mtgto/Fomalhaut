@@ -13,3 +13,5 @@ NSString *const HELPER_VIEWER_APP_ID_MANGAO = @"com.RyotaMinami93.Mangao";
 NSString *const HELPER_VIEWER_APP_ID_MANGAO_KAI = @"com.djhan.Mangao_Kai";
 
 NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC = @"com.tsst.simplecomic";
+
+NSString *const FILE_TYPE = @"MTFile";

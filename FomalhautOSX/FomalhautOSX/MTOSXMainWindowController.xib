@@ -39,7 +39,7 @@
                                             <rect key="frame" x="1" y="1" width="157" height="344"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="16" outlineTableColumn="LcT-JV-Lqv" id="Jhy-We-zXP">
+                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="14" outlineTableColumn="LcT-JV-Lqv" id="Jhy-We-zXP">
                                                     <rect key="frame" x="0.0" y="0.0" width="157" height="344"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="0.0"/>
@@ -94,6 +94,9 @@
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <outlet property="delegate" destination="-2" id="SLW-g4-EkK"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <connections>
@@ -128,14 +131,18 @@
                                             <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-FX-feq">
                                                 <rect key="frame" x="0.0" y="1" width="34" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" imageScaling="proportionallyUpOrDown" inset="2" pullsDown="YES" selectedItem="jZE-gh-8sc" id="iPj-xY-CuW">
+                                                <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" imageScaling="proportionallyUpOrDown" inset="2" pullsDown="YES" id="iPj-xY-CuW">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="menu"/>
                                                     <menu key="menu" title="OtherViews" id="r8a-pf-jMB">
                                                         <items>
                                                             <menuItem image="NSAddTemplate" hidden="YES" id="JEl-3X-t9H"/>
-                                                            <menuItem title="Add a bookmark" id="kBM-LX-hBu"/>
-                                                            <menuItem title="Add a smart bookmark" id="jZE-gh-8sc"/>
+                                                            <menuItem title="Add a new bookmark" id="kBM-LX-hBu">
+                                                                <connections>
+                                                                    <action selector="addNewNormalBookmark:" target="-2" id="dDS-9m-8Wi"/>
+                                                                </connections>
+                                                            </menuItem>
+                                                            <menuItem title="Add a new smart bookmark" id="jZE-gh-8sc"/>
                                                         </items>
                                                     </menu>
                                                 </popUpButtonCell>
@@ -158,7 +165,7 @@
                                     <rect key="frame" x="1" y="17" width="408" height="359"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
+                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
                                             <rect key="frame" x="0.0" y="0.0" width="408" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -227,6 +234,7 @@
                                                     </dictionary>
                                                 </binding>
                                                 <outlet property="dataSource" destination="yXh-lo-881" id="X3E-Ft-qKf"/>
+                                                <outlet property="menu" destination="F9T-Nh-kpp" id="ElT-yY-s0D"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -295,24 +303,36 @@
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
         </window>
-        <arrayController mode="entity" entityName="MTFile" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
+        <arrayController mode="entity" entityName="MTFile" fetchPredicateFormat="ORDER BY created" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
         <menu id="F9T-Nh-kpp">
             <items>
                 <menuItem title="Open" id="QAV-hY-2Lh">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="open:" target="-2" id="PU6-2n-i0D"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Open with..." id="pgP-Ip-4xj">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Open with..." id="xMC-CW-knU">
                         <items>
-                            <menuItem title="Item 1" id="YZ5-pl-8Fx">
+                            <menuItem title="Mangao" id="YZ5-pl-8Fx">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openWithMangao:" target="-2" id="Wb0-Qk-cX0"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Item 2" id="2QH-WP-iFx">
+                            <menuItem title="Mangao Kai" id="2QH-WP-iFx">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openWithMangaoKai:" target="-2" id="K1w-PX-1oE"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Item 3" id="cX1-JB-Bn7">
+                            <menuItem title="Simple Comic" id="cX1-JB-Bn7">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openWithSimpleComic:" target="-2" id="327-5J-cPj"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>
@@ -320,6 +340,9 @@
                 <menuItem isSeparatorItem="YES" id="ZY4-fE-wCJ"/>
                 <menuItem title="Delete" id="yQy-xk-OgU">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="delete:" target="-2" id="9Pm-gS-DPm"/>
+                    </connections>
                 </menuItem>
             </items>
         </menu>

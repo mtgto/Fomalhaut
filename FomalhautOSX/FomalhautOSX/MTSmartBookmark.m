@@ -16,12 +16,22 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import Cocoa;
-#import "MTFileArrayController.h"
+#import "MTSmartBookmark.h"
 
-@interface MTOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate>
-@property (strong) IBOutlet MTFileArrayController *fileArrayController;
-@property (weak) IBOutlet NSTableView *tableView;
-@property (weak) IBOutlet NSOutlineView *bookmarkOutlineView;
+
+@implementation MTSmartBookmark
+
+@dynamic uuid;
+@dynamic name;
+@dynamic predicate;
+@dynamic created;
+
+- (NSString *)displayName {
+    return self.name;
+}
+
+- (NSPredicate *)predicate {
+    return self.predicate;
+}
 
 @end

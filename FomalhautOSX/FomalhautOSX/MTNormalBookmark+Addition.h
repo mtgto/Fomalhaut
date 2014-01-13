@@ -16,12 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import Cocoa;
-#import "MTFileArrayController.h"
+#import "MTNormalBookmark.h"
 
-@interface MTOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate>
-@property (strong) IBOutlet MTFileArrayController *fileArrayController;
-@property (weak) IBOutlet NSTableView *tableView;
-@property (weak) IBOutlet NSOutlineView *bookmarkOutlineView;
+@interface MTNormalBookmark (Addition)
 
 @end

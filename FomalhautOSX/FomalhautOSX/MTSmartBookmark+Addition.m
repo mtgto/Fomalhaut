@@ -16,12 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import Cocoa;
-#import "MTFileArrayController.h"
+#import "MTSmartBookmark+Addition.h"
+#import "MTUUID.h"
 
-@interface MTOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate>
-@property (strong) IBOutlet MTFileArrayController *fileArrayController;
-@property (weak) IBOutlet NSTableView *tableView;
-@property (weak) IBOutlet NSOutlineView *bookmarkOutlineView;
+@implementation MTSmartBookmark (Addition)
+
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    self.uuid = [MTUUID generateUUID];
+    self.created = [NSDate timeIntervalSinceReferenceDate];
+}
 
 @end

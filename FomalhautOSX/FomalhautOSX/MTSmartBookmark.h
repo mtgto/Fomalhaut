@@ -16,12 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import Cocoa;
-#import "MTFileArrayController.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "MTBookmark.h"
 
-@interface MTOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate>
-@property (strong) IBOutlet MTFileArrayController *fileArrayController;
-@property (weak) IBOutlet NSTableView *tableView;
-@property (weak) IBOutlet NSOutlineView *bookmarkOutlineView;
+@interface MTSmartBookmark : NSManagedObject <MTBookmark>
+
+@property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) id predicate;
+@property (nonatomic) NSTimeInterval created;
 
 @end
