@@ -206,10 +206,13 @@ extern NSString *const FILE_TYPE;
     NSInteger row = [self.tableView clickedRow];
     if (row >= 0) {
         if ([[self.tableView selectedRowIndexes] containsIndex:row]) {
-            [self.fileArrayController removeObjectsAtArrangedObjectIndexes:[self.tableView selectedRowIndexes]];
+            for (MTFile *file in [[self.fileArrayController arrangedObjects] objectsAtIndexes:[self.tableView selectedRowIndexes]]) {
+                [file MR_deleteEntity];
+            }
         } else {
-            [self.fileArrayController removeObjectAtArrangedObjectIndex:row];
+            [[self.fileArrayController arrangedObjects][row] MR_deleteEntity];
         }
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     }
 }
 

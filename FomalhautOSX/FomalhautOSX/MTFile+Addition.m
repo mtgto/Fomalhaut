@@ -30,8 +30,10 @@
 - (void)awakeFromFetch {
     [super awakeFromFetch];
     NSURL *url = [self URLForBookmarkData:self.urlBookmark];
-    self.url = [url absoluteString];
-    self.name = [url lastPathComponent];
+    if (url) { // if file is already deleted, url is nil.
+        self.url = [url absoluteString];
+        self.name = [url lastPathComponent];
+    }
 }
 
 + (MTFile *)createEntityWithURL:(NSURL *)url {
