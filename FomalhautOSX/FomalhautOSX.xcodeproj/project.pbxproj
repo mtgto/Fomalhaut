@@ -115,7 +115,6 @@
 		CE67D8B21880E4F40069A3D5 /* MTPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPage.m; sourceTree = "<group>"; };
 		CE67D8B41880E5400069A3D5 /* MTZipEntryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZipEntryPage.h; sourceTree = "<group>"; };
 		CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZipEntryPage.m; sourceTree = "<group>"; };
-		CE67D8B81880FC1E0069A3D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		CE67D8BA188105E20069A3D5 /* MTSpreadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSpreadPage.h; sourceTree = "<group>"; };
 		CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSpreadPage.m; sourceTree = "<group>"; };
 		CE67D8BD188136AC0069A3D5 /* MTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageView.h; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTSmartBookmarkWindowController.xib; sourceTree = "<group>"; };
 		CEE2DC8A188455ED0082D5BB /* MTBookmarkOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkOutlineView.h; sourceTree = "<group>"; };
 		CEE2DC8B188455ED0082D5BB /* MTBookmarkOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkOutlineView.m; sourceTree = "<group>"; };
+		CEE2DC8F18857E8C0082D5BB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D094171245EF432E9B3191B1 /* libPods-FomalhautOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FomalhautOSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -654,7 +654,7 @@
 		CE67D8B71880FC1E0069A3D5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE67D8B81880FC1E0069A3D5 /* Base */,
+				CEE2DC8F18857E8C0082D5BB /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
