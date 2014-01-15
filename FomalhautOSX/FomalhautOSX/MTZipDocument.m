@@ -43,6 +43,9 @@
 
 - (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
 {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[absoluteURL path]]) {
+        return NO;
+    }
     return YES;
 }
 
