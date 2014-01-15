@@ -16,19 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTUnreadColumnFormatter.h"
+#import "MTFileColumnFormatter.h"
+#import "MTFile+Addition.h"
 
-@implementation MTUnreadColumnFormatter
-
-- (NSString *)stringForObjectValue:(id)anObject
-{
-    return [anObject intValue] == 0 ? @"●" : @"";
-}
+@implementation MTFileColumnFormatter
 
 - (NSAttributedString *)attributedStringForObjectValue:(id)anObject withDefaultAttributes:(NSDictionary *)attributes
 {
-    [attributes setValue:[NSColor greenColor] forKey:NSForegroundColorAttributeName];
-    return [[NSAttributedString alloc] initWithString:[self stringForObjectValue:anObject] attributes:attributes];
+    uint16_t state = (uint16_t)[anObject intValue];
+    if (state & MTFileNotExists) {
+        [attributes setValue:[NSColor redColor] forKey:NSForegroundColorAttributeName];
+        return [[NSAttributedString alloc] initWithString:@"⚠" attributes:attributes];
+    } else if (state & MTFileUnread) {
+        [attributes setValue:[NSColor greenColor] forKey:NSForegroundColorAttributeName];
+        return [[NSAttributedString alloc] initWithString:@"●" attributes:attributes];
+    } else {
+        return [[NSAttributedString alloc] initWithString:@""];
+    }
 }
 
 @end

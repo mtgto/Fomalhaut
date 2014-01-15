@@ -18,6 +18,6 @@
 
 @import Foundation;
 
-@interface MTUnreadColumnFormatter : NSFormatter
+@interface MTFileColumnFormatter : NSFormatter
 
 @end

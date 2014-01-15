@@ -18,6 +18,12 @@
 
 #import "MTFile.h"
 
+enum MTFileState {
+    MTFileNormal = 0,
+    MTFileUnread = 1,
+    MTFileNotExists = 2,
+};
+
 @interface MTFile (Addition)
 
 + (MTFile *)createEntityWithURL:(NSURL *)url;

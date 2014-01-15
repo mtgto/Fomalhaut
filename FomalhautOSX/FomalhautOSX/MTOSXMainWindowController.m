@@ -117,12 +117,37 @@ extern NSString *const FILE_TYPE;
 
 - (void)openFile:(MTFile *)file {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL useInternalViewer = [defaults integerForKey:HELPER_INOUT_INT_INDEX] == 0;
-    if (useInternalViewer) {
-        [self openFileWithInternalViewer:file];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[[NSURL URLWithString:file.url] path]]) {
+        file.isLost = YES;
+        NSAlert *alert = [NSAlert alertWithMessageText:nil
+                                         defaultButton:NSLocalizedString(@"TEXT_CHOOSE_FILE", nil)
+                                       alternateButton:NSLocalizedString(@"TEXT_CANCEL", nil)
+                                           otherButton:nil
+                             informativeTextWithFormat:NSLocalizedString(@"ALERT_CHOOSE_DEST_FOR_LOST_FILE_TITLE_FORMAT", nil), file.name];
+        if ([alert runModal] == NSAlertDefaultReturn) {
+            NSOpenPanel *panel = [NSOpenPanel openPanel];
+            [panel setCanChooseDirectories:NO];
+            [panel setAllowsMultipleSelection:NO];
+            // TODO: auto generate or retrive from current application.
+            [panel setAllowedFileTypes:@[@"zip", @"cbz", @"pdf"]];
+            if ([panel runModal] == NSFileHandlingPanelOKButton) {
+                if ([panel.URLs count]) {
+                    NSURL *url = panel.URLs[0];
+                    file.url = [url absoluteString];
+                    file.name = [url lastPathComponent];
+                    file.isLost = NO;
+                }
+            }
+        }
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     } else {
-        NSString *appIdentifier = @[HELPER_VIEWER_APP_ID_MANGAO, HELPER_VIEWER_APP_ID_MANGAO_KAI, HELPER_VIEWER_APP_ID_SIMPLE_COMIC][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
-        [self openFile:file withApplicationIdentifier:appIdentifier];
+        BOOL useInternalViewer = [defaults integerForKey:HELPER_INOUT_INT_INDEX] == 0;
+        if (useInternalViewer) {
+            [self openFileWithInternalViewer:file];
+        } else {
+            NSString *appIdentifier = @[HELPER_VIEWER_APP_ID_MANGAO, HELPER_VIEWER_APP_ID_MANGAO_KAI, HELPER_VIEWER_APP_ID_SIMPLE_COMIC][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
+            [self openFile:file withApplicationIdentifier:appIdentifier];
+        }
     }
 }
 
@@ -132,7 +157,7 @@ extern NSString *const FILE_TYPE;
                                                                  completionHandler:^(NSDocument *document, BOOL documentWasAlreadyOpen, NSError *error) {
                                                                      if (error) {
                                                                          NSAlert *alert = [NSAlert alertWithError:error];
-                                                                         [alert runModal];
+                                                                         [alert performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:YES];
                                                                      } else if (!documentWasAlreadyOpen) {
                                                                          file.readCount++;
                                                                          file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
@@ -148,7 +173,7 @@ extern NSString *const FILE_TYPE;
         file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     } else {
-        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"ALERT_FAIL_TO_OPEN_WITH_EXTERNAL_APP_TITLE", nil) defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+        NSAlert *alert = [NSAlert alertWithMessageText:nil defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"ALERT_FAIL_TO_OPEN_WITH_EXTERNAL_APP_TITLE", nil)];
         [alert runModal];
     }
 }

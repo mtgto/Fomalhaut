@@ -28,7 +28,7 @@
 		CE67D8B91880FC1E0069A3D5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8B71880FC1E0069A3D5 /* MainMenu.xib */; };
 		CE67D8BC188105E20069A3D5 /* MTSpreadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */; };
 		CE67D8BF188136AC0069A3D5 /* MTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8BE188136AC0069A3D5 /* MTImageView.m */; };
-		CE67D8C218823AA00069A3D5 /* MTUnreadColumnFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C118823AA00069A3D5 /* MTUnreadColumnFormatter.m */; };
+		CE67D8C218823AA00069A3D5 /* MTFileColumnFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C118823AA00069A3D5 /* MTFileColumnFormatter.m */; };
 		CE67D8C6188240F00069A3D5 /* MTPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C4188240F00069A3D5 /* MTPDFDocument.m */; };
 		CE67D8CB188241210069A3D5 /* MTZipDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8C9188241210069A3D5 /* MTZipDocument.m */; };
 		CE67D8CE1882430A0069A3D5 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67D8CD1882430A0069A3D5 /* Quartz.framework */; };
@@ -36,7 +36,6 @@
 		CE67D8D31882588F0069A3D5 /* fomalhaut.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8D21882588F0069A3D5 /* fomalhaut.min.js */; };
 		CE67D8D6188261780069A3D5 /* NSImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8D5188261780069A3D5 /* NSImage+Resize.m */; };
 		CE67D8D81882A1070069A3D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8D71882A1070069A3D5 /* Localizable.strings */; };
-		CE67D8EA1882AAA50069A3D5 /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8E91882AAA50069A3D5 /* MTFile.m */; };
 		CE67D8EE1882BAAB0069A3D5 /* MTAcknowledgementWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8EC1882BAAB0069A3D5 /* MTAcknowledgementWindowController.m */; };
 		CE67D8EF1882BAAB0069A3D5 /* MTAcknowledgementWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8ED1882BAAB0069A3D5 /* MTAcknowledgementWindowController.xib */; };
 		CE67D8F11882BCC40069A3D5 /* acknowledgements.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8F01882BCC40069A3D5 /* acknowledgements.rtf */; };
@@ -68,6 +67,7 @@
 		CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97ED1F18841DCC0008DB37 /* MTSmartBookmark.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
+		CECB16601886E91C001B99CC /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB165F1886E91C001B99CC /* MTFile.m */; };
 		CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */; };
 		CEE2DC89188443C20082D5BB /* MTSmartBookmarkWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */; };
 		CEE2DC8C188455ED0082D5BB /* MTBookmarkOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2DC8B188455ED0082D5BB /* MTBookmarkOutlineView.m */; };
@@ -111,6 +111,7 @@
 		CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTOSXMainWindowController.xib; sourceTree = "<group>"; };
+		CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 3.xcdatamodel"; sourceTree = "<group>"; };
 		CE67D8B11880E4F40069A3D5 /* MTPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPage.h; sourceTree = "<group>"; };
 		CE67D8B21880E4F40069A3D5 /* MTPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPage.m; sourceTree = "<group>"; };
 		CE67D8B41880E5400069A3D5 /* MTZipEntryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZipEntryPage.h; sourceTree = "<group>"; };
@@ -119,8 +120,8 @@
 		CE67D8BB188105E20069A3D5 /* MTSpreadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSpreadPage.m; sourceTree = "<group>"; };
 		CE67D8BD188136AC0069A3D5 /* MTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageView.h; sourceTree = "<group>"; };
 		CE67D8BE188136AC0069A3D5 /* MTImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageView.m; sourceTree = "<group>"; };
-		CE67D8C018823AA00069A3D5 /* MTUnreadColumnFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUnreadColumnFormatter.h; sourceTree = "<group>"; };
-		CE67D8C118823AA00069A3D5 /* MTUnreadColumnFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUnreadColumnFormatter.m; sourceTree = "<group>"; };
+		CE67D8C018823AA00069A3D5 /* MTFileColumnFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileColumnFormatter.h; sourceTree = "<group>"; };
+		CE67D8C118823AA00069A3D5 /* MTFileColumnFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileColumnFormatter.m; sourceTree = "<group>"; };
 		CE67D8C3188240F00069A3D5 /* MTPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPDFDocument.h; sourceTree = "<group>"; };
 		CE67D8C4188240F00069A3D5 /* MTPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPDFDocument.m; sourceTree = "<group>"; };
 		CE67D8C8188241210069A3D5 /* MTZipDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZipDocument.h; sourceTree = "<group>"; };
@@ -132,8 +133,6 @@
 		CE67D8D4188261780069A3D5 /* NSImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Resize.h"; sourceTree = "<group>"; };
 		CE67D8D5188261780069A3D5 /* NSImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Resize.m"; sourceTree = "<group>"; };
 		CE67D8D71882A1070069A3D5 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		CE67D8E81882AAA50069A3D5 /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
-		CE67D8E91882AAA50069A3D5 /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CE67D8EB1882BAAB0069A3D5 /* MTAcknowledgementWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAcknowledgementWindowController.h; sourceTree = "<group>"; };
 		CE67D8EC1882BAAB0069A3D5 /* MTAcknowledgementWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAcknowledgementWindowController.m; sourceTree = "<group>"; };
 		CE67D8ED1882BAAB0069A3D5 /* MTAcknowledgementWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTAcknowledgementWindowController.xib; sourceTree = "<group>"; };
@@ -185,6 +184,8 @@
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE9E23731871770E0069BED0 /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
+		CECB165E1886E91C001B99CC /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
+		CECB165F1886E91C001B99CC /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CEE2DC85188443C20082D5BB /* MTSmartBookmarkWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSmartBookmarkWindowController.h; sourceTree = "<group>"; };
 		CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSmartBookmarkWindowController.m; sourceTree = "<group>"; };
 		CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTSmartBookmarkWindowController.xib; sourceTree = "<group>"; };
@@ -290,8 +291,8 @@
 				CEE2DC85188443C20082D5BB /* MTSmartBookmarkWindowController.h */,
 				CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */,
 				CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */,
-				CE67D8E81882AAA50069A3D5 /* MTFile.h */,
-				CE67D8E91882AAA50069A3D5 /* MTFile.m */,
+				CECB165E1886E91C001B99CC /* MTFile.h */,
+				CECB165F1886E91C001B99CC /* MTFile.m */,
 				CE789FA318796F6A005E928E /* MTFile+Addition.h */,
 				CE789FA418796F6A005E928E /* MTFile+Addition.m */,
 				CE9E236F1871565F0069BED0 /* MTFileArrayController.h */,
@@ -325,8 +326,8 @@
 				CE789FC4187C6590005E928E /* MTZeroWidthSplitView.m */,
 				CE67D8BD188136AC0069A3D5 /* MTImageView.h */,
 				CE67D8BE188136AC0069A3D5 /* MTImageView.m */,
-				CE67D8C018823AA00069A3D5 /* MTUnreadColumnFormatter.h */,
-				CE67D8C118823AA00069A3D5 /* MTUnreadColumnFormatter.m */,
+				CE67D8C018823AA00069A3D5 /* MTFileColumnFormatter.h */,
+				CE67D8C118823AA00069A3D5 /* MTFileColumnFormatter.m */,
 				CE67D8F218838F5B0069A3D5 /* MTOutlineBottomBarView.h */,
 				CE67D8F318838F5B0069A3D5 /* MTOutlineBottomBarView.m */,
 				CEE2DC8A188455ED0082D5BB /* MTBookmarkOutlineView.h */,
@@ -341,7 +342,6 @@
 				CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */,
 				CE789F931879287A005E928E /* templates */,
 				CE02E0201870180400094EFD /* Supporting Files */,
-				CE789FCD187EF101005E928E /* static.m */,
 			);
 			path = FomalhautOSX;
 			sourceTree = "<group>";
@@ -354,6 +354,7 @@
 				CE02E0211870180400094EFD /* FomalhautOSX-Info.plist */,
 				CE02E0221870180400094EFD /* InfoPlist.strings */,
 				CE02E0251870180400094EFD /* main.m */,
+				CE789FCD187EF101005E928E /* static.m */,
 				CE02E0271870180400094EFD /* FomalhautOSX-Prefix.pch */,
 				CE02E0281870180400094EFD /* Credits.rtf */,
 				CE67D8D71882A1070069A3D5 /* Localizable.strings */,
@@ -578,10 +579,9 @@
 				CE789FC2187C5422005E928E /* MTBookmarkUnread.m in Sources */,
 				CE67D8BC188105E20069A3D5 /* MTSpreadPage.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */,
-				CE67D8EA1882AAA50069A3D5 /* MTFile.m in Sources */,
 				CE67D8B61880E5400069A3D5 /* MTZipEntryPage.m in Sources */,
 				CE97ED1718841D120008DB37 /* MTSmartBookmark+Addition.m in Sources */,
-				CE67D8C218823AA00069A3D5 /* MTUnreadColumnFormatter.m in Sources */,
+				CE67D8C218823AA00069A3D5 /* MTFileColumnFormatter.m in Sources */,
 				CE97ED1A18841D290008DB37 /* MTNormalBookmark+Addition.m in Sources */,
 				CE02E0261870180400094EFD /* main.m in Sources */,
 				CE789FE61880491F005E928E /* MTBookWindowController.m in Sources */,
@@ -593,6 +593,7 @@
 				CE789FCE187EF101005E928E /* static.m in Sources */,
 				CE67D8F418838F5B0069A3D5 /* MTOutlineBottomBarView.m in Sources */,
 				CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */,
+				CECB16601886E91C001B99CC /* MTFile.m in Sources */,
 				CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */,
 				CE789FE21880450A005E928E /* MTUUID.m in Sources */,
 				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
@@ -837,9 +838,10 @@
 			isa = XCVersionGroup;
 			children = (
 				CE67D8F51884177C0069A3D5 /* MTDocument 2.xcdatamodel */,
+				CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */,
 				CE02E0351870180400094EFD /* MTDocument.xcdatamodel */,
 			);
-			currentVersion = CE67D8F51884177C0069A3D5 /* MTDocument 2.xcdatamodel */;
+			currentVersion = CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */;
 			path = MTDocument.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

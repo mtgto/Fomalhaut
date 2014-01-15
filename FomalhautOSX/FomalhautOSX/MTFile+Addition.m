@@ -21,10 +21,20 @@
 
 @implementation MTFile (Addition)
 
+- (int16_t)getState {
+    int16_t state = MTFileNormal;
+    if (self.readCount == 0)
+        state |= MTFileUnread;
+    if (self.isLost)
+        state |= MTFileNotExists;
+    return state;
+}
+
 - (void)awakeFromInsert {
     [super awakeFromInsert];
     self.uuid = [MTUUID generateUUID];
     self.created = [NSDate timeIntervalSinceReferenceDate];
+    self.state = [self getState];
 }
 
 - (void)awakeFromFetch {
@@ -33,6 +43,7 @@
     if (url) { // if file is already deleted, url is nil.
         self.url = [url absoluteString];
         self.name = [url lastPathComponent];
+        self.state = [self getState];
     }
 }
 

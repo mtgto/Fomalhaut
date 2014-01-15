@@ -8,3 +8,9 @@
 "ALERT_FAIL_TO_OPEN_TITLE" = "Failed to open file.";
 
 "ALERT_FAIL_TO_OPEN_WITH_EXTERNAL_APP_TITLE" = "Failed to open files with external application.";
+
+"ALERT_CHOOSE_DEST_FOR_LOST_FILE_TITLE_FORMAT" = "\"%@\" is not found. Choose the destination.";
+
+"TEXT_CANCEL" = "Cancel";
+
+"TEXT_CHOOSE_FILE" = "Choose a file...";
