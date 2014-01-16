@@ -32,7 +32,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
 	[super drawRect:dirtyRect];
-	[[NSColor colorWithRed:225.0f/255 green:229.0f/255 blue:235.0f/255 alpha:1.0f] set];
+	[[NSColor colorWithSRGBRed:225.0f/255 green:229.0f/255 blue:235.0f/255 alpha:1.0f] set];
     NSRectFill(dirtyRect);
 }
 

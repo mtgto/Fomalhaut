@@ -86,11 +86,11 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Helper" identifier="" id="bCM-HR-QEH">
-                                <view key="view" id="L0U-3D-EDy">
+                                <view key="view" ambiguous="YES" id="L0U-3D-EDy">
                                     <rect key="frame" x="10" y="33" width="434" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gds-AU-WPl">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gds-AU-WPl">
                                             <rect key="frame" x="15" y="188" width="73" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Open with:" id="qPz-d3-QdO">
@@ -99,12 +99,9 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxZ-e2-PrQ">
+                                        <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxZ-e2-PrQ">
                                             <rect key="frame" x="17" y="135" width="400" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="400" id="nrh-WS-DdO"/>
-                                            </constraints>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             <size key="cellSize" width="184" height="18"/>
                                             <size key="intercellSpacing" width="4" height="2"/>
@@ -128,15 +125,12 @@
                                                 <binding destination="AAB-Il-udj" name="selectedIndex" keyPath="values.helper.inout.index" id="Ijt-Ve-0Dt"/>
                                             </connections>
                                         </matrix>
-                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-Jm-YEx">
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-Jm-YEx">
                                             <rect key="frame" x="27" y="103" width="187" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="182" id="Zg6-j1-TIE"/>
-                                            </constraints>
                                             <popUpButtonCell key="cell" type="push" title="Mangao Kai" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="oRB-1o-KBA" id="YtI-Wu-FYF">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="sXE-iE-gDi">
                                                     <items>
                                                         <menuItem title="Mangao" id="F4r-eN-6VF"/>
@@ -152,16 +146,6 @@
                                             </connections>
                                         </popUpButton>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="GxZ-e2-PrQ" firstAttribute="leading" secondItem="gds-AU-WPl" secondAttribute="leading" id="5XW-bZ-uye"/>
-                                        <constraint firstItem="GxZ-e2-PrQ" firstAttribute="top" secondItem="gds-AU-WPl" secondAttribute="bottom" constant="15" id="LMM-UT-Te4"/>
-                                        <constraint firstItem="IUc-Jm-YEx" firstAttribute="top" secondItem="GxZ-e2-PrQ" secondAttribute="bottom" constant="8" id="Pvh-Yr-flu"/>
-                                        <constraint firstItem="gds-AU-WPl" firstAttribute="leading" secondItem="L0U-3D-EDy" secondAttribute="leading" constant="17" id="Q3j-HR-TAd"/>
-                                        <constraint firstItem="IUc-Jm-YEx" firstAttribute="leading" secondItem="L0U-3D-EDy" secondAttribute="leading" constant="29" id="TXH-tX-QZQ"/>
-                                        <constraint firstAttribute="trailing" secondItem="GxZ-e2-PrQ" secondAttribute="trailing" constant="17" id="e9O-od-E1c"/>
-                                        <constraint firstItem="GxZ-e2-PrQ" firstAttribute="top" secondItem="L0U-3D-EDy" secondAttribute="top" constant="35" id="eT3-Be-rIy"/>
-                                        <constraint firstAttribute="bottom" secondItem="GxZ-e2-PrQ" secondAttribute="bottom" constant="135" id="vQe-bo-xkj"/>
-                                    </constraints>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
