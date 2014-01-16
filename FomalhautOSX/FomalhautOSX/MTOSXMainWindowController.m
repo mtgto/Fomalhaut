@@ -26,6 +26,7 @@
 #import "MTNormalBookmark.h"
 #import "MTSmartBookmark.h"
 #import "MTSmartBookmarkWindowController.h"
+#import "MTZeroWidthSplitView.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
@@ -60,6 +61,10 @@ extern NSString *const FILE_TYPE;
 @property (strong) IBOutlet NSMenu *normalBookmarkMenu;
 
 @property (strong) IBOutlet NSMenu *smartBookmarkMenu;
+
+@property (weak) IBOutlet MTZeroWidthSplitView *horizontalSplitView;
+
+@property (weak) IBOutlet NSCollectionView *fileCollectionView;
 
 - (void)openFile:(MTFile *)files;
 
@@ -189,8 +194,10 @@ extern NSString *const FILE_TYPE;
         } else {
             return @[[self.fileArrayController arrangedObjects][row]];
         }
+    } else {
+        return [self.fileArrayController selectedObjects];
     }
-    return [NSArray array];
+
 }
 
 #pragma mark - IBOutlet
@@ -280,6 +287,15 @@ extern NSString *const FILE_TYPE;
         }
     }
 }
+
+- (IBAction)changeFileView:(id)sender {
+    NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
+    if (segmentedControl.selectedSegment == 0)
+        [self.horizontalSplitView setPosition:100000 ofDividerAtIndex:1];
+    else
+        [self.horizontalSplitView setPosition:0 ofDividerAtIndex:1];
+}
+
 
 #pragma mark - NSOutlineViewDataSource
 
@@ -441,5 +457,15 @@ extern NSString *const FILE_TYPE;
     self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"created" ascending:YES];
     [self.bookmarkOutlineView reloadData];
 }
+
+#pragma mark - NSSplitViewDelegate
+
+//- (CGFloat)splitView:(NSSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)dividerIndex {
+//    if (dividerIndex == 1) {
+//        return 0.0;
+//    } else {
+//        return 10000;
+//    }
+//}
 
 @end

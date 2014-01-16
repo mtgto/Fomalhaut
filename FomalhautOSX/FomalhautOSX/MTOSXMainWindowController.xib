@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="bookmarkOutlineView" destination="Jhy-We-zXP" id="N7W-qR-lbJ"/>
                 <outlet property="fileArrayController" destination="yXh-lo-881" id="hXZ-oa-B8P"/>
+                <outlet property="fileCollectionView" destination="sbf-8p-8Lc" id="cgk-Bx-7al"/>
+                <outlet property="horizontalSplitView" destination="R5b-Yy-5EB" id="iXQ-Oe-1XD"/>
                 <outlet property="normalBookmarkMenu" destination="fIi-P6-VSu" id="cOl-p8-EwI"/>
                 <outlet property="smartBookmarkMenu" destination="dQM-M1-Ip4" id="Bjg-SS-gUa"/>
                 <outlet property="smartBookmarkWindowController" destination="bzn-ha-s8q" id="v9e-X0-FB5"/>
@@ -18,7 +20,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Fomalhaut" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" wantsToBeColor="NO" frameAutosaveName="mainWIndow" animationBehavior="default" id="1">
+        <window title="Fomalhaut" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" wantsToBeColor="NO" frameAutosaveName="mainWIndow" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="570" height="397"/>
@@ -119,11 +121,11 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="hGO-VP-nh5">
-                                            <rect key="frame" x="1" y="360" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="329" width="0.0" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="cwR-CS-Mtm">
-                                            <rect key="frame" x="109" y="1" width="16" height="0.0"/>
+                                            <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -166,14 +168,14 @@
                                 </holdingPriorities>
                             </splitView>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jDz-Qw-Ukz">
-                                <rect key="frame" x="160" y="0.0" width="410" height="377"/>
+                                <rect key="frame" x="160" y="0.0" width="407" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="0mj-Dj-hEd">
-                                    <rect key="frame" x="1" y="17" width="408" height="359"/>
+                                    <rect key="frame" x="1" y="17" width="405" height="359"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
-                                            <rect key="frame" x="0.0" y="0.0" width="408" height="359"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="405" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -212,7 +214,7 @@
                                                         <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.name" id="h92-5w-bSK"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn identifier="readCountHeader" editable="NO" width="70" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
+                                                <tableColumn identifier="readCountHeader" editable="NO" width="83" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Read Count">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -248,7 +250,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
-                                    <rect key="frame" x="1" y="360" width="417" height="16"/>
+                                    <rect key="frame" x="1" y="360" width="309" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6IT-2e-HPF">
@@ -256,15 +258,48 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="cOY-3i-pkr">
-                                    <rect key="frame" x="0.0" y="0.0" width="408" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="405" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
+                            </scrollView>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="ghv-JZ-F1s">
+                                <rect key="frame" x="568" y="0.0" width="2" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="qaf-zF-50Y">
+                                    <rect key="frame" x="1" y="1" width="0.0" height="375"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" allowsMultipleSelection="YES" maxNumberOfColumns="100" id="sbf-8p-8Lc">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="375"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="yXh-lo-881" name="content" keyPath="arrangedObjects" id="ORb-32-TUa"/>
+                                                <binding destination="yXh-lo-881" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="ORb-32-TUa" id="siu-Tw-Zqn"/>
+                                                <outlet property="itemPrototype" destination="bKS-hA-yN5" id="oJx-6l-UHY"/>
+                                                <outlet property="menu" destination="F9T-Nh-kpp" id="87R-9k-wdJ"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="FIa-ka-U1m">
+                                    <rect key="frame" x="1" y="360" width="0.0" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="085-I9-avJ">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
                             </scrollView>
                         </subviews>
                         <holdingPriorities>
                             <real value="250"/>
                             <real value="1"/>
+                            <real value="250"/>
                         </holdingPriorities>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="LZT-uH-2T4"/>
+                        </connections>
                     </splitView>
                 </subviews>
                 <constraints>
@@ -300,8 +335,32 @@
                             </connections>
                         </searchField>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="0D7B865D-4C3E-458D-A9A6-FDB4EA596F94" label="File view" paletteLabel="File view" id="BTE-7S-KNR">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="67" height="25"/>
+                        <size key="maxSize" width="104" height="28"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="S7a-ec-UKF">
+                            <rect key="frame" x="0.0" y="14" width="67" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" alignment="left" style="texturedSquare" trackingMode="selectOne" id="zEb-Lr-gDt">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment image="NSListViewTemplate" width="32" selected="YES">
+                                        <nil key="label"/>
+                                    </segment>
+                                    <segment toolTip="Thumbnail" image="NSIconViewTemplate" width="32" tag="1">
+                                        <nil key="label"/>
+                                    </segment>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="changeFileView:" target="-2" id="umy-cz-tby"/>
+                            </connections>
+                        </segmentedControl>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
+                    <toolbarItem reference="BTE-7S-KNR"/>
                     <toolbarItem reference="I2g-R5-Fbz"/>
                     <toolbarItem reference="lxf-55-feh"/>
                 </defaultToolbarItems>
@@ -381,9 +440,67 @@
                 </menuItem>
             </items>
         </menu>
+        <view id="anQ-SP-pf4">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="182"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <box autoresizesSubviews="NO" fixedFrame="YES" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-9w-WR6">
+                    <rect key="frame" x="9" y="25" width="145" height="142"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="142"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1l-iM-VPW">
+                                <rect key="frame" x="9" y="3" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="9Dz-ty-pxw"/>
+                                <connections>
+                                    <binding destination="bKS-hA-yN5" name="value" keyPath="representedObject" id="2vR-hT-dYY">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">MTThumbnailTransformatter</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                    <connections>
+                        <binding destination="bKS-hA-yN5" name="transparent" keyPath="selected" id="hZR-iS-7lU">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </box>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zKn-Vn-lze">
+                    <rect key="frame" x="0.0" y="0.0" width="160" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" title="Label" drawsBackground="YES" id="hyY-nf-Msv">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="bKS-hA-yN5" name="value" keyPath="representedObject.name" id="e65-sk-Doj"/>
+                    </connections>
+                </textField>
+            </subviews>
+        </view>
+        <collectionViewItem id="bKS-hA-yN5">
+            <connections>
+                <outlet property="imageView" destination="l1l-iM-VPW" id="e7b-pH-AIg"/>
+                <outlet property="textField" destination="zKn-Vn-lze" id="Isb-bH-Jwf"/>
+                <outlet property="view" destination="anQ-SP-pf4" id="wXC-29-yxB"/>
+            </connections>
+        </collectionViewItem>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="8" height="8"/>
+        <image name="NSIconViewTemplate" width="11" height="10"/>
+        <image name="NSListViewTemplate" width="11" height="10"/>
     </resources>
 </document>

@@ -67,6 +67,7 @@
 		CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97ED1F18841DCC0008DB37 /* MTSmartBookmark.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
 		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
+		CEACF98418883F1B00211A9D /* MTThumbnailTransformatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACF98318883F1B00211A9D /* MTThumbnailTransformatter.m */; };
 		CECB16601886E91C001B99CC /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB165F1886E91C001B99CC /* MTFile.m */; };
 		CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2DC86188443C20082D5BB /* MTSmartBookmarkWindowController.m */; };
 		CEE2DC89188443C20082D5BB /* MTSmartBookmarkWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE2DC87188443C20082D5BB /* MTSmartBookmarkWindowController.xib */; };
@@ -184,6 +185,8 @@
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
 		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE9E23731871770E0069BED0 /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
+		CEACF98218883F1B00211A9D /* MTThumbnailTransformatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTThumbnailTransformatter.h; sourceTree = "<group>"; };
+		CEACF98318883F1B00211A9D /* MTThumbnailTransformatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTThumbnailTransformatter.m; sourceTree = "<group>"; };
 		CECB165E1886E91C001B99CC /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
 		CECB165F1886E91C001B99CC /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
 		CEE2DC85188443C20082D5BB /* MTSmartBookmarkWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSmartBookmarkWindowController.h; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				CE67D8F318838F5B0069A3D5 /* MTOutlineBottomBarView.m */,
 				CEE2DC8A188455ED0082D5BB /* MTBookmarkOutlineView.h */,
 				CEE2DC8B188455ED0082D5BB /* MTBookmarkOutlineView.m */,
+				CEACF98218883F1B00211A9D /* MTThumbnailTransformatter.h */,
+				CEACF98318883F1B00211A9D /* MTThumbnailTransformatter.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
@@ -590,6 +595,7 @@
 				CE67D8CB188241210069A3D5 /* MTZipDocument.m in Sources */,
 				CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */,
 				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
+				CEACF98418883F1B00211A9D /* MTThumbnailTransformatter.m in Sources */,
 				CE789FCE187EF101005E928E /* static.m in Sources */,
 				CE67D8F418838F5B0069A3D5 /* MTOutlineBottomBarView.m in Sources */,
 				CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */,
