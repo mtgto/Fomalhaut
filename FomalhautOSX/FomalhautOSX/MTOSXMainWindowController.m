@@ -65,7 +65,11 @@ extern NSString *const FILE_TYPE;
 
 @property (strong) IBOutlet NSMenu *smartBookmarkMenu;
 
-@property (weak) IBOutlet MTZeroWidthSplitView *horizontalSplitView;
+@property (weak) IBOutlet NSClipView *mainClipView;
+
+@property (strong) IBOutlet IKImageBrowserView *thumbnailBrowserView;
+
+@property (weak) IBOutlet NSTableHeaderView *tableHeaderView;
 
 - (void)openFile:(MTFile *)files;
 
@@ -93,6 +97,7 @@ extern NSString *const FILE_TYPE;
 {
     [super windowDidLoad];
     [self.fileArrayController setManagedObjectContext:[NSManagedObjectContext MR_defaultContext]];
+    [self.mainClipView setDocumentView:self.tableView];
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
     [self.bookmarkOutlineView registerForDraggedTypes:@[FILE_TYPE]];
@@ -294,10 +299,16 @@ extern NSString *const FILE_TYPE;
 
 - (IBAction)changeFileView:(id)sender {
     NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
-    if (segmentedControl.selectedSegment == 0)
-        [self.horizontalSplitView setPosition:100000 ofDividerAtIndex:1];
-    else
-        [self.horizontalSplitView setPosition:0 ofDividerAtIndex:1];
+    if (segmentedControl.selectedSegment == 0) {
+        [self.mainClipView setDocumentView:self.tableView];
+        [self.tableHeaderView setHidden:NO];
+        [self.tableView scrollRowToVisible:0];
+    } else {
+        [self.tableHeaderView setHidden:YES];
+        [self.mainClipView setDocumentView:self.thumbnailBrowserView];
+        [self.thumbnailBrowserView scrollIndexToVisible:0];
+    }
+    [self.mainClipView setNeedsDisplayInRect:[self.mainClipView frame]];
 }
 
 
