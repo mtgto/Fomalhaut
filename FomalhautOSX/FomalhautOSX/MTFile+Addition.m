@@ -18,6 +18,7 @@
 
 #import "MTFile+Addition.h"
 #import "MTUUID.h"
+@import Quartz;
 
 @implementation MTFile (Addition)
 
@@ -84,6 +85,32 @@
         DDLogInfo(@"bookmarkIsStale. %@", bookmarkURL);
     }
     return bookmarkURL;
+}
+
+#pragma mark - IKImageBrowserItem
+
+- (NSString *)imageUID {
+    return self.uuid;
+}
+
+- (NSString *)imageRepresentationType {
+    if (self.thumbnailData) {
+        return IKImageBrowserNSDataRepresentationType;
+    } else {
+        return IKImageBrowserIconRefPathRepresentationType;
+    }
+}
+
+- (id)imageRepresentation {
+    if (self.thumbnailData) {
+        return self.thumbnailData;
+    } else {
+        return [[NSURL URLWithString:self.url] path];
+    }
+}
+
+- (NSString *)imageTitle {
+    return self.name;
 }
 
 @end

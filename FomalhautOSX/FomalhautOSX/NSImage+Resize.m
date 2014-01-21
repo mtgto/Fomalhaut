@@ -23,9 +23,9 @@
 - (NSImage *)resize:(CGSize)size {
     NSImage *image = [[NSImage alloc] initWithSize:size];
 
-    NSSize  oldSize = [self size];
-    NSRect  sourceRect = NSMakeRect(0, 0, oldSize.width, oldSize.height);
-    NSRect  destRect = NSMakeRect(0, 0, size.width, size.height);
+    NSSize oldSize = [self size];
+    NSRect sourceRect = NSMakeRect(0, 0, oldSize.width, oldSize.height);
+    NSRect destRect = NSMakeRect(0, 0, size.width, size.height);
 
     [image lockFocus];
     [self drawInRect:destRect fromRect:sourceRect operation:NSCompositeCopy fraction:1.0];

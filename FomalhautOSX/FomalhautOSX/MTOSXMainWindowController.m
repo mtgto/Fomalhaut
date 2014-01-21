@@ -27,6 +27,7 @@
 #import "MTSmartBookmark.h"
 #import "MTSmartBookmarkWindowController.h"
 #import "MTZeroWidthSplitView.h"
+@import Quartz;
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
@@ -58,13 +59,13 @@ extern NSString *const FILE_TYPE;
 
 @property (nonatomic, strong) NSArray *smartBookmarks;
 
+@property (strong) IBOutlet NSMenu *fileMenu;
+
 @property (strong) IBOutlet NSMenu *normalBookmarkMenu;
 
 @property (strong) IBOutlet NSMenu *smartBookmarkMenu;
 
 @property (weak) IBOutlet MTZeroWidthSplitView *horizontalSplitView;
-
-@property (weak) IBOutlet NSCollectionView *fileCollectionView;
 
 - (void)openFile:(MTFile *)files;
 
@@ -164,6 +165,9 @@ extern NSString *const FILE_TYPE;
                                                                          NSAlert *alert = [NSAlert alertWithError:error];
                                                                          [alert performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:YES];
                                                                      } else if (!documentWasAlreadyOpen) {
+                                                                         if (!file.thumbnailData && [(MTDocument *)document numberOfPages]) {
+                                                                             file.thumbnailData = [(MTDocument *)document dataOfIndex:0 withSize:CGSizeMake(128, 128)];
+                                                                         }
                                                                          file.readCount++;
                                                                          file.lastOpened = [NSDate timeIntervalSinceReferenceDate];
                                                                          [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
@@ -456,6 +460,17 @@ extern NSString *const FILE_TYPE;
     self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"created" ascending:YES];
     self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"created" ascending:YES];
     [self.bookmarkOutlineView reloadData];
+}
+
+#pragma mark - IKImageBrowserDelegate (informally defined)
+
+- (void)imageBrowser:(IKImageBrowserView *)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index {
+    MTFile *file = [self.fileArrayController arrangedObjects][index];
+    [self openFile:file];
+}
+
+- (void)imageBrowser:(IKImageBrowserView *)aBrowser cellWasRightClickedAtIndex:(NSUInteger)index withEvent:(NSEvent *)event {
+    [NSMenu popUpContextMenu:self.fileMenu withEvent:event forView:aBrowser];
 }
 
 #pragma mark - NSSplitViewDelegate

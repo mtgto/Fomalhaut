@@ -24,7 +24,7 @@ enum MTFileState {
     MTFileNotExists = 2,
 };
 
-@interface MTFile (Addition)
+@interface MTFile (Addition) 
 
 + (MTFile *)createEntityWithURL:(NSURL *)url;
 

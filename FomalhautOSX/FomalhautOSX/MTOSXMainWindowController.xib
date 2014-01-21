@@ -3,13 +3,14 @@
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.imagekit.ibplugin" version="3338"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MTOSXMainWindowController">
             <connections>
                 <outlet property="bookmarkOutlineView" destination="Jhy-We-zXP" id="N7W-qR-lbJ"/>
                 <outlet property="fileArrayController" destination="yXh-lo-881" id="hXZ-oa-B8P"/>
-                <outlet property="fileCollectionView" destination="sbf-8p-8Lc" id="cgk-Bx-7al"/>
+                <outlet property="fileMenu" destination="F9T-Nh-kpp" id="f7g-36-8WV"/>
                 <outlet property="horizontalSplitView" destination="R5b-Yy-5EB" id="iXQ-Oe-1XD"/>
                 <outlet property="normalBookmarkMenu" destination="fIi-P6-VSu" id="cOl-p8-EwI"/>
                 <outlet property="smartBookmarkMenu" destination="dQM-M1-Ip4" id="Bjg-SS-gUa"/>
@@ -168,14 +169,14 @@
                                 </holdingPriorities>
                             </splitView>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jDz-Qw-Ukz">
-                                <rect key="frame" x="160" y="0.0" width="407" height="377"/>
+                                <rect key="frame" x="160" y="0.0" width="409" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="0mj-Dj-hEd">
-                                    <rect key="frame" x="1" y="17" width="405" height="359"/>
+                                    <rect key="frame" x="1" y="17" width="407" height="359"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
-                                            <rect key="frame" x="0.0" y="0.0" width="405" height="359"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="407" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,7 +215,7 @@
                                                         <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.name" id="h92-5w-bSK"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn identifier="readCountHeader" editable="NO" width="83" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
+                                                <tableColumn identifier="readCountHeader" editable="NO" width="85" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Read Count">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -250,7 +251,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
-                                    <rect key="frame" x="1" y="360" width="309" height="16"/>
+                                    <rect key="frame" x="1" y="360" width="194" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6IT-2e-HPF">
@@ -258,39 +259,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="cOY-3i-pkr">
-                                    <rect key="frame" x="0.0" y="0.0" width="405" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="407" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="ghv-JZ-F1s">
-                                <rect key="frame" x="568" y="0.0" width="2" height="377"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" id="qaf-zF-50Y">
-                                    <rect key="frame" x="1" y="1" width="0.0" height="375"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <collectionView selectable="YES" allowsMultipleSelection="YES" maxNumberOfColumns="100" id="sbf-8p-8Lc">
-                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="375"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <connections>
-                                                <binding destination="yXh-lo-881" name="content" keyPath="arrangedObjects" id="ORb-32-TUa"/>
-                                                <binding destination="yXh-lo-881" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="ORb-32-TUa" id="siu-Tw-Zqn"/>
-                                                <outlet property="itemPrototype" destination="bKS-hA-yN5" id="oJx-6l-UHY"/>
-                                                <outlet property="menu" destination="F9T-Nh-kpp" id="87R-9k-wdJ"/>
-                                            </connections>
-                                        </collectionView>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="FIa-ka-U1m">
-                                    <rect key="frame" x="1" y="360" width="0.0" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="085-I9-avJ">
-                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
+                            <ikImageBrowserView autoresizesSubviews="NO" fixedFrame="YES" zoomValue="nan" id="HnP-eR-A8v">
+                                <rect key="frame" x="570" y="0.0" width="0.0" height="377"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <ikCellsStyle key="cellsStyleMask" none="YES" shadowed="YES" outlined="YES" titled="YES"/>
+                                <autoresizingMask key="contentResizingMask" heightSizable="YES"/>
+                                <size key="cellSize" width="100" height="100"/>
+                                <connections>
+                                    <binding destination="yXh-lo-881" name="content" keyPath="arrangedObjects" id="84a-l5-FaZ"/>
+                                    <binding destination="yXh-lo-881" name="selectionIndexes" keyPath="selectionIndexes" id="7X6-Wr-tmp"/>
+                                    <outlet property="delegate" destination="-2" id="NYY-Gf-DIS"/>
+                                </connections>
+                            </ikImageBrowserView>
                         </subviews>
                         <holdingPriorities>
                             <real value="250"/>
@@ -313,14 +297,14 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ljC-bW-19Z"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="I2g-R5-Fbz"/>
-                    <toolbarItem implicitItemIdentifier="6E6BC834-69E8-4BBE-995E-8DE7DB5517A6" label="" paletteLabel="Search" id="lxf-55-feh">
+                    <toolbarItem implicitItemIdentifier="6E6BC834-69E8-4BBE-995E-8DE7DB5517A6" label="" paletteLabel="Filter" id="lxf-55-feh">
                         <nil key="toolTip"/>
                         <size key="minSize" width="96" height="22"/>
                         <size key="maxSize" width="96" height="22"/>
                         <searchField key="view" verticalHuggingPriority="750" id="Se3-kz-AVw">
                             <rect key="frame" x="0.0" y="14" width="96" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search" usesSingleLineMode="YES" bezelStyle="round" id="FwZ-zd-H7d">
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" id="FwZ-zd-H7d">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -371,7 +355,7 @@
         </window>
         <arrayController mode="entity" entityName="MTFile" fetchPredicateFormat="" automaticallyPreparesContent="YES" id="yXh-lo-881" userLabel="FileArrayController" customClass="MTFileArrayController"/>
         <customObject id="bzn-ha-s8q" customClass="MTSmartBookmarkWindowController"/>
-        <menu id="F9T-Nh-kpp">
+        <menu title="FileMenu" id="F9T-Nh-kpp">
             <items>
                 <menuItem title="Open" id="QAV-hY-2Lh">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -444,7 +428,7 @@
             <rect key="frame" x="0.0" y="0.0" width="160" height="182"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <box autoresizesSubviews="NO" fixedFrame="YES" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-9w-WR6">
+                <box autoresizesSubviews="NO" focusRingType="none" fixedFrame="YES" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-9w-WR6">
                     <rect key="frame" x="9" y="25" width="145" height="142"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -452,9 +436,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1l-iM-VPW">
-                                <rect key="frame" x="9" y="3" width="128" height="128"/>
+                                <rect key="frame" x="6" y="0.0" width="134" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="9Dz-ty-pxw"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="photo" id="9Dz-ty-pxw"/>
                                 <connections>
                                     <binding destination="bKS-hA-yN5" name="value" keyPath="representedObject" id="2vR-hT-dYY">
                                         <dictionary key="options">
