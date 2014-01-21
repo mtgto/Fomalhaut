@@ -349,7 +349,9 @@
             <connections>
                 <binding destination="yXh-lo-881" name="content" keyPath="arrangedObjects" id="UEa-Lq-p3F"/>
                 <binding destination="yXh-lo-881" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="UEa-Lq-p3F" id="D7s-6Q-IBx"/>
+                <outlet property="dataSource" destination="yXh-lo-881" id="gL6-rN-Dgf"/>
                 <outlet property="delegate" destination="-2" id="fc5-jf-mZi"/>
+                <outlet property="dragDestinationDelegate" destination="yXh-lo-881" id="AiK-dN-sO8"/>
             </connections>
         </ikImageBrowserView>
         <scrollView autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jDz-Qw-Ukz">

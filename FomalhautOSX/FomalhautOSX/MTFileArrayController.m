@@ -20,33 +20,44 @@
 #import "NSArray+Function.h"
 #import "MTFile.h"
 #import "MTFile+Addition.h"
+@import Quartz;
 
 extern NSString *const FILE_TYPE;
 
 @interface MTFileArrayController()
 
-@property (nonatomic, strong) NSSet *availableFileExtensions;
++ (NSSet *)availableFileExtensions;
 
 @end
 
 @implementation MTFileArrayController
+
++ (NSSet *)availableFileExtensions {
+    static NSSet *_shared;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _shared = [NSSet setWithObjects:@"zip", @"cbz", @"pdf", nil];
+    });
+
+    return _shared;
+}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
     return [self.content count];
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id < NSDraggingInfo >)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation {
+    if (operation == NSTableViewDropOn) {
+        // you can drop between rows only (cannot drop on the row).
+        return NO;
+    }
     NSPasteboard *pasteboard = [info draggingPasteboard];
     if ([[pasteboard types] containsObject:NSFilenamesPboardType]) {
-        if (!self.availableFileExtensions) {
-            // TODO: auto generate or retrive from current application.
-            self.availableFileExtensions = [NSSet setWithObjects:@"zip", @"cbz", @"pdf", nil];
-        }
         NSDictionary *options = @{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)};
         NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] withFilterBlock:^BOOL(id obj) {
             NSURL *fileURL = (NSURL *)obj;
             NSString *pathExtension = [[fileURL pathExtension] lowercaseString];
-            if (![self.availableFileExtensions containsObject:pathExtension]) {
+            if (![[MTFileArrayController availableFileExtensions] containsObject:pathExtension]) {
                 return NO;
             }
             if ([MTFile MR_findFirstByAttribute:@"url" withValue:[fileURL absoluteString]]) {
@@ -65,6 +76,10 @@ extern NSString *const FILE_TYPE;
 }
 
 - (NSDragOperation)tableView:(NSTableView *)aTableView validateDrop:(id < NSDraggingInfo >)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation {
+    if (operation == NSTableViewDropOn) {
+        // you can drop between rows only (cannot drop on the row).
+        return NSDragOperationNone;
+    }
     if ([[[info draggingPasteboard] types] containsObject:NSFilenamesPboardType]) {
         NSArray *files = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
         return NSDragOperationCopy;
@@ -82,6 +97,60 @@ extern NSString *const FILE_TYPE;
     [pboard declareTypes:@[FILE_TYPE] owner:self];
     [pboard setData:data forType:FILE_TYPE];
     return YES;
+}
+
+- (NSUInteger)imageBrowser:(IKImageBrowserView *)aBrowser writeItemsAtIndexes:(NSIndexSet *)itemIndexes toPasteboard:(NSPasteboard *)pasteboard {
+    NSMutableSet *uuidSet = [NSMutableSet setWithCapacity:[itemIndexes count]];
+    [itemIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        MTFile *file = [self arrangedObjects][idx];
+        [uuidSet addObject:file.uuid];
+    }];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:uuidSet];
+    [pasteboard declareTypes:@[FILE_TYPE] owner:self];
+    [pasteboard setData:data forType:FILE_TYPE];
+    return [uuidSet count];
+}
+
+#pragma mark - NSDraggingDestination
+
+/* Drag'n drop support, accept any kind of drop */
+- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
+{
+    if ([[[sender draggingPasteboard] types] containsObject:NSFilenamesPboardType]) {
+        NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
+        return NSDragOperationCopy;
+    }
+    return NSDragOperationNone;
+}
+
+- (NSDragOperation)draggingUpdated:(id <NSDraggingInfo>)sender
+{
+    return NSDragOperationCopy;
+}
+
+- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
+{
+    NSPasteboard *pasteboard = [sender draggingPasteboard];
+    if ([[pasteboard types] containsObject:NSFilenamesPboardType]) {
+        NSDictionary *options = @{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)};
+        NSArray *files = [[pasteboard readObjectsForClasses:@[[NSURL class]] options:options] withFilterBlock:^BOOL(id obj) {
+            NSURL *fileURL = (NSURL *)obj;
+            NSString *pathExtension = [[fileURL pathExtension] lowercaseString];
+            if (![[MTFileArrayController availableFileExtensions] containsObject:pathExtension]) {
+                return NO;
+            }
+            if ([MTFile MR_findFirstByAttribute:@"url" withValue:[fileURL absoluteString]]) {
+                return NO;
+            }
+            return YES;
+        } mapBlock:^id(id obj) {
+            NSURL *fileURL = (NSURL *)obj;
+            return [MTFile createEntityWithURL:fileURL];
+        }];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
+        return YES;
+    }
+    return NO;
 }
 
 @end

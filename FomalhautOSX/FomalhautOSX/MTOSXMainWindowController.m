@@ -17,7 +17,7 @@
  */
 
 #import "MTOSXMainWindowController.h"
-#import "MTFile.h"
+#import "MTFile+Addition.h"
 #import "MTDocument.h"
 #import "MTBookmark.h"
 #import "MTBookmarkAll.h"
@@ -100,6 +100,7 @@ extern NSString *const FILE_TYPE;
     [self.mainClipView setDocumentView:self.tableView];
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
+    [self.thumbnailBrowserView registerForDraggedTypes:@[FILE_TYPE]];
     [self.bookmarkOutlineView registerForDraggedTypes:@[FILE_TYPE]];
     self.bookmarkOutlineView.smartBookmarkMenu = self.smartBookmarkMenu;
     self.bookmarkOutlineView.normalBookmarkMenu = self.normalBookmarkMenu;
@@ -467,9 +468,9 @@ extern NSString *const FILE_TYPE;
 #pragma mark - Notification
 
 - (void)managedObjectChanged:(NSNotification *)notification {
-    DDLogInfo(@"managedObjectChanged: %@", [notification userInfo]);
-    self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"created" ascending:YES];
-    self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"created" ascending:YES];
+    DDLogDebug(@"managedObjectChanged: %@", [notification userInfo]);
+    self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"name" ascending:YES];
+    self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"name" ascending:YES];
     [self.bookmarkOutlineView reloadData];
 }
 
