@@ -353,6 +353,7 @@ extern NSString *const FILE_TYPE;
             [fileSet addObject:[MTFile MR_findFirstByAttribute:@"uuid" withValue:obj]];
         }];
         [bookmark addEntries:fileSet];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
         return YES;
     }
     return NO;
