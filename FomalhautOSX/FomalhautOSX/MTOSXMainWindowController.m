@@ -83,8 +83,8 @@ extern NSString *const FILE_TYPE;
     if (self) {
         self.topLevelItems = @[@"Library", @"Bookmarks"];
         self.fixedBookmarks = @[[MTBookmarkAll sharedInstance], [MTBookmarkUnread sharedInstance]];
-        self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"created" ascending:YES];
-        self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"created" ascending:YES];
+        self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"name" ascending:YES];
+        self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"name" ascending:YES];
     }
     return self;
 }

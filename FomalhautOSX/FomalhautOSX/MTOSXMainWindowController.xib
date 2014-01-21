@@ -169,14 +169,14 @@
                                 </holdingPriorities>
                             </splitView>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jDz-Qw-Ukz">
-                                <rect key="frame" x="160" y="0.0" width="409" height="377"/>
+                                <rect key="frame" x="160" y="0.0" width="407" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="0mj-Dj-hEd">
-                                    <rect key="frame" x="1" y="17" width="407" height="359"/>
+                                    <rect key="frame" x="1" y="17" width="405" height="359"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
-                                            <rect key="frame" x="0.0" y="0.0" width="407" height="359"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="405" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -215,7 +215,7 @@
                                                         <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.name" id="h92-5w-bSK"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn identifier="readCountHeader" editable="NO" width="85" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
+                                                <tableColumn identifier="readCountHeader" editable="NO" width="83" minWidth="10" maxWidth="3.4028234663852886e+38" id="nrJ-sY-gG7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Read Count">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -251,7 +251,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6GW-cE-HSz">
-                                    <rect key="frame" x="1" y="360" width="194" height="16"/>
+                                    <rect key="frame" x="1" y="360" width="221" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6IT-2e-HPF">
@@ -259,22 +259,39 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="cOY-3i-pkr">
-                                    <rect key="frame" x="0.0" y="0.0" width="407" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="405" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <ikImageBrowserView autoresizesSubviews="NO" fixedFrame="YES" zoomValue="nan" id="HnP-eR-A8v">
-                                <rect key="frame" x="570" y="0.0" width="0.0" height="377"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <ikCellsStyle key="cellsStyleMask" none="YES" shadowed="YES" outlined="YES" titled="YES"/>
-                                <autoresizingMask key="contentResizingMask" heightSizable="YES"/>
-                                <size key="cellSize" width="100" height="100"/>
-                                <connections>
-                                    <binding destination="yXh-lo-881" name="content" keyPath="arrangedObjects" id="84a-l5-FaZ"/>
-                                    <binding destination="yXh-lo-881" name="selectionIndexes" keyPath="selectionIndexes" id="7X6-Wr-tmp"/>
-                                    <outlet property="delegate" destination="-2" id="NYY-Gf-DIS"/>
-                                </connections>
-                            </ikImageBrowserView>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="120" horizontalPageScroll="10" verticalLineScroll="120" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="YLs-g4-2MF">
+                                <rect key="frame" x="568" y="0.0" width="2" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" copiesOnScroll="NO" id="EBp-7H-TFI">
+                                    <rect key="frame" x="1" y="1" width="0.0" height="375"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <ikImageBrowserView autoresizesSubviews="NO" fixedFrame="YES" zoomValue="nan" translatesAutoresizingMaskIntoConstraints="NO" id="HnP-eR-A8v">
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <ikCellsStyle key="cellsStyleMask" none="YES" shadowed="YES" titled="YES"/>
+                                            <autoresizingMask key="contentResizingMask" heightSizable="YES"/>
+                                            <size key="cellSize" width="100" height="100"/>
+                                            <connections>
+                                                <binding destination="yXh-lo-881" name="content" keyPath="arrangedObjects" id="84a-l5-FaZ"/>
+                                                <binding destination="yXh-lo-881" name="selectionIndexes" keyPath="selectionIndexes" id="7X6-Wr-tmp"/>
+                                                <outlet property="delegate" destination="-2" id="NYY-Gf-DIS"/>
+                                            </connections>
+                                        </ikImageBrowserView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="zbQ-Hd-CEY">
+                                    <rect key="frame" x="1" y="360" width="0.0" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="XHN-rr-0cZ">
+                                    <rect key="frame" x="-15" y="1" width="16" height="375"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <holdingPriorities>
                             <real value="250"/>
@@ -424,62 +441,6 @@
                 </menuItem>
             </items>
         </menu>
-        <view id="anQ-SP-pf4">
-            <rect key="frame" x="0.0" y="0.0" width="160" height="182"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <subviews>
-                <box autoresizesSubviews="NO" focusRingType="none" fixedFrame="YES" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-9w-WR6">
-                    <rect key="frame" x="9" y="25" width="145" height="142"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <view key="contentView">
-                        <rect key="frame" x="0.0" y="0.0" width="145" height="142"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1l-iM-VPW">
-                                <rect key="frame" x="6" y="0.0" width="134" height="134"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="photo" id="9Dz-ty-pxw"/>
-                                <connections>
-                                    <binding destination="bKS-hA-yN5" name="value" keyPath="representedObject" id="2vR-hT-dYY">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">MTThumbnailTransformatter</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </imageView>
-                        </subviews>
-                    </view>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
-                    <connections>
-                        <binding destination="bKS-hA-yN5" name="transparent" keyPath="selected" id="hZR-iS-7lU">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </box>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zKn-Vn-lze">
-                    <rect key="frame" x="0.0" y="0.0" width="160" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" title="Label" drawsBackground="YES" id="hyY-nf-Msv">
-                        <font key="font" metaFont="cellTitle"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="bKS-hA-yN5" name="value" keyPath="representedObject.name" id="e65-sk-Doj"/>
-                    </connections>
-                </textField>
-            </subviews>
-        </view>
-        <collectionViewItem id="bKS-hA-yN5">
-            <connections>
-                <outlet property="imageView" destination="l1l-iM-VPW" id="e7b-pH-AIg"/>
-                <outlet property="textField" destination="zKn-Vn-lze" id="Isb-bH-Jwf"/>
-                <outlet property="view" destination="anQ-SP-pf4" id="wXC-29-yxB"/>
-            </connections>
-        </collectionViewItem>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

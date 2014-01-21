@@ -4,7 +4,7 @@
         <attribute name="created" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="isLost" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="lastOpened" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="name" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
         <attribute name="readCount" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="state" transient="YES" attributeType="Integer 16" defaultValueString="NO" syncable="YES"/>
         <attribute name="thumbnailData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>

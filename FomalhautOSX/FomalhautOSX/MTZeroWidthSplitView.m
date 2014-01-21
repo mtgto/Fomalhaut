@@ -22,6 +22,5 @@
 
 - (CGFloat)dividerThickness { return 0.0; }
 
-- (NSColor *)dividerColor { return [NSColor redColor]; }
-
+- (void)drawDividerInRect:(NSRect)aRect { }
 @end
