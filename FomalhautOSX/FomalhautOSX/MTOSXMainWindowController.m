@@ -69,7 +69,7 @@ extern NSString *const FILE_TYPE;
 
 @property (strong) IBOutlet IKImageBrowserView *thumbnailBrowserView;
 
-@property (weak) IBOutlet NSTableHeaderView *tableHeaderView;
+@property (strong) IBOutlet NSTableHeaderView *tableHeaderView;
 
 - (void)openFile:(MTFile *)files;
 
@@ -302,10 +302,10 @@ extern NSString *const FILE_TYPE;
     NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
     if (segmentedControl.selectedSegment == 0) {
         [self.mainClipView setDocumentView:self.tableView];
-        [self.tableHeaderView setHidden:NO];
+        [self.tableView setHeaderView:self.tableHeaderView];
         [self.tableView scrollRowToVisible:0];
     } else {
-        [self.tableHeaderView setHidden:YES];
+        [self.tableView setHeaderView:nil];
         [self.mainClipView setDocumentView:self.thumbnailBrowserView];
         [self.thumbnailBrowserView scrollIndexToVisible:0];
     }
