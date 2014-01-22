@@ -38,7 +38,7 @@ extern NSString *const HELPER_VIEWER_APP_ID_MANGAO;
 extern NSString *const HELPER_VIEWER_APP_ID_MANGAO_KAI;
 extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 extern NSString *const FILE_TYPE;
-
+extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
 
 @interface MTOSXMainWindowController ()
 @property (strong) IBOutlet NSTreeController *bookmarkTreeController;
@@ -96,8 +96,14 @@ extern NSString *const FILE_TYPE;
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.fileArrayController setManagedObjectContext:[NSManagedObjectContext MR_defaultContext]];
-    [self.mainClipView setDocumentView:self.tableView];
+    if ([defaults integerForKey:FILE_VIEW_TYPE_CONFIG_KEY] == 0) {
+        [self.mainClipView setDocumentView:self.tableView];
+    } else {
+        [self.tableView setHeaderView:nil];
+        [self.mainClipView setDocumentView:self.thumbnailBrowserView];
+    }
     [self.tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self.tableView setDraggingSourceOperationMask:NSDragOperationAll forLocal:NO];
     [self.thumbnailBrowserView registerForDraggedTypes:@[FILE_TYPE]];
@@ -473,6 +479,7 @@ extern NSString *const FILE_TYPE;
     self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"name" ascending:YES];
     self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"name" ascending:YES];
     [self.bookmarkOutlineView reloadData];
+    [self.thumbnailBrowserView reloadData];
 }
 
 #pragma mark - IKImageBrowserDelegate (informally defined)
