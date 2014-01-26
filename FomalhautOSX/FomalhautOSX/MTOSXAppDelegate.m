@@ -63,6 +63,14 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+    if (!flag) {
+        [self.mainWindowController showWindow:self];
+    }
+    return NO;
+}
+
 - (IBAction)toggleServer:(id)sender {
     NSMenuItem *item = (NSMenuItem *)sender;
     if (item.state == NSOnState) {
@@ -83,5 +91,9 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
 - (IBAction)showAcknowledgements:(id)sender {
     self.acknowledgementWindowController = [[MTAcknowledgementWindowController alloc] initWithWindowNibName:@"MTAcknowledgementWindowController"];
     [self.acknowledgementWindowController showWindow:self];
+}
+
+- (IBAction)showMainWindow:(id)sender {
+    [self.mainWindowController showWindow:self];
 }
 @end

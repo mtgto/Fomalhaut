@@ -89,6 +89,7 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
         self.fixedBookmarks = @[[MTBookmarkAll sharedInstance], [MTBookmarkUnread sharedInstance]];
         self.normalBookmarks = [MTNormalBookmark MR_findAllSortedBy:@"name" ascending:YES];
         self.smartBookmarks = [MTSmartBookmark MR_findAllSortedBy:@"name" ascending:YES];
+        [self.window setExcludedFromWindowsMenu:YES];
     }
     return self;
 }
@@ -119,6 +120,7 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
                                              selector:@selector(managedObjectChanged:)
                                                  name:NSManagedObjectContextObjectsDidChangeNotification
                                                object:nil];
+    [self.window setExcludedFromWindowsMenu:YES];
 }
 
 - (void)dealloc {
