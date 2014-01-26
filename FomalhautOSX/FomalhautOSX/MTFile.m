@@ -28,10 +28,11 @@
 @dynamic name;
 @dynamic readCount;
 @dynamic state;
+@dynamic thumbnailData;
 @dynamic url;
 @dynamic urlBookmark;
 @dynamic uuid;
-@dynamic thumbnailData;
+@dynamic memo;
 @dynamic bookmarks;
 
 @end

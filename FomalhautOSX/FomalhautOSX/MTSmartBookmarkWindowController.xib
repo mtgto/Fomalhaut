@@ -86,9 +86,9 @@
                                             </array>
                                             <integer key="rightExpressionObject" value="700"/>
                                             <popUpMenus>
-                                                <menu id="e7o-Nk-vJl">
+                                                <menu id="SpB-wL-WS3">
                                                     <items>
-                                                        <menuItem title="name" state="on" id="qXJ-LJ-CTm">
+                                                        <menuItem title="name" state="on" id="84O-Rk-TUp">
                                                             <expression key="representedObject" type="keyPath">
                                                                 <string key="keyPath">name</string>
                                                             </expression>
@@ -172,6 +172,44 @@
                                                         </menuItem>
                                                         <menuItem title="is greater than or equal to" id="Ocm-5f-iAy">
                                                             <integer key="representedObject" value="3"/>
+                                                        </menuItem>
+                                                    </items>
+                                                </menu>
+                                            </popUpMenus>
+                                        </predicateEditorRowTemplate>
+                                        <predicateEditorRowTemplate rowType="simple" id="wUs-j7-XJP">
+                                            <array key="leftExpressionObject">
+                                                <expression type="keyPath">
+                                                    <string key="keyPath">memo</string>
+                                                </expression>
+                                            </array>
+                                            <integer key="rightExpressionObject" value="700"/>
+                                            <popUpMenus>
+                                                <menu id="7c2-CT-QID">
+                                                    <items>
+                                                        <menuItem title="memo" state="on" id="IlL-yG-OcN">
+                                                            <expression key="representedObject" type="keyPath">
+                                                                <string key="keyPath">memo</string>
+                                                            </expression>
+                                                        </menuItem>
+                                                    </items>
+                                                </menu>
+                                                <menu id="P5l-cl-DTE">
+                                                    <items>
+                                                        <menuItem title="contains" state="on" id="9jq-5W-46S">
+                                                            <integer key="representedObject" value="99"/>
+                                                        </menuItem>
+                                                        <menuItem title="begins with" id="DSn-l9-zbt">
+                                                            <integer key="representedObject" value="8"/>
+                                                        </menuItem>
+                                                        <menuItem title="ends with" id="psq-dE-1T8">
+                                                            <integer key="representedObject" value="9"/>
+                                                        </menuItem>
+                                                        <menuItem title="is" id="v74-E0-ZBD">
+                                                            <integer key="representedObject" value="4"/>
+                                                        </menuItem>
+                                                        <menuItem title="is not" id="Uys-MB-xgt">
+                                                            <integer key="representedObject" value="5"/>
                                                         </menuItem>
                                                     </items>
                                                 </menu>

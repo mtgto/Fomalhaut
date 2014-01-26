@@ -146,7 +146,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="P5M-cZ-krO">
-                                    <rect key="frame" x="410" y="1" width="16" height="375"/>
+                                    <rect key="frame" x="411" y="1" width="15" height="375"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -346,7 +346,7 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveName="mainTable" rowHeight="16" headerView="cOY-3i-pkr" id="mdr-kY-Wug">
-                        <rect key="frame" x="0.0" y="0.0" width="332" height="126"/>
+                        <rect key="frame" x="0.0" y="0.0" width="399" height="126"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <size key="intercellSpacing" width="3" height="2"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -401,6 +401,22 @@
                                     <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.readCount" id="qhC-GU-eZA"/>
                                 </connections>
                             </tableColumn>
+                            <tableColumn identifier="memoHeader" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="5vp-ai-nhj">
+                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Memo">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                </tableHeaderCell>
+                                <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="7C8-3Z-aaq">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                <connections>
+                                    <binding destination="yXh-lo-881" name="value" keyPath="arrangedObjects.memo" id="L3C-R4-Ip2"/>
+                                </connections>
+                            </tableColumn>
                         </tableColumns>
                         <connections>
                             <binding destination="yXh-lo-881" name="doubleClickArgument" keyPath="selectedObjects" id="5Gu-St-a4a">
@@ -429,7 +445,7 @@
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
             <tableHeaderView key="headerView" id="cOY-3i-pkr">
-                <rect key="frame" x="0.0" y="0.0" width="332" height="17"/>
+                <rect key="frame" x="0.0" y="0.0" width="399" height="17"/>
                 <autoresizingMask key="autoresizingMask"/>
             </tableHeaderView>
         </scrollView>

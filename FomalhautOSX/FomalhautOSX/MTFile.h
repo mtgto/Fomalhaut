@@ -29,10 +29,11 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int16_t readCount;
 @property (nonatomic) int16_t state;
+@property (nonatomic, retain) NSData * thumbnailData;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSData * urlBookmark;
 @property (nonatomic, retain) NSString * uuid;
-@property (nonatomic, retain) NSData * thumbnailData;
+@property (nonatomic, retain) NSString * memo;
 @property (nonatomic, retain) NSSet *bookmarks;
 @end
 
