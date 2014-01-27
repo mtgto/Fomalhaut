@@ -61,6 +61,8 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    [MagicalRecord cleanUp];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
