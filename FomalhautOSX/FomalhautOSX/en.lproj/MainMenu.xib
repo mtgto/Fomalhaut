@@ -14,10 +14,10 @@
         </customObject>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
-                <menuItem title="FomalhautOSX" id="56">
-                    <menu key="submenu" title="FomalhautOSX" systemMenu="apple" id="57">
+                <menuItem title="Fomalhaut" id="56">
+                    <menu key="submenu" title="Fomalhaut" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About FomalhautOSX" id="58">
+                            <menuItem title="About Fomalhaut" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
@@ -46,7 +46,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide FomalhautOSX" keyEquivalent="h" id="134">
+                            <menuItem title="Hide Fomalhaut" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
@@ -65,7 +65,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit FomalhautOSX" keyEquivalent="q" id="136">
+                            <menuItem title="Quit Fomalhaut" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-3" id="448"/>
                                 </connections>
@@ -654,7 +654,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="492">
                         <items>
-                            <menuItem title="FomalhautOSX Help" keyEquivalent="?" id="493">
+                            <menuItem title="Fomalhaut Help" keyEquivalent="?" id="493">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="494"/>
                                 </connections>
