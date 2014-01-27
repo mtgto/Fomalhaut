@@ -9,6 +9,8 @@
 
 "ALERT_FAIL_TO_OPEN_WITH_EXTERNAL_APP_TITLE" = "Failed to open files with external application.";
 
+"ALERT_FAIL_TO_START_WEB_SERVER_TITLE" = "Failed to start web server.";
+
 "ALERT_CHOOSE_DEST_FOR_LOST_FILE_TITLE_FORMAT" = "\"%@\" is not found. Choose the destination.";
 
 "TEXT_CANCEL" = "Cancel";

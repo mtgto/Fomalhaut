@@ -20,7 +20,7 @@
 
 @interface MTWebServer : NSObject
 
-- (void)start:(UInt16)port;
+- (BOOL)start:(UInt16)port error:(NSError *__autoreleasing*)error;
 
 - (void)stop;
 

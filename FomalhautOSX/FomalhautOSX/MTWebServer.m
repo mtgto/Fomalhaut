@@ -143,9 +143,9 @@
     return self;
 }
 
-- (void)start:(UInt16)port {
+- (BOOL)start:(UInt16)port error:(NSError *__autoreleasing*)error {
     [self.server setPort:port];
-    [self.server start:nil];
+    return [self.server start:error];
 }
 
 - (void)stop {

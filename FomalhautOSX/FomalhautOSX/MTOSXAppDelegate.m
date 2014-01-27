@@ -85,7 +85,15 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
 - (void)startServer {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UInt16 port = (UInt16)[defaults integerForKey:SERVER_INT_PORT_CONFIG_KEY];
-    [self.server start:port];
+    NSError *error = nil;
+    if (![self.server start:port error:&error]) {
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"ALERT_FAIL_TO_START_WEB_SERVER_TITLE", nil)
+                                         defaultButton:nil
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@"%@", [error localizedDescription]];
+        [alert runModal];
+    }
 }
 
 - (IBAction)showAcknowledgements:(id)sender {
