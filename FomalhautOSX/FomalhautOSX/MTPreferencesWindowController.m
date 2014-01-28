@@ -17,12 +17,20 @@
  */
 
 #import "MTPreferencesWindowController.h"
+#import "MTHelpersController.h"
+#import "MTHelper.h"
+#import "NSArray+Function.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
+extern NSString *const HELPER_TYPE;
+extern NSString *const FILE_VIEW_HELPER_CONFIG_KEY;
 
 @interface MTPreferencesWindowController ()
+
+@property (strong) IBOutlet MTHelpersController *helpersController;
+@property (weak) IBOutlet NSTableView *helperTableView;
 
 @end
 
@@ -36,8 +44,12 @@ extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+
+    [self.helperTableView registerForDraggedTypes:@[NSFilenamesPboardType, HELPER_TYPE]];
+    NSArray *helpers = [[[[NSUserDefaultsController sharedUserDefaultsController] values] valueForKey:FILE_VIEW_HELPER_CONFIG_KEY] mapWithBlocks:^id(id obj) {
+        return [[MTHelper alloc] initWithApplicationIdentifier:obj];
+    }];
+    [self.helpersController setContent:[NSMutableArray arrayWithArray:helpers]];
 }
 
 @end

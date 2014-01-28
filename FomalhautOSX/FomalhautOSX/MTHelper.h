@@ -16,13 +16,16 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import Cocoa;
-#import "MTFileArrayController.h"
-#import "MTBookmarkOutlineView.h"
+@import Foundation;
 
-@interface MTOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSMenuDelegate>
-@property (strong) IBOutlet MTFileArrayController *fileArrayController;
-@property (weak) IBOutlet NSTableView *tableView;
-@property (weak) IBOutlet MTBookmarkOutlineView *bookmarkOutlineView;
+@interface MTHelper : NSObject
+
+@property (nonatomic, readonly, strong) NSString *name;
+
+@property (nonatomic, readonly, strong) NSImage *image;
+
+@property (nonatomic, readonly, strong) NSString *applicationIdentifier;
+
+- (id)initWithApplicationIdentifier:(NSString *)applicationIdentifier;
 
 @end

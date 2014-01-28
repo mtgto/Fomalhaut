@@ -28,17 +28,16 @@
 #import "MTSmartBookmarkWindowController.h"
 #import "MTZeroWidthSplitView.h"
 @import Quartz;
+#import "MTHelper.h"
 
 extern NSString *const SERVER_INT_PORT_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_HTTPS_CONFIG_KEY;
 extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 extern NSString *const HELPER_INOUT_INT_INDEX;
 extern NSString *const HELPER_VIEWER_INT_INDEX;
-extern NSString *const HELPER_VIEWER_APP_ID_MANGAO;
-extern NSString *const HELPER_VIEWER_APP_ID_MANGAO_KAI;
-extern NSString *const HELPER_VIEWER_APP_ID_SIMPLE_COMIC;
 extern NSString *const FILE_TYPE;
 extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
+extern NSString *const FILE_VIEW_HELPER_CONFIG_KEY;
 
 @interface MTOSXMainWindowController ()
 @property (strong) IBOutlet NSTreeController *bookmarkTreeController;
@@ -60,6 +59,8 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
 @property (nonatomic, strong) NSArray *smartBookmarks;
 
 @property (strong) IBOutlet NSMenu *fileMenu;
+
+@property (weak) IBOutlet NSMenuItem *helpersMenuItem;
 
 @property (strong) IBOutlet NSMenu *normalBookmarkMenu;
 
@@ -162,11 +163,17 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     } else {
         BOOL useInternalViewer = [defaults integerForKey:HELPER_INOUT_INT_INDEX] == 0;
-        if (useInternalViewer) {
-            [self openFileWithInternalViewer:file];
+        NSString *helperApplicationIdentifier = nil;
+        if (!useInternalViewer) {
+            NSArray *helperApplicationIdenfiers = [[[NSUserDefaultsController sharedUserDefaultsController] values] valueForKey:FILE_VIEW_HELPER_CONFIG_KEY];
+            if ([helperApplicationIdenfiers count]) {
+                helperApplicationIdentifier = helperApplicationIdenfiers[0];
+            }
+        }
+        if (helperApplicationIdentifier) {
+            [self openFile:file withApplicationIdentifier:helperApplicationIdentifier];
         } else {
-            NSString *appIdentifier = @[HELPER_VIEWER_APP_ID_MANGAO, HELPER_VIEWER_APP_ID_MANGAO_KAI, HELPER_VIEWER_APP_ID_SIMPLE_COMIC][[defaults integerForKey:HELPER_VIEWER_INT_INDEX]];
-            [self openFile:file withApplicationIdentifier:appIdentifier];
+            [self openFileWithInternalViewer:file];
         }
     }
 }
@@ -226,24 +233,11 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
     }
 }
 
-- (IBAction)openWithMangao:(id)sender {
+- (void)openWithHelper:(id)sender {
     NSArray *files = [self clickedItems];
-    if ([files count]) {
-        [self openFile:files[0] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO];
-    }
-}
-
-- (IBAction)openWithMangaoKai:(id)sender {
-    NSArray *files = [self clickedItems];
-    if ([files count]) {
-        [self openFile:files[0] withApplicationIdentifier:HELPER_VIEWER_APP_ID_MANGAO_KAI];
-    }
-}
-
-- (IBAction)openWithSimpleComic:(id)sender {
-    NSArray *files = [self clickedItems];
-    if ([files count]) {
-        [self openFile:files[0] withApplicationIdentifier:HELPER_VIEWER_APP_ID_SIMPLE_COMIC];
+    NSString *applicationIdentifier = [sender representedObject];
+    if ([files count] && applicationIdentifier) {
+        [self openFile:files[0] withApplicationIdentifier:applicationIdentifier];
     }
 }
 
@@ -504,5 +498,25 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
 //        return 10000;
 //    }
 //}
+
+#pragma mark - NSMenuDelegate
+
+// update for file menu
+- (void)menuNeedsUpdate:(NSMenu *)menu {
+    NSMenu *helpers = [[NSMenu alloc] init];
+    NSArray *helperApplicationIdenfiers = [[[NSUserDefaultsController sharedUserDefaultsController] values] valueForKey:FILE_VIEW_HELPER_CONFIG_KEY];
+    if ([helperApplicationIdenfiers count]) {
+        for (NSString *identifier in helperApplicationIdenfiers) {
+            MTHelper *helper = [[MTHelper alloc] initWithApplicationIdentifier:identifier];
+            NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:helper.name action:@selector(openWithHelper:) keyEquivalent:@""];
+            [item setRepresentedObject:identifier];
+            [helpers addItem:item];
+        }
+        [self.helpersMenuItem setEnabled:YES];
+    } else {
+        [self.helpersMenuItem setEnabled:NO];
+    }
+    [self.helpersMenuItem setSubmenu:helpers];
+}
 
 @end

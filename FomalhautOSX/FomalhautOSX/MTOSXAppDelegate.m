@@ -26,6 +26,7 @@ extern NSString *const SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY;
 extern NSString *const HELPER_INOUT_INT_INDEX;
 extern NSString *const HELPER_VIEWER_INT_INDEX;
 extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
+extern NSString *const FILE_VIEW_HELPER_CONFIG_KEY;
 
 @interface MTOSXAppDelegate()
 @property (strong) MTOSXMainWindowController *mainWindowController;
@@ -44,7 +45,8 @@ extern NSString *const FILE_VIEW_TYPE_CONFIG_KEY;
                                  SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY: @(NO),
                                  HELPER_INOUT_INT_INDEX: @(0),
                                  HELPER_VIEWER_INT_INDEX: @(0),
-                                 FILE_VIEW_TYPE_CONFIG_KEY: @(0)}];
+                                 FILE_VIEW_TYPE_CONFIG_KEY: @(0),
+                                 FILE_VIEW_HELPER_CONFIG_KEY: @[]}];
     if ([defaults boolForKey:SERVER_BOOL_START_ON_LAUNCH_CONFIG_KEY]) {
         self.startServerMenuItem.state = NSOnState;
         [self startServer];

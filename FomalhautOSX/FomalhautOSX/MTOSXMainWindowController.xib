@@ -11,6 +11,7 @@
                 <outlet property="bookmarkOutlineView" destination="Jhy-We-zXP" id="N7W-qR-lbJ"/>
                 <outlet property="fileArrayController" destination="yXh-lo-881" id="hXZ-oa-B8P"/>
                 <outlet property="fileMenu" destination="F9T-Nh-kpp" id="f7g-36-8WV"/>
+                <outlet property="helpersMenuItem" destination="pgP-Ip-4xj" id="CQA-bg-GLa"/>
                 <outlet property="mainClipView" destination="ujX-g8-IPa" id="t5X-1q-jk8"/>
                 <outlet property="normalBookmarkMenu" destination="fIi-P6-VSu" id="cOl-p8-EwI"/>
                 <outlet property="smartBookmarkMenu" destination="dQM-M1-Ip4" id="Bjg-SS-gUa"/>
@@ -265,28 +266,6 @@
                 </menuItem>
                 <menuItem title="Open with..." id="pgP-Ip-4xj">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Open with..." id="xMC-CW-knU">
-                        <items>
-                            <menuItem title="Mangao" id="YZ5-pl-8Fx">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="openWithMangao:" target="-2" id="Wb0-Qk-cX0"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Mangao Kai" id="2QH-WP-iFx">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="openWithMangaoKai:" target="-2" id="K1w-PX-1oE"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Simple Comic" id="cX1-JB-Bn7">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="openWithSimpleComic:" target="-2" id="327-5J-cPj"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="ZY4-fE-wCJ"/>
                 <menuItem title="Delete" id="yQy-xk-OgU">
@@ -296,6 +275,9 @@
                     </connections>
                 </menuItem>
             </items>
+            <connections>
+                <outlet property="delegate" destination="-2" id="R2H-dE-bWc"/>
+            </connections>
         </menu>
         <menu title="SmartBookmarkMenu" id="dQM-M1-Ip4">
             <items>
