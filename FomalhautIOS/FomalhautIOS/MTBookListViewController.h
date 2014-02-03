@@ -18,8 +18,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface MTBookListViewController : UITableViewController
 
 @end

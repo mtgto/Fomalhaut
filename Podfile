@@ -8,7 +8,8 @@ pod 'CocoaLumberjack', '~> 1.7.0'
 target 'FomalhautIOS', :exclusive => false do
   platform :ios, '6.0'
   xcodeproj 'FomalhautIOS/FomalhautIOS.xcodeproj'
-  pod 'AFNetworking', '~> 2.0.3'
+  pod 'AFNetworking', '~> 2.1.0'
+  pod 'CXPhotoBrowser', '~> 1.1.1'
 end
 
 target 'FomalhautOSX', :exclusive => false do

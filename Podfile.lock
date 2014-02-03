@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.0.3):
+  - AFNetworking (2.1.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.3):
+  - AFNetworking/NSURLConnection (2.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.3):
+  - AFNetworking/NSURLSession (2.1.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.0.3)
-  - AFNetworking/Security (2.0.3)
-  - AFNetworking/Serialization (2.0.3)
-  - AFNetworking/UIKit (2.0.3):
+  - AFNetworking/Reachability (2.1.0)
+  - AFNetworking/Security (2.1.0)
+  - AFNetworking/Serialization (2.1.0)
+  - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
-  - CocoaAsyncSocket (7.3.3)
+  - CocoaAsyncSocket (7.3.4)
   - CocoaHTTPServer (2.3):
     - CocoaAsyncSocket
     - CocoaLumberjack
@@ -27,7 +27,8 @@ PODS:
   - CocoaLumberjack/Core (1.7.0)
   - CocoaLumberjack/Extensions (1.7.0):
     - CocoaLumberjack/Core
-  - GRMustache (6.8.3):
+  - CXPhotoBrowser (1.1.1)
+  - GRMustache (6.8.4):
     - JRSwizzle (~> 1.0)
   - JRSwizzle (1.0)
   - MagicalRecord (2.2)
@@ -36,19 +37,21 @@ PODS:
   - zipzap (5.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0.3)
+  - AFNetworking (~> 2.1.0)
   - CocoaLumberjack (~> 1.7.0)
+  - CXPhotoBrowser (~> 1.1.1)
   - GRMustache (~> 6.8.3)
   - MagicalRecord (~> 2.2)
   - RoutingHTTPServer (~> 1.0.0)
   - zipzap (~> 5.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
-  CocoaAsyncSocket: 50a73b79fb77f0dbb57cdc5c247c8f19e9cb3b33
+  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  CocoaAsyncSocket: 534d09416f992fd51efb23f534742ce70b3a7999
   CocoaHTTPServer: 7c2fce6617f7fda0e3f4fc34f96e562caa7c7bd8
   CocoaLumberjack: be87113f649942f020a37c061c58009b6ee5ff68
-  GRMustache: 90fc77ae45a5b8b5a4cf13874cae811461a1c930
+  CXPhotoBrowser: a0644b58f96af876b4275bad62786183d3e7e11e
+  GRMustache: 7b2520d67b6373484c8b2c08b9788af90a461d61
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
   RoutingHTTPServer: 7436429cb81c560b55557a830d51367f3107d9cc
