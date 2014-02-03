@@ -29,10 +29,17 @@ NSString *const API_ERROR_MESSAGE_KEY = @"message";
 
 NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
 
+NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
+
 @interface MTWebServer()
 
 @property (strong) RoutingHTTPServer *server;
 @property (strong) MTDocument *selectedDocument;
+@property (strong) NSDateFormatter *dateFormatter;
+
+- (NSSortDescriptor *)sortDescriptorByRequest:(RouteRequest *)request;
+
+- (NSDictionary *)dictionaryWithMTFile:(MTFile *)file;
 
 @end
 
@@ -40,6 +47,7 @@ NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
 
 - (id)init {
     if (self = [super init]) {
+        self.dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
         self.server = [[RoutingHTTPServer alloc] init];
         [self.server setDefaultHeader:@"Server" value:@"Fomalhaut/1.0"];
         [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
@@ -148,21 +156,20 @@ NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
         }];
         [self.server get:@"/api/v1/bookmarks" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
             NSArray *normalBookmarks = [[MTNormalBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
                 MTNormalBookmark *bookmark = (MTNormalBookmark *)obj;
                 NSDate *created = [NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created];
                 return @{@"uuid": bookmark.uuid,
                          @"name": bookmark.name,
                          @"type": @"normal",
-                         @"created": [dateFormatter stringFromDate:created]};
+                         @"created": [self.dateFormatter stringFromDate:created]};
             }];
             NSArray *smartBookmarks = [[MTSmartBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
                 MTSmartBookmark *bookmark = (MTSmartBookmark *)obj;
                 return @{@"uuid": bookmark.uuid,
                          @"name": bookmark.name,
                          @"type": @"smart",
-                         @"created": [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created]]};
+                         @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created]]};
             }];
             NSError *error = nil;
             [response respondWithData:[NSJSONSerialization dataWithJSONObject:[normalBookmarks arrayByAddingObjectsFromArray:smartBookmarks]
@@ -171,31 +178,29 @@ NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
         }];
         [self.server get:@"/api/v1/bookmarks/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
             NSString *uuid = [request param:@"uuid"];
+            NSSortDescriptor *sortDescriptor = [self sortDescriptorByRequest:request];
+            if (!sortDescriptor) {
+                [response setStatusCode:400];
+                [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_INVALID_PARAM} options:0 error:nil]];
+                return;
+            }
             NSArray *files = nil;
             NSString *name = nil;
             MTNormalBookmark *normalBookmark = [MTNormalBookmark MR_findFirstByAttribute:@"uuid" withValue:uuid];
             if (normalBookmark) {
-                files = [normalBookmark entriesSortedByCreated];
+                files = [[normalBookmark entries] sortedArrayUsingDescriptors:@[sortDescriptor]];
                 name = normalBookmark.name;
             } else {
                 MTSmartBookmark *smartBookmark = [MTSmartBookmark MR_findFirstByAttribute:@"uuid" withValue:uuid];
                 if (smartBookmark) {
-                    files = [MTFile MR_findAllSortedBy:@"created" ascending:YES withPredicate:smartBookmark.predicate];
+                    files = [MTFile MR_findAllSortedBy:sortDescriptor.key ascending:sortDescriptor.ascending withPredicate:smartBookmark.predicate];
                     name = smartBookmark.name;
                 }
             }
             if (files) {
                 files = [files mapWithBlocks:^id(id obj) {
-                    MTFile *file = (MTFile *)obj;
-                    return @{@"uuid": file.uuid,
-                             @"name": file.name,
-                             @"readCount": @(file.readCount),
-                             @"isLost": @(file.isLost),
-                             @"memo": file.memo,
-                             @"lastOpened": [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.lastOpened]],
-                             @"created": [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.created]]};
+                    return [self dictionaryWithMTFile:(MTFile *)obj];
                 }];
                 NSDictionary *dic = @{@"uuid": uuid,
                                       @"name": name,
@@ -206,6 +211,20 @@ NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
                 [response setStatusCode:404];
                 [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_NOT_FOUND} options:0 error:nil]];
             }
+        }];
+        [self.server get:@"/api/v1/books/all" withBlock:^(RouteRequest *request, RouteResponse *response) {
+            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+            NSSortDescriptor *sortDescriptor = [self sortDescriptorByRequest:request];
+            if (!sortDescriptor) {
+                [response setStatusCode:400];
+                [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_INVALID_PARAM} options:0 error:nil]];
+                return;
+            }
+            NSArray *files = [[MTFile MR_findAllSortedBy:sortDescriptor.key ascending:sortDescriptor.ascending] mapWithBlocks:^id(id obj) {
+                return [self dictionaryWithMTFile:(MTFile *)obj];
+            }];
+            NSError *error = nil;
+            [response respondWithData:[NSJSONSerialization dataWithJSONObject:files options:0 error:&error]];
         }];
         [self.server get:@"/api/v1/books/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
@@ -256,19 +275,8 @@ NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
             NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
             self.selectedDocument = [documentController makeDocumentWithContentsOfURL:fileURL ofType:[documentController typeForContentsOfURL:fileURL error:nil] error:nil];
             CGSize screenSize = CGSizeZero;
-            NSString *requestCookieHeader = [request header:@"Cookie"];
-            if (requestCookieHeader) {
-                NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:@{@"Set-Cookie": [request header:@"Cookie"]} forURL:[request url]];
-                for (NSHTTPCookie *cookie in cookies) {
-                    if ([[cookie name] isEqualToString:@"screen"]) {
-                        NSArray *components = [[[cookie value] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
-                        if ([components count] == 2) {
-                            screenSize = CGSizeMake([components[0] floatValue], [components[1] floatValue]);
-                        }
-                        break;
-                    }
-                }
-            }
+            screenSize.width = [[request param:@"width"] intValue];
+            screenSize.height = [[request param:@"height"] intValue];
             NSData *data;
             if (screenSize.width > 0 && screenSize.height > 0) {
                 data = [self.selectedDocument dataOfIndex:index withSize:screenSize];
@@ -284,6 +292,40 @@ NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
         }];
     }
     return self;
+}
+
+- (NSSortDescriptor *)sortDescriptorByRequest:(RouteRequest *)request {
+    NSString *sort = [request param:@"sort"];
+    if (!sort) {
+        sort = @"name";
+    } else {
+        sort = @{@"name": @"name", @"read_count": @"readCount", @"last_opened": @"lastOpened", @"created": @"created"}[sort];
+    }
+    if (!sort) {
+        DDLogInfo(@"Invalid sort parameter is selected: %@", [request param:@"sort"]);
+        return nil;
+    }
+    NSString *direction = [request param:@"direction"];
+    BOOL isAsc;
+    if (!direction || [direction isEqualToString:@"asc"]) {
+        isAsc = YES;
+    } else if ([direction isEqualToString:@"desc"]) {
+        isAsc = NO;
+    } else {
+        DDLogInfo(@"Invalid sort direction is selected: %@", direction);
+        return nil;
+    }
+    return [NSSortDescriptor sortDescriptorWithKey:sort ascending:isAsc];
+}
+
+- (NSDictionary *)dictionaryWithMTFile:(MTFile *)file {
+    return @{@"uuid": file.uuid,
+             @"name": file.name,
+             @"readCount": @(file.readCount),
+             @"isLost": @(file.isLost),
+             @"memo": file.memo ? file.memo : [NSNull null],
+             @"lastOpened": file.lastOpened ? [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.lastOpened]] : [NSNull null],
+             @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.created]]};
 }
 
 - (BOOL)start:(UInt16)port error:(NSError *__autoreleasing*)error {

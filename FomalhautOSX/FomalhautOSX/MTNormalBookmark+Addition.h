@@ -20,6 +20,4 @@
 
 @interface MTNormalBookmark (Addition)
 
-- (NSArray *)entriesSortedByCreated;
-
 @end

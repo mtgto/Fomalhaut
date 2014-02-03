@@ -29,18 +29,4 @@
     self.created = [NSDate timeIntervalSinceReferenceDate];
 }
 
-- (NSArray *)entriesSortedByCreated {
-    return [[[self entries] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        MTFile *file1 = (MTFile *)obj1;
-        MTFile *file2 = (MTFile *)obj2;
-        if (file1.lastOpened < file2.lastOpened) {
-            return NSOrderedAscending;
-        } else if (file1.lastOpened > file2.lastOpened) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
-}
-
 @end
