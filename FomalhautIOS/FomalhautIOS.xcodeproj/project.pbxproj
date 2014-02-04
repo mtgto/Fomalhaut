@@ -26,6 +26,11 @@
 		CE4D3D04189FEE0E0033040D /* MTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D03189FEE0E0033040D /* MTLoginViewController.m */; };
 		CE4D3D07189FF5B30033040D /* MTBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D06189FF5B30033040D /* MTBookListViewController.m */; };
 		CE4D3D0A189FF6D80033040D /* MTFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D09189FF6D80033040D /* MTFileViewController.m */; };
+		CE4D3D0D18A075C80033040D /* MTBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D0C18A075C80033040D /* MTBookmark.m */; };
+		CE4D3D1518A07A630033040D /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D1418A07A630033040D /* NSArray+Function.m */; };
+		CEACBC4118A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4018A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m */; };
+		CEACBC4318A1B457008A3FA1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEACBC4218A1B457008A3FA1 /* Localizable.strings */; };
+		CEACBC4518A1B822008A3FA1 /* static.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4418A1B822008A3FA1 /* static.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,14 @@
 		CE4D3D06189FF5B30033040D /* MTBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookListViewController.m; sourceTree = "<group>"; };
 		CE4D3D08189FF6D80033040D /* MTFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileViewController.h; sourceTree = "<group>"; };
 		CE4D3D09189FF6D80033040D /* MTFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileViewController.m; sourceTree = "<group>"; };
+		CE4D3D0B18A075C80033040D /* MTBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmark.h; sourceTree = "<group>"; };
+		CE4D3D0C18A075C80033040D /* MTBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmark.m; sourceTree = "<group>"; };
+		CE4D3D1318A07A630033040D /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
+		CE4D3D1418A07A630033040D /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
+		CEACBC3F18A149B9008A3FA1 /* MTBookmarkListResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkListResponseSerializer.h; sourceTree = "<group>"; };
+		CEACBC4018A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkListResponseSerializer.m; sourceTree = "<group>"; };
+		CEACBC4218A1B457008A3FA1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CEACBC4418A1B822008A3FA1 /* static.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = static.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				CE02E0651870185100094EFD /* FomalhautIOS */,
+				CE4D3D1218A07A4B0033040D /* Shared */,
 				CE02E0871870185100094EFD /* FomalhautIOSTests */,
 				CE02E05E1870185100094EFD /* Frameworks */,
 				CE02E05D1870185100094EFD /* Products */,
@@ -141,6 +155,10 @@
 				CE4D3D06189FF5B30033040D /* MTBookListViewController.m */,
 				CE4D3D08189FF6D80033040D /* MTFileViewController.h */,
 				CE4D3D09189FF6D80033040D /* MTFileViewController.m */,
+				CE4D3D0B18A075C80033040D /* MTBookmark.h */,
+				CE4D3D0C18A075C80033040D /* MTBookmark.m */,
+				CEACBC3F18A149B9008A3FA1 /* MTBookmarkListResponseSerializer.h */,
+				CEACBC4018A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m */,
 				CE02E07A1870185100094EFD /* Images.xcassets */,
 				CE02E0661870185100094EFD /* Supporting Files */,
 			);
@@ -153,7 +171,9 @@
 				CE02E0671870185100094EFD /* FomalhautIOS-Info.plist */,
 				CE02E0681870185100094EFD /* InfoPlist.strings */,
 				CE02E06B1870185100094EFD /* main.m */,
+				CEACBC4418A1B822008A3FA1 /* static.m */,
 				CE02E06D1870185100094EFD /* FomalhautIOS-Prefix.pch */,
+				CEACBC4218A1B457008A3FA1 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -175,6 +195,16 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		CE4D3D1218A07A4B0033040D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CE4D3D1318A07A630033040D /* NSArray+Function.h */,
+				CE4D3D1418A07A630033040D /* NSArray+Function.m */,
+			);
+			name = Shared;
+			path = ../Shared;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -255,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEACBC4318A1B457008A3FA1 /* Localizable.strings in Resources */,
 				CE02E0761870185100094EFD /* Main_iPad.storyboard in Resources */,
 				CE02E07B1870185100094EFD /* Images.xcassets in Resources */,
 				CE02E0731870185100094EFD /* Main_iPhone.storyboard in Resources */,
@@ -315,7 +346,11 @@
 				CE4D3D01189FEDCC0033040D /* MTBookmarkViewController.m in Sources */,
 				CE4D3D04189FEE0E0033040D /* MTLoginViewController.m in Sources */,
 				CE4D3D07189FF5B30033040D /* MTBookListViewController.m in Sources */,
+				CEACBC4118A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m in Sources */,
 				CE4D3D0A189FF6D80033040D /* MTFileViewController.m in Sources */,
+				CEACBC4518A1B822008A3FA1 /* static.m in Sources */,
+				CE4D3D1518A07A630033040D /* NSArray+Function.m in Sources */,
+				CE4D3D0D18A075C80033040D /* MTBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

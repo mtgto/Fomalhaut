@@ -17,8 +17,14 @@
  */
 
 #import "MTBookmarkViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import "NSArray+Function.h"
+#import "MTBookmark.h"
+#import "MTBookmarkListResponseSerializer.h"
 
 @interface MTBookmarkViewController ()
+
+@property (nonatomic, strong) NSArray *bookmarks;
 
 @end
 
@@ -42,6 +48,22 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.title = @"Bookmarks";
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [MTBookmarkListResponseSerializer serializer];
+    [manager GET:@"http://localhost:25491/api/v1/bookmarks"
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             self.bookmarks = responseObject;
+             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSString *message = [[NSArray arrayWithObjects:[error localizedFailureReason], [error localizedRecoverySuggestion], nil] componentsJoinedByString:@"\n"];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+         }
+     ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,24 +76,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.bookmarks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"BookmarkCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.text = ((MTBookmark *)self.bookmarks[indexPath.row]).name;
     
     return cell;
 }
