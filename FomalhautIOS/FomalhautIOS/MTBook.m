@@ -16,10 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-"ALERT_ERROR_UNKNOWN_TITLE" = "Unknown error";
+#import "MTBook.h"
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOKMARK_LIST_MESSAGE_FORMAT" = "An error occurred while retrieving a list of bookmarks: %@";
+@interface MTBook()
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOK_LIST_MESSAGE_FORMAT" = "An error occurred while retrieving a list of books: %@";
+@property (nonatomic, strong) NSUUID *uuid;
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOK_MESSAGE_FORMAT" = "An error occurred while retrieving a book: %@";
+@property (nonatomic, copy) NSString *name;
+
+@end
+
+@implementation MTBook
+
++ (MTBook *)bookWithUUID:(NSUUID *)uuid name:(NSString *)name {
+    MTBook *book = [[MTBook alloc] init];
+    book.uuid = uuid;
+    book.name = name;
+    return book;
+}
+
+@end

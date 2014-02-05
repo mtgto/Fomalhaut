@@ -17,8 +17,13 @@
  */
 
 #import "MTBookListViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import "MTBookListResponseSerializer.h"
+#import "MTFileViewController.h"
 
 @interface MTBookListViewController ()
+
+@property (nonatomic, strong) NSArray *books;
 
 @end
 
@@ -42,6 +47,21 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [MTBookListResponseSerializer serializer];
+    [manager GET:[@"http://localhost:25491/api/v1/bookmarks/" stringByAppendingString:[self.bookmark.uuid UUIDString]]
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             self.books = responseObject;
+             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSString *message = [[NSArray arrayWithObjects:[error localizedFailureReason], [error localizedRecoverySuggestion], nil] componentsJoinedByString:@"\n"];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+         }
+    ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,25 +74,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.books count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"BookCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+
     // Configure the cell...
-    
+    cell.textLabel.text = ((MTBookmark *)self.books[indexPath.row]).name;
+
     return cell;
 }
 
@@ -115,16 +132,14 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    MTFileViewController *viewController = [segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    viewController.bookUUID = ((MTBook *)self.books[indexPath.row]).uuid;
 }
-
- */
 
 @end

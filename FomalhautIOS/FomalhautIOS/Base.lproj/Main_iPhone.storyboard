@@ -71,13 +71,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jko-oj-u9r">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookCell" textLabel="xDA-4Q-kP6" style="IBUITableViewCellStyleDefault" id="Jko-oj-u9r">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jko-oj-u9r" id="vbt-qS-hJs">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xDA-4Q-kP6">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="M0Q-Hy-dCB" kind="push" id="Aq4-jh-7eW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -91,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="690" y="124"/>
         </scene>
-        <!--View Controller-->
+        <!--File View Controller-->
         <scene sceneID="isq-8z-Vzv">
             <objects>
-                <viewController id="M0Q-Hy-dCB" sceneMemberID="viewController">
+                <viewController id="M0Q-Hy-dCB" customClass="MTFileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mcm-q4-tol"/>
                         <viewControllerLayoutGuide type="bottom" id="Owb-pD-AYD"/>
@@ -104,6 +116,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="t1C-R1-hgA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wti-Rj-EfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

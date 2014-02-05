@@ -16,10 +16,26 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-"ALERT_ERROR_UNKNOWN_TITLE" = "Unknown error";
+#import "MTOpenedBook.h"
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOKMARK_LIST_MESSAGE_FORMAT" = "An error occurred while retrieving a list of bookmarks: %@";
+@interface MTOpenedBook()
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOK_LIST_MESSAGE_FORMAT" = "An error occurred while retrieving a list of books: %@";
+@property (nonatomic, strong) NSUUID *uuid;
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOK_MESSAGE_FORMAT" = "An error occurred while retrieving a book: %@";
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic) NSUInteger pageCount;
+
+@end
+
+@implementation MTOpenedBook
+
++ (MTOpenedBook *)bookWithUUID:(NSUUID *)uuid name:(NSString *)name pageCount:(NSUInteger)pageCount {
+    MTOpenedBook *book = [[MTOpenedBook alloc] init];
+    book.uuid = uuid;
+    book.name = name;
+    book.pageCount = pageCount;
+    return book;
+}
+
+@end

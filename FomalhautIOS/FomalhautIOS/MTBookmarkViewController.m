@@ -21,6 +21,7 @@
 #import "NSArray+Function.h"
 #import "MTBookmark.h"
 #import "MTBookmarkListResponseSerializer.h"
+#import "MTBookListViewController.h"
 
 @interface MTBookmarkViewController ()
 
@@ -63,7 +64,7 @@
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
              [alert show];
          }
-     ];
+    ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -134,7 +135,6 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -142,8 +142,9 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    MTBookListViewController *viewController = [segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    viewController.bookmark = self.bookmarks[indexPath.row];
 }
-
- */
 
 @end

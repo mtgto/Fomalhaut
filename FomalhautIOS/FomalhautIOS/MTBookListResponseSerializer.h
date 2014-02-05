@@ -16,10 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-"ALERT_ERROR_UNKNOWN_TITLE" = "Unknown error";
+#import <AFNetworking/AFNetworking.h>
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOKMARK_LIST_MESSAGE_FORMAT" = "An error occurred while retrieving a list of bookmarks: %@";
+@interface MTBookListResponseSerializer : AFJSONResponseSerializer
 
-"ALERT_ERROR_FAILED_TO_LOAD_BOOK_LIST_MESSAGE_FORMAT" = "An error occurred while retrieving a list of books: %@";
-
-"ALERT_ERROR_FAILED_TO_LOAD_BOOK_MESSAGE_FORMAT" = "An error occurred while retrieving a book: %@";
+@end

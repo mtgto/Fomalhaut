@@ -17,8 +17,15 @@
  */
 
 #import "MTFileViewController.h"
+#import "MTOpenedBook.h"
+#import "MTOpenedBookResponseSerializer.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface MTFileViewController ()
+
+@property (nonatomic, strong) MTOpenedBook *book;
+
+@property (nonatomic, strong) CXPhotoBrowser *photoBrowser;
 
 @end
 
@@ -37,6 +44,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [MTOpenedBookResponseSerializer serializer];
+    [manager GET:[@"http://localhost:25491/api/v1/books/" stringByAppendingString:[self.bookUUID UUIDString]]
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             self.book = responseObject;
+             [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:NO];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSString *message = [[NSArray arrayWithObjects:[error localizedFailureReason], [error localizedRecoverySuggestion], nil] componentsJoinedByString:@"\n"];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+         }
+     ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,5 +65,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)start {
+    self.photoBrowser = [[CXPhotoBrowser alloc] initWithDataSource:self delegate:self];
+    [self.view addSubview:self.photoBrowser.view];
+}
+
+#pragma mark - CXPhotoBrowserDataSource
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(CXPhotoBrowser *)photoBrowser
+{
+    return self.book.pageCount;
+}
+
+- (id <CXPhotoProtocol>)photoBrowser:(CXPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
+{
+    if (index < self.book.pageCount) {
+        return [CXPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:25491/api/v1/books/%@/image/%d", [self.bookUUID UUIDString], index]]];
+    }
+    return nil;
+}
+
+#pragma mark - CXPhotoBrowserDelegate
 
 @end

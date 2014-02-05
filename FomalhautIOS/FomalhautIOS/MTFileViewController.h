@@ -17,7 +17,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "MTBook.h"
+#import <CXPhotoBrowser/CXPhotoBrowser.h>
 
-@interface MTFileViewController : UIViewController
+@interface MTFileViewController : UIViewController <CXPhotoBrowserDataSource, CXPhotoBrowserDelegate>
+
+@property (nonatomic, strong) NSUUID *bookUUID;
 
 @end
