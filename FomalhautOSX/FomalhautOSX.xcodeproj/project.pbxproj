@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F4CB5F9C6C84FD8BE411D6D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F238F245F1A40B2A13356EA /* libPods.a */; };
 		9273FC6A36244837BA84B03D /* libPods-FomalhautOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D094171245EF432E9B3191B1 /* libPods-FomalhautOSX.a */; };
 		CE02E01A1870180400094EFD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02E0191870180400094EFD /* Cocoa.framework */; };
 		CE02E0241870180400094EFD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0221870180400094EFD /* InfoPlist.strings */; };
@@ -23,6 +22,7 @@
 		CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12718710DAA00094EFD /* MTOSXAppDelegate.m */; };
 		CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */; };
 		CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */; };
+		CE4D3D1118A07A2E0033040D /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D1018A07A2E0033040D /* NSArray+Function.m */; };
 		CE67D8B31880E4F40069A3D5 /* MTPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B21880E4F40069A3D5 /* MTPage.m */; };
 		CE67D8B61880E5400069A3D5 /* MTZipEntryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */; };
 		CE67D8B91880FC1E0069A3D5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE67D8B71880FC1E0069A3D5 /* MainMenu.xib */; };
@@ -65,7 +65,6 @@
 		CE97ED1D18841DCA0008DB37 /* MTNormalBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97ED1C18841DCA0008DB37 /* MTNormalBookmark.m */; };
 		CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97ED1F18841DCC0008DB37 /* MTSmartBookmark.m */; };
 		CE9E23711871565F0069BED0 /* MTFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23701871565F0069BED0 /* MTFileArrayController.m */; };
-		CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E23731871770E0069BED0 /* NSArray+Function.m */; };
 		CEDA6AB618954FA3007B5F9D /* MTFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6AB518954FA3007B5F9D /* MTFile.m */; };
 		CEDA6AB91896A48D007B5F9D /* MTHelpersController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6AB81896A48D007B5F9D /* MTHelpersController.m */; };
 		CEDA6ABC1896A513007B5F9D /* MTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6ABB1896A513007B5F9D /* MTHelper.m */; };
@@ -112,6 +111,8 @@
 		CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTOSXMainWindowController.xib; sourceTree = "<group>"; };
+		CE4D3D0F18A07A2E0033040D /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
+		CE4D3D1018A07A2E0033040D /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
 		CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 3.xcdatamodel"; sourceTree = "<group>"; };
 		CE67D8B11880E4F40069A3D5 /* MTPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPage.h; sourceTree = "<group>"; };
 		CE67D8B21880E4F40069A3D5 /* MTPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPage.m; sourceTree = "<group>"; };
@@ -182,8 +183,6 @@
 		CE97ED1F18841DCC0008DB37 /* MTSmartBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSmartBookmark.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileArrayController.m; sourceTree = "<group>"; };
-		CE9E23721871770E0069BED0 /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
-		CE9E23731871770E0069BED0 /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
 		CEACF9851889796B00211A9D /* MTDocument 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 4.xcdatamodel"; sourceTree = "<group>"; };
 		CEDA6AB418954FA3007B5F9D /* MTFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFile.h; sourceTree = "<group>"; };
 		CEDA6AB518954FA3007B5F9D /* MTFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFile.m; sourceTree = "<group>"; };
@@ -207,7 +206,6 @@
 			files = (
 				CE67D8CE1882430A0069A3D5 /* Quartz.framework in Frameworks */,
 				CE02E01A1870180400094EFD /* Cocoa.framework in Frameworks */,
-				2F4CB5F9C6C84FD8BE411D6D /* libPods.a in Frameworks */,
 				9273FC6A36244837BA84B03D /* libPods-FomalhautOSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				CE02E01F1870180400094EFD /* FomalhautOSX */,
+				CE4D3D0E18A079F80033040D /* Shard */,
 				CE02E0431870180400094EFD /* FomalhautOSXTests */,
 				CE02E0181870180400094EFD /* Frameworks */,
 				CE02E0171870180400094EFD /* Products */,
@@ -341,8 +340,6 @@
 				CEDA6ABB1896A513007B5F9D /* MTHelper.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
-				CE9E23721871770E0069BED0 /* NSArray+Function.h */,
-				CE9E23731871770E0069BED0 /* NSArray+Function.m */,
 				CE67D8D4188261780069A3D5 /* NSImage+Resize.h */,
 				CE67D8D5188261780069A3D5 /* NSImage+Resize.m */,
 				CE02E0371870180400094EFD /* Images.xcassets */,
@@ -385,6 +382,16 @@
 				CE02E0461870180400094EFD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE4D3D0E18A079F80033040D /* Shard */ = {
+			isa = PBXGroup;
+			children = (
+				CE4D3D0F18A07A2E0033040D /* NSArray+Function.h */,
+				CE4D3D1018A07A2E0033040D /* NSArray+Function.m */,
+			);
+			name = Shard;
+			path = ../Shared;
 			sourceTree = "<group>";
 		};
 		CE789F931879287A005E928E /* templates */ = {
@@ -595,6 +602,7 @@
 				CE789FE61880491F005E928E /* MTBookWindowController.m in Sources */,
 				CE02E02D1870180400094EFD /* MTDocument.m in Sources */,
 				CE789FA518796F6A005E928E /* MTFile+Addition.m in Sources */,
+				CE4D3D1118A07A2E0033040D /* NSArray+Function.m in Sources */,
 				CE67D8CB188241210069A3D5 /* MTZipDocument.m in Sources */,
 				CE789FDC187F0D21005E928E /* RoutingConnection+Secure.m in Sources */,
 				CE789FCA187EEAFC005E928E /* MTPreferencesWindowController.m in Sources */,
@@ -602,7 +610,6 @@
 				CEE2DC88188443C20082D5BB /* MTSmartBookmarkWindowController.m in Sources */,
 				CE97ED2018841DCC0008DB37 /* MTSmartBookmark.m in Sources */,
 				CE789FE21880450A005E928E /* MTUUID.m in Sources */,
-				CE9E23741871770E0069BED0 /* NSArray+Function.m in Sources */,
 				CE97ED1D18841DCA0008DB37 /* MTNormalBookmark.m in Sources */,
 				CEDA6ABC1896A513007B5F9D /* MTHelper.m in Sources */,
 				CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */,

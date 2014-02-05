@@ -48,6 +48,7 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
 - (id)init {
     if (self = [super init]) {
         self.dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
+        [self.dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
         self.server = [[RoutingHTTPServer alloc] init];
         [self.server setDefaultHeader:@"Server" value:@"Fomalhaut/1.0"];
         [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
@@ -228,7 +229,6 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
         }];
         [self.server get:@"/api/v1/books/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
             NSString *uuid = [request param:@"uuid"];
             MTFile *selectedFile = [MTFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
             if (selectedFile) {
@@ -241,14 +241,7 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
             }
             if (self.selectedDocument) {
                 NSUInteger count = [self.selectedDocument numberOfPages];
-                NSDictionary *dic = @{@"uuid": selectedFile.uuid,
-                                      @"name": selectedFile.name,
-                                      @"readCount": @(selectedFile.readCount),
-                                      @"pageCount": @(count),
-                                      @"isLost": @(selectedFile.isLost),
-                                      @"memo": selectedFile.memo,
-                                      @"lastOpened": [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:selectedFile.lastOpened]],
-                                      @"created": [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:selectedFile.created]]};
+                NSDictionary *dic = [self dictionaryWithMTFile:selectedFile pageCount:count];
                 NSError *error = nil;
                 [response respondWithData:[NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]];
             } else {
@@ -322,6 +315,17 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
     return @{@"uuid": file.uuid,
              @"name": file.name,
              @"readCount": @(file.readCount),
+             @"isLost": @(file.isLost),
+             @"memo": file.memo ? file.memo : [NSNull null],
+             @"lastOpened": file.lastOpened ? [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.lastOpened]] : [NSNull null],
+             @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.created]]};
+}
+
+- (NSDictionary *)dictionaryWithMTFile:(MTFile *)file pageCount:(NSUInteger)pageCount {
+    return @{@"uuid": file.uuid,
+             @"name": file.name,
+             @"readCount": @(file.readCount),
+             @"pageCount": @(pageCount),
              @"isLost": @(file.isLost),
              @"memo": file.memo ? file.memo : [NSNull null],
              @"lastOpened": file.lastOpened ? [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:file.lastOpened]] : [NSNull null],
