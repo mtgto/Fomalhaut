@@ -47,6 +47,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = self.bookmark.name;
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [MTBookListResponseSerializer serializer];
@@ -139,7 +140,9 @@
 {
     MTFileViewController *viewController = [segue destinationViewController];
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    viewController.bookUUID = ((MTBook *)self.books[indexPath.row]).uuid;
+    MTBook *book = ((MTBook *)self.books[indexPath.row]);
+    viewController.bookUUID = book.uuid;
+    viewController.bookName = book.name;
 }
 
 @end

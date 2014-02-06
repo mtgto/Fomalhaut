@@ -22,6 +22,8 @@
 
 @interface MTFileViewController : UIViewController <CXPhotoBrowserDataSource, CXPhotoBrowserDelegate>
 
+@property (nonatomic, copy) NSString *bookName;
+
 @property (nonatomic, strong) NSUUID *bookUUID;
 
 @end

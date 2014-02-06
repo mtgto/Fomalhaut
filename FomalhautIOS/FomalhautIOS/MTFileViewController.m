@@ -43,6 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = self.bookName;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 	// Do any additional setup after loading the view.
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [MTOpenedBookResponseSerializer serializer];
@@ -68,7 +70,12 @@
 
 - (void)start {
     self.photoBrowser = [[CXPhotoBrowser alloc] initWithDataSource:self delegate:self];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)]];
     [self.view addSubview:self.photoBrowser.view];
+}
+
+- (void)handleTapGesture:(id)sender {
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
 }
 
 #pragma mark - CXPhotoBrowserDataSource
