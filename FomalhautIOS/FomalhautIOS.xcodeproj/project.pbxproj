@@ -50,7 +50,7 @@
 /* Begin PBXFileReference section */
 		585BCD55141445CD831916A4 /* libPods-FomalhautIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FomalhautIOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9802E98713F40EF9DFE33BA /* Pods-FomalhautIOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FomalhautIOS.xcconfig"; path = "../Pods/Pods-FomalhautIOS.xcconfig"; sourceTree = "<group>"; };
-		CE02E05C1870185100094EFD /* FomalhautIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FomalhautIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE02E05C1870185100094EFD /* Fomalhaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fomalhaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE02E05F1870185100094EFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE02E0611870185100094EFD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE02E0631870185100094EFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -134,7 +134,7 @@
 		CE02E05D1870185100094EFD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE02E05C1870185100094EFD /* FomalhautIOS.app */,
+				CE02E05C1870185100094EFD /* Fomalhaut.app */,
 				CE02E0801870185100094EFD /* FomalhautIOSTests.xctest */,
 			);
 			name = Products;
@@ -245,7 +245,7 @@
 			);
 			name = FomalhautIOS;
 			productName = FomalhautIOS;
-			productReference = CE02E05C1870185100094EFD /* FomalhautIOS.app */;
+			productReference = CE02E05C1870185100094EFD /* Fomalhaut.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CE02E07F1870185100094EFD /* FomalhautIOSTests */ = {
@@ -516,7 +516,7 @@
 				GCC_PREFIX_HEADER = "FomalhautIOS/FomalhautIOS-Prefix.pch";
 				INFOPLIST_FILE = "FomalhautIOS/FomalhautIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fomalhaut;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -531,7 +531,7 @@
 				GCC_PREFIX_HEADER = "FomalhautIOS/FomalhautIOS-Prefix.pch";
 				INFOPLIST_FILE = "FomalhautIOS/FomalhautIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fomalhaut;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
