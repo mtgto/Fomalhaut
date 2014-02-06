@@ -47,7 +47,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="WAC-Ow-lb1" kind="push" id="O8L-aE-L9K"/>
+                                    <segue destination="F9s-MQ-FDx" kind="push" id="NEg-dw-hmC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -60,9 +60,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZS-y6-c2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="124"/>
+            <point key="canvasLocation" x="273" y="124"/>
         </scene>
-        <!--Book List View Controller-->
+        <!--Book List View Controller - Item-->
         <scene sceneID="AEb-vq-hp7">
             <objects>
                 <tableViewController id="WAC-Ow-lb1" customClass="MTBookListViewController" sceneMemberID="viewController">
@@ -97,11 +97,102 @@
                             <outlet property="delegate" destination="WAC-Ow-lb1" id="ajM-PU-xnF"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="40w-ve-M46"/>
                     <navigationItem key="navigationItem" id="dAd-Tc-u4x"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sV9-ec-s6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="124"/>
+            <point key="canvasLocation" x="1093" y="124"/>
+        </scene>
+        <!--Book Collection View Controller - Item-->
+        <scene sceneID="XZQ-FV-vDR">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="qP2-oV-aXY" customClass="MTBookCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="ZD3-G3-eCX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="36z-1I-tNx">
+                            <size key="itemSize" width="100" height="147"/>
+                            <size key="headerReferenceSize" width="50" height="65"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCollectionCell" id="58x-m1-DVA">
+                                <rect key="frame" x="0.0" y="65" width="100" height="147"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="147"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3t-4f-yHV">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="127"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72p-yt-fWo">
+                                            <rect key="frame" x="0.0" y="127" width="100" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="M0Q-Hy-dCB" kind="push" id="nGH-U1-x2S"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WJb-RU-gdu">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="qP2-oV-aXY" id="Qsz-Ce-3FF"/>
+                            <outlet property="delegate" destination="qP2-oV-aXY" id="Iwl-Va-j5b"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="oRb-WB-eRB"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzj-HU-Atw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088" y="790"/>
+        </scene>
+        <!--Bookmark Tab Bar Controller-->
+        <scene sceneID="18l-8N-wKI">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="F9s-MQ-FDx" customClass="MTBookmarkTabBarController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eoT-06-yIP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9ex-DR-YqH">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oaJ-n9-XN9">
+                                <rect key="frame" x="223" y="7" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="glyphicons_157_show_thumbnails_with_lines.png"/>
+                                    <segment title="" image="glyphicons_156_show_thumbnails.png"/>
+                                </segments>
+                                <connections>
+                                    <action selector="styleChanged:" destination="F9s-MQ-FDx" eventType="valueChanged" id="ukJ-Bn-l4n"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" id="n9g-Wi-cpe">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WAC-Ow-lb1" kind="relationship" relationship="viewControllers" id="vfx-28-GKc"/>
+                        <segue destination="qP2-oV-aXY" kind="relationship" relationship="viewControllers" id="5cE-ed-Riy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uya-hE-n3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="124"/>
         </scene>
         <!--File View Controller-->
         <scene sceneID="isq-8z-Vzv">
@@ -120,13 +211,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wti-Rj-EfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071" y="124"/>
+            <point key="canvasLocation" x="1455" y="124"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="glyphicons_156_show_thumbnails.png" width="22" height="22"/>
+        <image name="glyphicons_157_show_thumbnails_with_lines.png" width="24" height="15"/>
+    </resources>
     <color key="tintColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="nGH-U1-x2S"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -35,6 +35,10 @@
 		CEACBC4B18A1C78E008A3FA1 /* MTBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4A18A1C78E008A3FA1 /* MTBook.m */; };
 		CEACBC4E18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4D18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m */; };
 		CEACBC5118A1CB40008A3FA1 /* MTOpenedBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5018A1CB40008A3FA1 /* MTOpenedBook.m */; };
+		CEACBC5418A3E08B008A3FA1 /* MTBookmarkTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5318A3E08B008A3FA1 /* MTBookmarkTabBarController.m */; };
+		CEACBC5718A3E5D3008A3FA1 /* MTBookCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5618A3E5D3008A3FA1 /* MTBookCollectionViewController.m */; };
+		CEACBC5A18A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png in Resources */ = {isa = PBXBuildFile; fileRef = CEACBC5818A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png */; };
+		CEACBC5B18A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png in Resources */ = {isa = PBXBuildFile; fileRef = CEACBC5918A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,12 @@
 		CEACBC4D18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOpenedBookResponseSerializer.m; sourceTree = "<group>"; };
 		CEACBC4F18A1CB40008A3FA1 /* MTOpenedBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOpenedBook.h; sourceTree = "<group>"; };
 		CEACBC5018A1CB40008A3FA1 /* MTOpenedBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOpenedBook.m; sourceTree = "<group>"; };
+		CEACBC5218A3E08B008A3FA1 /* MTBookmarkTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkTabBarController.h; sourceTree = "<group>"; };
+		CEACBC5318A3E08B008A3FA1 /* MTBookmarkTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkTabBarController.m; sourceTree = "<group>"; };
+		CEACBC5518A3E5D3008A3FA1 /* MTBookCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookCollectionViewController.h; sourceTree = "<group>"; };
+		CEACBC5618A3E5D3008A3FA1 /* MTBookCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookCollectionViewController.m; sourceTree = "<group>"; };
+		CEACBC5818A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_156_show_thumbnails.png; sourceTree = "<group>"; };
+		CEACBC5918A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_157_show_thumbnails_with_lines.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +173,12 @@
 				CE4D3D00189FEDCC0033040D /* MTBookmarkViewController.m */,
 				CE4D3D02189FEE0E0033040D /* MTLoginViewController.h */,
 				CE4D3D03189FEE0E0033040D /* MTLoginViewController.m */,
+				CEACBC5218A3E08B008A3FA1 /* MTBookmarkTabBarController.h */,
+				CEACBC5318A3E08B008A3FA1 /* MTBookmarkTabBarController.m */,
 				CE4D3D05189FF5B30033040D /* MTBookListViewController.h */,
 				CE4D3D06189FF5B30033040D /* MTBookListViewController.m */,
+				CEACBC5518A3E5D3008A3FA1 /* MTBookCollectionViewController.h */,
+				CEACBC5618A3E5D3008A3FA1 /* MTBookCollectionViewController.m */,
 				CE4D3D08189FF6D80033040D /* MTFileViewController.h */,
 				CE4D3D09189FF6D80033040D /* MTFileViewController.m */,
 				CE4D3D0B18A075C80033040D /* MTBookmark.h */,
@@ -194,6 +208,8 @@
 				CEACBC4418A1B822008A3FA1 /* static.m */,
 				CE02E06D1870185100094EFD /* FomalhautIOS-Prefix.pch */,
 				CEACBC4218A1B457008A3FA1 /* Localizable.strings */,
+				CEACBC5818A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png */,
+				CEACBC5918A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -307,8 +323,10 @@
 			files = (
 				CEACBC4318A1B457008A3FA1 /* Localizable.strings in Resources */,
 				CE02E0761870185100094EFD /* Main_iPad.storyboard in Resources */,
+				CEACBC5A18A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png in Resources */,
 				CE02E07B1870185100094EFD /* Images.xcassets in Resources */,
 				CE02E0731870185100094EFD /* Main_iPhone.storyboard in Resources */,
+				CEACBC5B18A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png in Resources */,
 				CE02E06A1870185100094EFD /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +383,7 @@
 				CEACBC4E18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m in Sources */,
 				CE02E0701870185100094EFD /* MTAppDelegate.m in Sources */,
 				CE4D3D01189FEDCC0033040D /* MTBookmarkViewController.m in Sources */,
+				CEACBC5718A3E5D3008A3FA1 /* MTBookCollectionViewController.m in Sources */,
 				CEACBC4B18A1C78E008A3FA1 /* MTBook.m in Sources */,
 				CE4D3D04189FEE0E0033040D /* MTLoginViewController.m in Sources */,
 				CEACBC4818A1C757008A3FA1 /* MTBookListResponseSerializer.m in Sources */,
@@ -372,6 +391,7 @@
 				CEACBC4118A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m in Sources */,
 				CE4D3D0A189FF6D80033040D /* MTFileViewController.m in Sources */,
 				CEACBC5118A1CB40008A3FA1 /* MTOpenedBook.m in Sources */,
+				CEACBC5418A3E08B008A3FA1 /* MTBookmarkTabBarController.m in Sources */,
 				CEACBC4518A1B822008A3FA1 /* static.m in Sources */,
 				CE4D3D1518A07A630033040D /* NSArray+Function.m in Sources */,
 				CE4D3D0D18A075C80033040D /* MTBookmark.m in Sources */,

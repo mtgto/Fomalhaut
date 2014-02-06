@@ -18,7 +18,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTBookListViewController : UITableViewController
+@interface MTBookCollectionViewController : UICollectionViewController
 
 @property (nonatomic, strong) NSArray *books;
 

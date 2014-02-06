@@ -17,9 +17,10 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "MTBookmark.h"
 
-@interface MTBookListViewController : UITableViewController
+@interface MTBookmarkTabBarController : UITabBarController
 
-@property (nonatomic, strong) NSArray *books;
+@property (nonatomic, strong) MTBookmark *bookmark;
 
 @end

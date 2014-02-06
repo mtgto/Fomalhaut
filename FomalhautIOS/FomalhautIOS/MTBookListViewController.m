@@ -17,13 +17,10 @@
  */
 
 #import "MTBookListViewController.h"
-#import <AFNetworking/AFNetworking.h>
-#import "MTBookListResponseSerializer.h"
 #import "MTFileViewController.h"
+#import "MTBookmark.h"
 
 @interface MTBookListViewController ()
-
-@property (nonatomic, strong) NSArray *books;
 
 @end
 
@@ -47,22 +44,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.title = self.bookmark.name;
-
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [MTBookListResponseSerializer serializer];
-    [manager GET:[@"http://localhost:25491/api/v1/bookmarks/" stringByAppendingString:[self.bookmark.uuid UUIDString]]
-      parameters:nil
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             self.books = responseObject;
-             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSString *message = [[NSArray arrayWithObjects:[error localizedFailureReason], [error localizedRecoverySuggestion], nil] componentsJoinedByString:@"\n"];
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-             [alert show];
-         }
-    ];
 }
 
 - (void)didReceiveMemoryWarning

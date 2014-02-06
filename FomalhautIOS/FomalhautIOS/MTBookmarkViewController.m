@@ -21,7 +21,7 @@
 #import "NSArray+Function.h"
 #import "MTBookmark.h"
 #import "MTBookmarkListResponseSerializer.h"
-#import "MTBookListViewController.h"
+#import "MTBookmarkTabBarController.h"
 
 @interface MTBookmarkViewController ()
 
@@ -142,7 +142,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    MTBookListViewController *viewController = [segue destinationViewController];
+    MTBookmarkTabBarController *viewController = [segue destinationViewController];
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     viewController.bookmark = self.bookmarks[indexPath.row];
 }
