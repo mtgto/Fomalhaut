@@ -21,6 +21,7 @@
 #import "MTBookListResponseSerializer.h"
 #import "MTBookListViewController.h"
 #import "MTBookCollectionViewController.h"
+#import "MTAuthorizationRepository.h"
 
 @interface MTBookmarkTabBarController ()
 
@@ -46,8 +47,8 @@
     self.title = self.bookmark.name;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [MTBookListResponseSerializer serializer];
-    [manager GET:[@"http://localhost:25491/api/v1/bookmarks/" stringByAppendingString:[self.bookmark.uuid UUIDString]]
-      parameters:nil
+    [manager GET:[[NSURL URLWithString:[@"/api/v1/bookmarks/" stringByAppendingString:[self.bookmark.uuid UUIDString]] relativeToURL:self.auth.baseURL] absoluteString]
+      parameters:@{@"access_token": self.auth.token}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              self.books = responseObject;
              MTBookListViewController *bookListViewController = self.viewControllers[0];

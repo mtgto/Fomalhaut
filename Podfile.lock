@@ -1,60 +1,65 @@
 PODS:
-  - AFNetworking (2.1.0):
+  - AFNetworking (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.1.0):
+  - AFNetworking/NSURLConnection (2.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.1.0):
+  - AFNetworking/NSURLSession (2.2.1):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.1.0)
-  - AFNetworking/Security (2.1.0)
-  - AFNetworking/Serialization (2.1.0)
-  - AFNetworking/UIKit (2.1.0):
+  - AFNetworking/Reachability (2.2.1)
+  - AFNetworking/Security (2.2.1)
+  - AFNetworking/Serialization (2.2.1)
+  - AFNetworking/UIKit (2.2.1):
     - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - CocoaAsyncSocket (7.3.4)
   - CocoaHTTPServer (2.3):
     - CocoaAsyncSocket
     - CocoaLumberjack
-  - CocoaLumberjack (1.7.0):
-    - CocoaLumberjack/Core
+  - CocoaLumberjack (1.8.1):
     - CocoaLumberjack/Extensions
-  - CocoaLumberjack/Core (1.7.0)
-  - CocoaLumberjack/Extensions (1.7.0):
+  - CocoaLumberjack/Core (1.8.1)
+  - CocoaLumberjack/Extensions (1.8.1):
     - CocoaLumberjack/Core
   - CXPhotoBrowser (1.1.1)
-  - GRMustache (6.8.4):
+  - GRMustache (6.9.2):
     - JRSwizzle (~> 1.0)
   - JRSwizzle (1.0)
-  - MagicalRecord (2.2)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
   - RoutingHTTPServer (1.0.0):
     - CocoaHTTPServer (~> 2.3)
-  - zipzap (5.0)
+  - SSKeychain (1.2.1)
+  - zipzap (6.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.1.0)
-  - CocoaLumberjack (~> 1.7.0)
+  - AFNetworking (~> 2.2.1)
+  - CocoaLumberjack (~> 1.8.1)
   - CXPhotoBrowser (~> 1.1.1)
-  - GRMustache (~> 6.8.3)
+  - GRMustache (~> 6.9.2)
   - MagicalRecord (~> 2.2)
   - RoutingHTTPServer (~> 1.0.0)
-  - zipzap (~> 5.0)
+  - SSKeychain (~> 1.2.1)
+  - zipzap (~> 6.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   CocoaAsyncSocket: 534d09416f992fd51efb23f534742ce70b3a7999
   CocoaHTTPServer: 7c2fce6617f7fda0e3f4fc34f96e562caa7c7bd8
-  CocoaLumberjack: be87113f649942f020a37c061c58009b6ee5ff68
+  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
   CXPhotoBrowser: a0644b58f96af876b4275bad62786183d3e7e11e
-  GRMustache: 7b2520d67b6373484c8b2c08b9788af90a461d61
+  GRMustache: 292d60aaafbdab2844bc7af76d111b848c8807a0
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
-  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
+  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
   RoutingHTTPServer: 7436429cb81c560b55557a830d51367f3107d9cc
-  zipzap: 494a6a28fa71a0a0d78a19c4c5377557b89d7b94
+  SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
+  zipzap: b13673dfd2b79f30db88603ffe95c68bc728f617
 
 COCOAPODS: 0.29.0

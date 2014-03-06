@@ -22,9 +22,11 @@
 #import "MTBookmark.h"
 #import "MTBookmarkListResponseSerializer.h"
 #import "MTBookmarkTabBarController.h"
+#import "MTAuthorizationRepository.h"
 
 @interface MTBookmarkViewController ()
 
+@property (nonatomic, strong) MTAuthorization *auth;
 @property (nonatomic, strong) NSArray *bookmarks;
 
 @end
@@ -50,11 +52,33 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //self.title = @"Bookmarks";
+}
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    MTAuthorizationRepository *repository = [MTAuthorizationRepository sharedInstance];
+    MTAuthorization *auth = [repository load];
+    if (!auth) {
+        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+    } else {
+        self.auth = auth;
+        if (!self.bookmarks) {
+            [self reloadData];
+        }
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)reloadData {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [MTBookmarkListResponseSerializer serializer];
-    [manager GET:@"http://localhost:25491/api/v1/bookmarks"
-      parameters:nil
+    [manager GET:[[NSURL URLWithString:@"/api/v1/bookmarks" relativeToURL:self.auth.baseURL] absoluteString]
+      parameters:@{@"access_token": self.auth.token}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              self.bookmarks = responseObject;
              [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
@@ -64,13 +88,7 @@
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
              [alert show];
          }
-    ];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+     ];
 }
 
 #pragma mark - Table view data source
@@ -142,9 +160,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    MTBookmarkTabBarController *viewController = [segue destinationViewController];
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    viewController.bookmark = self.bookmarks[indexPath.row];
+    if ([[segue identifier] isEqualToString:@"bookmarkSegue"]) {
+        MTBookmarkTabBarController *viewController = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        viewController.auth = self.auth;
+        viewController.bookmark = self.bookmarks[indexPath.row];
+    }
 }
 
 @end

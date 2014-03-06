@@ -17,3 +17,5 @@
  */
 
 NSString *const APP_ERROR_DOMAIN = @"net.mtgto.fomalhaut";
+
+NSString *const SERVER_ADDRESS_CONFIG_KEY = @"server.address";

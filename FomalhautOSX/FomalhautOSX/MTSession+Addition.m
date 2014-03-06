@@ -16,33 +16,13 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTZipEntryPage.h"
+#import "MTSession+Addition.h"
 
-@interface MTZipEntryPage()
+@implementation MTSession (Addition)
 
-@property (nonatomic, strong) ZZArchiveEntry *entry;
-
-@end
-
-@implementation MTZipEntryPage
-
-- (id)initWithZipEntry:(ZZArchiveEntry *)entry {
-    if (self = [super init]) {
-        self.entry = entry;
-    }
-    return self;
-}
-
-- (NSString *)fileName {
-    return [self.entry fileName];
-}
-
-- (NSData *)data {
-    return [self.entry newData];
-}
-
-- (NSImage *)image {
-    return [[NSImage alloc] initWithData:[self.entry newData]];
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    self.created = [NSDate timeIntervalSinceReferenceDate];
 }
 
 @end

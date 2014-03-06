@@ -88,7 +88,7 @@
 - (id <CXPhotoProtocol>)photoBrowser:(CXPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
 {
     if (index < self.book.pageCount) {
-        return [CXPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:25491/api/v1/books/%@/image/%d", [self.bookUUID UUIDString], index]]];
+        return [CXPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:25491/api/v1/books/%@/image/%lu", [self.bookUUID UUIDString], index]]];
     }
     return nil;
 }

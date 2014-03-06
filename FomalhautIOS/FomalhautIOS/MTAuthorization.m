@@ -16,33 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTZipEntryPage.h"
+#import "MTAuthorization.h"
 
-@interface MTZipEntryPage()
+@interface MTAuthorization()
 
-@property (nonatomic, strong) ZZArchiveEntry *entry;
+@property (nonatomic, copy) NSString *token;
+
+@property (nonatomic) NSURL *baseURL;
 
 @end
 
-@implementation MTZipEntryPage
+@implementation MTAuthorization
 
-- (id)initWithZipEntry:(ZZArchiveEntry *)entry {
-    if (self = [super init]) {
-        self.entry = entry;
-    }
-    return self;
-}
-
-- (NSString *)fileName {
-    return [self.entry fileName];
-}
-
-- (NSData *)data {
-    return [self.entry newData];
-}
-
-- (NSImage *)image {
-    return [[NSImage alloc] initWithData:[self.entry newData]];
++ (MTAuthorization *)authorizationWithToken:(NSString *)token baseURL:(NSURL *)url {
+    MTAuthorization *auth = [[MTAuthorization alloc] init];
+    auth.token = token;
+    auth.baseURL = url;
+    return auth;
 }
 
 @end

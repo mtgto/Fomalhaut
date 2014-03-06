@@ -22,6 +22,8 @@
 		CE02E12818710DAA00094EFD /* MTOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12718710DAA00094EFD /* MTOSXAppDelegate.m */; };
 		CE02E12F18713ED200094EFD /* MTOSXMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */; };
 		CE02E13018713ED200094EFD /* MTOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */; };
+		CE30356218C778110045DE7F /* MTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30356118C778110045DE7F /* MTSession.m */; };
+		CE4CEF4318C8C3DE008C599D /* MTSession+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4218C8C3DE008C599D /* MTSession+Addition.m */; };
 		CE4D3D1118A07A2E0033040D /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D1018A07A2E0033040D /* NSArray+Function.m */; };
 		CE67D8B31880E4F40069A3D5 /* MTPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B21880E4F40069A3D5 /* MTPage.m */; };
 		CE67D8B61880E5400069A3D5 /* MTZipEntryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B51880E5400069A3D5 /* MTZipEntryPage.m */; };
@@ -111,6 +113,11 @@
 		CE02E12C18713ED200094EFD /* MTOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTOSXMainWindowController.xib; sourceTree = "<group>"; };
+		CE30355F18C777350045DE7F /* MTDocument 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 6.xcdatamodel"; sourceTree = "<group>"; };
+		CE30356018C778110045DE7F /* MTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSession.h; sourceTree = "<group>"; };
+		CE30356118C778110045DE7F /* MTSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSession.m; sourceTree = "<group>"; };
+		CE4CEF4118C8C3DE008C599D /* MTSession+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTSession+Addition.h"; sourceTree = "<group>"; };
+		CE4CEF4218C8C3DE008C599D /* MTSession+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MTSession+Addition.m"; sourceTree = "<group>"; };
 		CE4D3D0F18A07A2E0033040D /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE4D3D1018A07A2E0033040D /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
 		CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -338,6 +345,10 @@
 				CEDA6AB81896A48D007B5F9D /* MTHelpersController.m */,
 				CEDA6ABA1896A513007B5F9D /* MTHelper.h */,
 				CEDA6ABB1896A513007B5F9D /* MTHelper.m */,
+				CE30356018C778110045DE7F /* MTSession.h */,
+				CE30356118C778110045DE7F /* MTSession.m */,
+				CE4CEF4118C8C3DE008C599D /* MTSession+Addition.h */,
+				CE4CEF4218C8C3DE008C599D /* MTSession+Addition.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE67D8D4188261780069A3D5 /* NSImage+Resize.h */,
@@ -612,10 +623,12 @@
 				CE789FE21880450A005E928E /* MTUUID.m in Sources */,
 				CE97ED1D18841DCA0008DB37 /* MTNormalBookmark.m in Sources */,
 				CEDA6ABC1896A513007B5F9D /* MTHelper.m in Sources */,
+				CE4CEF4318C8C3DE008C599D /* MTSession+Addition.m in Sources */,
 				CE789FBF187C53C8005E928E /* MTBookmarkAll.m in Sources */,
 				CE67D8C6188240F00069A3D5 /* MTPDFDocument.m in Sources */,
 				CE67D8EE1882BAAB0069A3D5 /* MTAcknowledgementWindowController.m in Sources */,
 				CE67D8D1188243990069A3D5 /* MTPDFPage.m in Sources */,
+				CE30356218C778110045DE7F /* MTSession.m in Sources */,
 				CE67D8B31880E4F40069A3D5 /* MTPage.m in Sources */,
 				CEE2DC8C188455ED0082D5BB /* MTBookmarkOutlineView.m in Sources */,
 				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
@@ -852,13 +865,14 @@
 		CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CE30355F18C777350045DE7F /* MTDocument 6.xcdatamodel */,
 				CE82143518954D7E0080A63A /* MTDocument 5.xcdatamodel */,
 				CE67D8F51884177C0069A3D5 /* MTDocument 2.xcdatamodel */,
 				CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */,
 				CEACF9851889796B00211A9D /* MTDocument 4.xcdatamodel */,
 				CE02E0351870180400094EFD /* MTDocument.xcdatamodel */,
 			);
-			currentVersion = CE82143518954D7E0080A63A /* MTDocument 5.xcdatamodel */;
+			currentVersion = CE30355F18C777350045DE7F /* MTDocument 6.xcdatamodel */;
 			path = MTDocument.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

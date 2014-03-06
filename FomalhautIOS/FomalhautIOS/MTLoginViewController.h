@@ -18,6 +18,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTLoginViewController : UIViewController
+@interface MTLoginViewController : UIViewController<UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 @end

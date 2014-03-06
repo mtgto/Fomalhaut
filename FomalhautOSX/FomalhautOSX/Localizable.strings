@@ -13,6 +13,8 @@
 
 "ALERT_CHOOSE_DEST_FOR_LOST_FILE_TITLE_FORMAT" = "\"%@\" is not found. Choose the destination.";
 
+"ALERT_SECRET_TITLE_FORMAT" = "You receive an authorization request by \"%@\". Input the code \"%@\" in your client.";
+
 "TEXT_CANCEL" = "Cancel";
 
 "TEXT_CHOOSE_FILE" = "Choose a file...";

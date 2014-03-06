@@ -24,12 +24,17 @@
 #import "MTNormalBookmark+Addition.h"
 #import "MTSmartBookmark.h"
 #import "NSArray+Function.h"
+#import "MTSession.h"
 
 NSString *const API_ERROR_MESSAGE_KEY = @"message";
 
 NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
 
 NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
+
+NSString *const API_ERROR_MESSAGE_INVALID_SECRET = @"Invalid secret";
+
+NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
 
 @interface MTWebServer()
 
@@ -50,7 +55,7 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
         self.dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
         [self.dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
         self.server = [[RoutingHTTPServer alloc] init];
-        [self.server setDefaultHeader:@"Server" value:@"Fomalhaut/1.0"];
+        [self.server setDefaultHeader:@"Server" value:[NSString stringWithFormat:@"Fomalhaut/%@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
         [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"text/html"];
             NSArray *files = [MTFile MR_findAll];
@@ -154,6 +159,40 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
                 [response respondWithString:[template renderObject:@{@"path": [[request url] path]} error:nil]];
             }
 
+        }];
+        [self.server post:@"/api/v1/authorizations" withBlock:^(RouteRequest *request, RouteResponse *response) {
+            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+            NSDictionary *params = [self dictionaryWithPostData:request.body];
+            NSString *secret = params[@"secret"];
+            NSError *error = nil;
+            if (secret) {
+                MTSession *session = [MTSession MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"secret == %@ AND authorized == NO", secret]];
+                if (session) {
+                    session.authorized = YES;
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                    [response setStatusCode:201];
+                    [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{@"token": session.token}
+                                                                              options:0
+                                                                                error:&error]];
+                } else {
+                    [response setStatusCode:400];
+                    [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_INVALID_SECRET}
+                                                                              options:0
+                                                                                error:&error]];
+                }
+            } else {
+                MTSession *session = [MTSession MR_createEntity];
+                session.secret = [NSString stringWithFormat:@"%04d", arc4random() % 10000];
+                session.token = [NSString stringWithFormat:@"%08x%08x%08x%08x", arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu)];
+                session.note = params[@"note"];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                [response setStatusCode:401];
+                [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_NEED_SECRET}
+                                                                          options:0
+                                                                            error:&error]];
+                NSString *message = [NSString stringWithFormat:NSLocalizedString(@"ALERT_SECRET_TITLE_FORMAT", nil), session.note, session.secret];
+                [self performSelectorOnMainThread:@selector(showAlertWithMessage:) withObject:message waitUntilDone:NO];
+            }
         }];
         [self.server get:@"/api/v1/bookmarks" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
@@ -339,6 +378,20 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
 
 - (void)stop {
     [self.server stop];
+}
+
+- (NSDictionary *)dictionaryWithPostData:(NSData *)data {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSArray *elements = [obj componentsSeparatedByString:@"="];
+        dict[[elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] = [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }];
+    return [NSDictionary dictionaryWithDictionary:dict];
+}
+
+- (void)showAlertWithMessage:(NSString *)message {
+    NSAlert *alert = [NSAlert alertWithMessageText:nil defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", message];
+    [alert runModal];
 }
 
 @end

@@ -16,33 +16,16 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTZipEntryPage.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface MTZipEntryPage()
 
-@property (nonatomic, strong) ZZArchiveEntry *entry;
+@interface MTSession : NSManagedObject
 
-@end
-
-@implementation MTZipEntryPage
-
-- (id)initWithZipEntry:(ZZArchiveEntry *)entry {
-    if (self = [super init]) {
-        self.entry = entry;
-    }
-    return self;
-}
-
-- (NSString *)fileName {
-    return [self.entry fileName];
-}
-
-- (NSData *)data {
-    return [self.entry newData];
-}
-
-- (NSImage *)image {
-    return [[NSImage alloc] initWithData:[self.entry newData]];
-}
+@property (nonatomic, retain) NSString * token;
+@property (nonatomic) NSTimeInterval created;
+@property (nonatomic) BOOL authorized;
+@property (nonatomic, retain) NSString * secret;
+@property (nonatomic, retain) NSString * note;
 
 @end

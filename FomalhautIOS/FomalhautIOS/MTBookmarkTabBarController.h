@@ -18,9 +18,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MTBookmark.h"
+#import "MTAuthorization.h"
 
 @interface MTBookmarkTabBarController : UITabBarController
 
+@property (nonatomic, strong) MTAuthorization *auth;
 @property (nonatomic, strong) MTBookmark *bookmark;
 
 @end
