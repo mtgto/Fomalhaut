@@ -491,7 +491,7 @@
 		CE02E00E1870180400094EFD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = MT;
+				CLASSPREFIX = MTG;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = mtgto;
 				TargetAttributes = {
