@@ -16,13 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
+#import "MTGBookmark.h"
 
-#import "MTGAppDelegate.h"
+@interface MTGBookmark()
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
+@property (nonatomic, strong) NSUUID *uuid;
+
+@property (nonatomic, copy) NSString *name;
+
+@end
+
+@implementation MTGBookmark
+
++ (MTGBookmark *)bookmarkWithUUID:(NSUUID *)uuid name:(NSString *)name {
+    MTGBookmark *bookmark = [[MTGBookmark alloc] init];
+    bookmark.uuid = uuid;
+    bookmark.name = name;
+    return bookmark;
 }
+
+@end

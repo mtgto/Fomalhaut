@@ -18,11 +18,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MTGAppDelegate.h"
+@interface MTGBookCollectionViewController : UICollectionViewController
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
-}
+@property (nonatomic, strong) NSArray *books;
+
+@end

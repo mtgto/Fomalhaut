@@ -18,11 +18,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MTGAppDelegate.h"
+@interface MTGAppDelegate : UIResponder <UIApplicationDelegate>
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) UIWindow *window;
+
+@end

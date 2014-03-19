@@ -16,13 +16,19 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "MTGAppDelegate.h"
+@interface MTGAuthorization : NSObject
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
-}
+/**
+ * Server base URL.
+ *
+ * Example: http://192.168.0.1:25491
+ */
+@property (nonatomic, readonly) NSURL *baseURL;
+
+@property (nonatomic, readonly, copy) NSString *token;
+
++ (MTGAuthorization *)authorizationWithToken:(NSString *)token baseURL:(NSURL *)url;
+
+@end

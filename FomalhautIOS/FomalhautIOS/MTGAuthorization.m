@@ -16,13 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
+#import "MTGAuthorization.h"
 
-#import "MTGAppDelegate.h"
+@interface MTGAuthorization()
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
+@property (nonatomic, copy) NSString *token;
+
+@property (nonatomic) NSURL *baseURL;
+
+@end
+
+@implementation MTGAuthorization
+
++ (MTGAuthorization *)authorizationWithToken:(NSString *)token baseURL:(NSURL *)url {
+    MTGAuthorization *auth = [[MTGAuthorization alloc] init];
+    auth.token = token;
+    auth.baseURL = url;
+    return auth;
 }
+
+@end

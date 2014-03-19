@@ -17,12 +17,13 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "MTGBook.h"
+#import <CXPhotoBrowser/CXPhotoBrowser.h>
 
-#import "MTGAppDelegate.h"
+@interface MTGFileViewController : UIViewController <CXPhotoBrowserDataSource, CXPhotoBrowserDelegate>
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
-}
+@property (nonatomic, copy) NSString *bookName;
+
+@property (nonatomic, strong) NSUUID *bookUUID;
+
+@end

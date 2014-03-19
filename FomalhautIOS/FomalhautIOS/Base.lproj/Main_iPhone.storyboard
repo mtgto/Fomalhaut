@@ -9,7 +9,8 @@
         <scene sceneID="JLk-cH-Qer">
             <objects>
                 <navigationController definesPresentationContext="YES" id="24J-Ck-YBr" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cqs-7T-euJ">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Cqs-7T-euJ">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -24,10 +25,11 @@
         <!--Bookmark View Controller - Bookmarks-->
         <scene sceneID="cj9-r2-54y">
             <objects>
-                <tableViewController title="Bookmarks" id="bVz-re-vLK" customClass="MTBookmarkViewController" sceneMemberID="viewController">
+                <tableViewController title="Bookmarks" id="bVz-re-vLK" customClass="MTGBookmarkViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6uy-sq-7MG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookmarkCell" textLabel="sbn-MR-6Vc" style="IBUITableViewCellStyleDefault" id="ja6-ju-sqR">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -55,7 +57,8 @@
                             <outlet property="delegate" destination="bVz-re-vLK" id="RWn-4N-8xm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gMk-T9-6f6"/>
+                    <navigationItem key="navigationItem" title="Bookmarks" id="gMk-T9-6f6"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <segue destination="Zn0-Os-5hP" kind="modal" identifier="loginSegue" id="Npm-l2-J4l"/>
                     </connections>
@@ -67,7 +70,7 @@
         <!--Login View Controller-->
         <scene sceneID="Lp5-Ji-hW4">
             <objects>
-                <viewController id="Zn0-Os-5hP" customClass="MTLoginViewController" sceneMemberID="viewController">
+                <viewController id="Zn0-Os-5hP" customClass="MTGLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gIY-zf-Yvn"/>
                         <viewControllerLayoutGuide type="bottom" id="fQe-Lj-Zv4"/>
@@ -231,7 +234,7 @@
         <!--Book List View Controller - Item-->
         <scene sceneID="AEb-vq-hp7">
             <objects>
-                <tableViewController id="WAC-Ow-lb1" customClass="MTBookListViewController" sceneMemberID="viewController">
+                <tableViewController id="WAC-Ow-lb1" customClass="MTGBookListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NlX-to-ULY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +275,7 @@
         <!--Book Collection View Controller - Item-->
         <scene sceneID="XZQ-FV-vDR">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="qP2-oV-aXY" customClass="MTBookCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="qP2-oV-aXY" customClass="MTGBookCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="ZD3-G3-eCX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +331,7 @@
         <!--Bookmark Tab Bar Controller-->
         <scene sceneID="18l-8N-wKI">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="F9s-MQ-FDx" customClass="MTBookmarkTabBarController" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="F9s-MQ-FDx" customClass="MTGBookmarkTabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="eoT-06-yIP">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="9ex-DR-YqH">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oaJ-n9-XN9">
@@ -362,7 +365,7 @@
         <!--File View Controller-->
         <scene sceneID="isq-8z-Vzv">
             <objects>
-                <viewController id="M0Q-Hy-dCB" customClass="MTFileViewController" sceneMemberID="viewController">
+                <viewController id="M0Q-Hy-dCB" customClass="MTGFileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mcm-q4-tol"/>
                         <viewControllerLayoutGuide type="bottom" id="Owb-pD-AYD"/>

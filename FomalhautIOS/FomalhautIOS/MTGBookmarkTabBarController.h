@@ -17,12 +17,12 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "MTGBookmark.h"
+#import "MTGAuthorization.h"
 
-#import "MTGAppDelegate.h"
+@interface MTGBookmarkTabBarController : UITabBarController
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
-}
+@property (nonatomic, strong) MTGAuthorization *auth;
+@property (nonatomic, strong) MTGBookmark *bookmark;
+
+@end

@@ -16,13 +16,12 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
+#import "MTGBook.h"
 
-#import "MTGAppDelegate.h"
+@interface MTGOpenedBook : MTGBook
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MTGAppDelegate class]));
-    }
-}
+@property (nonatomic, readonly) NSUInteger pageCount;
+
++ (MTGOpenedBook *)bookWithUUID:(NSUUID *)uuid name:(NSString *)name pageCount:(NSUInteger)pageCount;
+
+@end

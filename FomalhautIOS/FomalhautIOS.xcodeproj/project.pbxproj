@@ -13,7 +13,7 @@
 		CE02E0641870185100094EFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02E0631870185100094EFD /* UIKit.framework */; };
 		CE02E06A1870185100094EFD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0681870185100094EFD /* InfoPlist.strings */; };
 		CE02E06C1870185100094EFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E06B1870185100094EFD /* main.m */; };
-		CE02E0701870185100094EFD /* MTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E06F1870185100094EFD /* MTAppDelegate.m */; };
+		CE02E0701870185100094EFD /* MTGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E06F1870185100094EFD /* MTGAppDelegate.m */; };
 		CE02E0731870185100094EFD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0711870185100094EFD /* Main_iPhone.storyboard */; };
 		CE02E0761870185100094EFD /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0741870185100094EFD /* Main_iPad.storyboard */; };
 		CE02E07B1870185100094EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE02E07A1870185100094EFD /* Images.xcassets */; };
@@ -22,24 +22,24 @@
 		CE02E0841870185100094EFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02E0631870185100094EFD /* UIKit.framework */; };
 		CE02E08C1870185100094EFD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE02E08A1870185100094EFD /* InfoPlist.strings */; };
 		CE02E08E1870185100094EFD /* FomalhautIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E08D1870185100094EFD /* FomalhautIOSTests.m */; };
-		CE4CEF4618C95E8D008C599D /* MTAuthorizationResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4518C95E8D008C599D /* MTAuthorizationResponseSerializer.m */; };
-		CE4CEF4918C95ED3008C599D /* MTAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4818C95ED3008C599D /* MTAuthorization.m */; };
-		CE4CEF4C18C9633A008C599D /* MTAuthorizationFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4B18C9633A008C599D /* MTAuthorizationFailure.m */; };
-		CE4D3D01189FEDCC0033040D /* MTBookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D00189FEDCC0033040D /* MTBookmarkViewController.m */; };
-		CE4D3D04189FEE0E0033040D /* MTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D03189FEE0E0033040D /* MTLoginViewController.m */; };
-		CE4D3D07189FF5B30033040D /* MTBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D06189FF5B30033040D /* MTBookListViewController.m */; };
-		CE4D3D0A189FF6D80033040D /* MTFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D09189FF6D80033040D /* MTFileViewController.m */; };
-		CE4D3D0D18A075C80033040D /* MTBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D0C18A075C80033040D /* MTBookmark.m */; };
+		CE4CEF4618C95E8D008C599D /* MTGAuthorizationResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4518C95E8D008C599D /* MTGAuthorizationResponseSerializer.m */; };
+		CE4CEF4918C95ED3008C599D /* MTGAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4818C95ED3008C599D /* MTGAuthorization.m */; };
+		CE4CEF4C18C9633A008C599D /* MTGAuthorizationFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4B18C9633A008C599D /* MTGAuthorizationFailure.m */; };
+		CE4D3D01189FEDCC0033040D /* MTGBookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D00189FEDCC0033040D /* MTGBookmarkViewController.m */; };
+		CE4D3D04189FEE0E0033040D /* MTGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D03189FEE0E0033040D /* MTGLoginViewController.m */; };
+		CE4D3D07189FF5B30033040D /* MTGBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D06189FF5B30033040D /* MTGBookListViewController.m */; };
+		CE4D3D0A189FF6D80033040D /* MTGFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D09189FF6D80033040D /* MTGFileViewController.m */; };
+		CE4D3D0D18A075C80033040D /* MTGBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D0C18A075C80033040D /* MTGBookmark.m */; };
 		CE4D3D1518A07A630033040D /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D1418A07A630033040D /* NSArray+Function.m */; };
-		CE7624D318D5BECE00AA5AA3 /* MTAuthorizationRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7624D218D5BECE00AA5AA3 /* MTAuthorizationRepository.m */; };
-		CEACBC4118A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4018A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m */; };
+		CE7624D318D5BECE00AA5AA3 /* MTGAuthorizationRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7624D218D5BECE00AA5AA3 /* MTGAuthorizationRepository.m */; };
+		CEACBC4118A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4018A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.m */; };
 		CEACBC4518A1B822008A3FA1 /* static.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4418A1B822008A3FA1 /* static.m */; };
-		CEACBC4818A1C757008A3FA1 /* MTBookListResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4718A1C757008A3FA1 /* MTBookListResponseSerializer.m */; };
-		CEACBC4B18A1C78E008A3FA1 /* MTBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4A18A1C78E008A3FA1 /* MTBook.m */; };
-		CEACBC4E18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4D18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m */; };
-		CEACBC5118A1CB40008A3FA1 /* MTOpenedBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5018A1CB40008A3FA1 /* MTOpenedBook.m */; };
-		CEACBC5418A3E08B008A3FA1 /* MTBookmarkTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5318A3E08B008A3FA1 /* MTBookmarkTabBarController.m */; };
-		CEACBC5718A3E5D3008A3FA1 /* MTBookCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5618A3E5D3008A3FA1 /* MTBookCollectionViewController.m */; };
+		CEACBC4818A1C757008A3FA1 /* MTGBookListResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4718A1C757008A3FA1 /* MTGBookListResponseSerializer.m */; };
+		CEACBC4B18A1C78E008A3FA1 /* MTGBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4A18A1C78E008A3FA1 /* MTGBook.m */; };
+		CEACBC4E18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC4D18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.m */; };
+		CEACBC5118A1CB40008A3FA1 /* MTGOpenedBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5018A1CB40008A3FA1 /* MTGOpenedBook.m */; };
+		CEACBC5418A3E08B008A3FA1 /* MTGBookmarkTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5318A3E08B008A3FA1 /* MTGBookmarkTabBarController.m */; };
+		CEACBC5718A3E5D3008A3FA1 /* MTGBookCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEACBC5618A3E5D3008A3FA1 /* MTGBookCollectionViewController.m */; };
 		CEACBC5A18A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png in Resources */ = {isa = PBXBuildFile; fileRef = CEACBC5818A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png */; };
 		CEACBC5B18A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png in Resources */ = {isa = PBXBuildFile; fileRef = CEACBC5918A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png */; };
 		CEC6C97218CF4FA6005466DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C97418CF4FA6005466DD /* Localizable.strings */; };
@@ -66,8 +66,8 @@
 		CE02E0691870185100094EFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE02E06B1870185100094EFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE02E06D1870185100094EFD /* FomalhautIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FomalhautIOS-Prefix.pch"; sourceTree = "<group>"; };
-		CE02E06E1870185100094EFD /* MTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTAppDelegate.h; sourceTree = "<group>"; };
-		CE02E06F1870185100094EFD /* MTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTAppDelegate.m; sourceTree = "<group>"; };
+		CE02E06E1870185100094EFD /* MTGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTGAppDelegate.h; sourceTree = "<group>"; };
+		CE02E06F1870185100094EFD /* MTGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTGAppDelegate.m; sourceTree = "<group>"; };
 		CE02E0721870185100094EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		CE02E0751870185100094EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		CE02E07A1870185100094EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -76,41 +76,41 @@
 		CE02E0891870185100094EFD /* FomalhautIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FomalhautIOSTests-Info.plist"; sourceTree = "<group>"; };
 		CE02E08B1870185100094EFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE02E08D1870185100094EFD /* FomalhautIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FomalhautIOSTests.m; sourceTree = "<group>"; };
-		CE4CEF4418C95E8D008C599D /* MTAuthorizationResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAuthorizationResponseSerializer.h; sourceTree = "<group>"; };
-		CE4CEF4518C95E8D008C599D /* MTAuthorizationResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAuthorizationResponseSerializer.m; sourceTree = "<group>"; };
-		CE4CEF4718C95ED3008C599D /* MTAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAuthorization.h; sourceTree = "<group>"; };
-		CE4CEF4818C95ED3008C599D /* MTAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAuthorization.m; sourceTree = "<group>"; };
-		CE4CEF4A18C9633A008C599D /* MTAuthorizationFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAuthorizationFailure.h; sourceTree = "<group>"; };
-		CE4CEF4B18C9633A008C599D /* MTAuthorizationFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAuthorizationFailure.m; sourceTree = "<group>"; };
-		CE4D3CFF189FEDCC0033040D /* MTBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkViewController.h; sourceTree = "<group>"; };
-		CE4D3D00189FEDCC0033040D /* MTBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkViewController.m; sourceTree = "<group>"; };
-		CE4D3D02189FEE0E0033040D /* MTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLoginViewController.h; sourceTree = "<group>"; };
-		CE4D3D03189FEE0E0033040D /* MTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLoginViewController.m; sourceTree = "<group>"; };
-		CE4D3D05189FF5B30033040D /* MTBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookListViewController.h; sourceTree = "<group>"; };
-		CE4D3D06189FF5B30033040D /* MTBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookListViewController.m; sourceTree = "<group>"; };
-		CE4D3D08189FF6D80033040D /* MTFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFileViewController.h; sourceTree = "<group>"; };
-		CE4D3D09189FF6D80033040D /* MTFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFileViewController.m; sourceTree = "<group>"; };
-		CE4D3D0B18A075C80033040D /* MTBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmark.h; sourceTree = "<group>"; };
-		CE4D3D0C18A075C80033040D /* MTBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmark.m; sourceTree = "<group>"; };
+		CE4CEF4418C95E8D008C599D /* MTGAuthorizationResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGAuthorizationResponseSerializer.h; sourceTree = "<group>"; };
+		CE4CEF4518C95E8D008C599D /* MTGAuthorizationResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGAuthorizationResponseSerializer.m; sourceTree = "<group>"; };
+		CE4CEF4718C95ED3008C599D /* MTGAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGAuthorization.h; sourceTree = "<group>"; };
+		CE4CEF4818C95ED3008C599D /* MTGAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGAuthorization.m; sourceTree = "<group>"; };
+		CE4CEF4A18C9633A008C599D /* MTGAuthorizationFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGAuthorizationFailure.h; sourceTree = "<group>"; };
+		CE4CEF4B18C9633A008C599D /* MTGAuthorizationFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGAuthorizationFailure.m; sourceTree = "<group>"; };
+		CE4D3CFF189FEDCC0033040D /* MTGBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookmarkViewController.h; sourceTree = "<group>"; };
+		CE4D3D00189FEDCC0033040D /* MTGBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookmarkViewController.m; sourceTree = "<group>"; };
+		CE4D3D02189FEE0E0033040D /* MTGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGLoginViewController.h; sourceTree = "<group>"; };
+		CE4D3D03189FEE0E0033040D /* MTGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoginViewController.m; sourceTree = "<group>"; };
+		CE4D3D05189FF5B30033040D /* MTGBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookListViewController.h; sourceTree = "<group>"; };
+		CE4D3D06189FF5B30033040D /* MTGBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookListViewController.m; sourceTree = "<group>"; };
+		CE4D3D08189FF6D80033040D /* MTGFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGFileViewController.h; sourceTree = "<group>"; };
+		CE4D3D09189FF6D80033040D /* MTGFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGFileViewController.m; sourceTree = "<group>"; };
+		CE4D3D0B18A075C80033040D /* MTGBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookmark.h; sourceTree = "<group>"; };
+		CE4D3D0C18A075C80033040D /* MTGBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookmark.m; sourceTree = "<group>"; };
 		CE4D3D1318A07A630033040D /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE4D3D1418A07A630033040D /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
-		CE7624D118D5BECE00AA5AA3 /* MTAuthorizationRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAuthorizationRepository.h; sourceTree = "<group>"; };
-		CE7624D218D5BECE00AA5AA3 /* MTAuthorizationRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAuthorizationRepository.m; sourceTree = "<group>"; };
-		CEACBC3F18A149B9008A3FA1 /* MTBookmarkListResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkListResponseSerializer.h; sourceTree = "<group>"; };
-		CEACBC4018A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkListResponseSerializer.m; sourceTree = "<group>"; };
+		CE7624D118D5BECE00AA5AA3 /* MTGAuthorizationRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGAuthorizationRepository.h; sourceTree = "<group>"; };
+		CE7624D218D5BECE00AA5AA3 /* MTGAuthorizationRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGAuthorizationRepository.m; sourceTree = "<group>"; };
+		CEACBC3F18A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookmarkListResponseSerializer.h; sourceTree = "<group>"; };
+		CEACBC4018A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookmarkListResponseSerializer.m; sourceTree = "<group>"; };
 		CEACBC4418A1B822008A3FA1 /* static.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = static.m; sourceTree = "<group>"; };
-		CEACBC4618A1C757008A3FA1 /* MTBookListResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookListResponseSerializer.h; sourceTree = "<group>"; };
-		CEACBC4718A1C757008A3FA1 /* MTBookListResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookListResponseSerializer.m; sourceTree = "<group>"; };
-		CEACBC4918A1C78E008A3FA1 /* MTBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBook.h; sourceTree = "<group>"; };
-		CEACBC4A18A1C78E008A3FA1 /* MTBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBook.m; sourceTree = "<group>"; };
-		CEACBC4C18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOpenedBookResponseSerializer.h; sourceTree = "<group>"; };
-		CEACBC4D18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOpenedBookResponseSerializer.m; sourceTree = "<group>"; };
-		CEACBC4F18A1CB40008A3FA1 /* MTOpenedBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOpenedBook.h; sourceTree = "<group>"; };
-		CEACBC5018A1CB40008A3FA1 /* MTOpenedBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTOpenedBook.m; sourceTree = "<group>"; };
-		CEACBC5218A3E08B008A3FA1 /* MTBookmarkTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookmarkTabBarController.h; sourceTree = "<group>"; };
-		CEACBC5318A3E08B008A3FA1 /* MTBookmarkTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookmarkTabBarController.m; sourceTree = "<group>"; };
-		CEACBC5518A3E5D3008A3FA1 /* MTBookCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookCollectionViewController.h; sourceTree = "<group>"; };
-		CEACBC5618A3E5D3008A3FA1 /* MTBookCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookCollectionViewController.m; sourceTree = "<group>"; };
+		CEACBC4618A1C757008A3FA1 /* MTGBookListResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookListResponseSerializer.h; sourceTree = "<group>"; };
+		CEACBC4718A1C757008A3FA1 /* MTGBookListResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookListResponseSerializer.m; sourceTree = "<group>"; };
+		CEACBC4918A1C78E008A3FA1 /* MTGBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBook.h; sourceTree = "<group>"; };
+		CEACBC4A18A1C78E008A3FA1 /* MTGBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBook.m; sourceTree = "<group>"; };
+		CEACBC4C18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGOpenedBookResponseSerializer.h; sourceTree = "<group>"; };
+		CEACBC4D18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGOpenedBookResponseSerializer.m; sourceTree = "<group>"; };
+		CEACBC4F18A1CB40008A3FA1 /* MTGOpenedBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGOpenedBook.h; sourceTree = "<group>"; };
+		CEACBC5018A1CB40008A3FA1 /* MTGOpenedBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGOpenedBook.m; sourceTree = "<group>"; };
+		CEACBC5218A3E08B008A3FA1 /* MTGBookmarkTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookmarkTabBarController.h; sourceTree = "<group>"; };
+		CEACBC5318A3E08B008A3FA1 /* MTGBookmarkTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookmarkTabBarController.m; sourceTree = "<group>"; };
+		CEACBC5518A3E5D3008A3FA1 /* MTGBookCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookCollectionViewController.h; sourceTree = "<group>"; };
+		CEACBC5618A3E5D3008A3FA1 /* MTGBookCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookCollectionViewController.m; sourceTree = "<group>"; };
 		CEACBC5818A3F088008A3FA1 /* glyphicons_156_show_thumbnails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_156_show_thumbnails.png; sourceTree = "<group>"; };
 		CEACBC5918A3F088008A3FA1 /* glyphicons_157_show_thumbnails_with_lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_157_show_thumbnails_with_lines.png; sourceTree = "<group>"; };
 		CEC6C97318CF4FA6005466DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -177,42 +177,42 @@
 		CE02E0651870185100094EFD /* FomalhautIOS */ = {
 			isa = PBXGroup;
 			children = (
-				CE02E06E1870185100094EFD /* MTAppDelegate.h */,
-				CE02E06F1870185100094EFD /* MTAppDelegate.m */,
+				CE02E06E1870185100094EFD /* MTGAppDelegate.h */,
+				CE02E06F1870185100094EFD /* MTGAppDelegate.m */,
 				CE02E0711870185100094EFD /* Main_iPhone.storyboard */,
 				CE02E0741870185100094EFD /* Main_iPad.storyboard */,
-				CE4D3CFF189FEDCC0033040D /* MTBookmarkViewController.h */,
-				CE4D3D00189FEDCC0033040D /* MTBookmarkViewController.m */,
-				CE4D3D02189FEE0E0033040D /* MTLoginViewController.h */,
-				CE4D3D03189FEE0E0033040D /* MTLoginViewController.m */,
-				CEACBC5218A3E08B008A3FA1 /* MTBookmarkTabBarController.h */,
-				CEACBC5318A3E08B008A3FA1 /* MTBookmarkTabBarController.m */,
-				CE4D3D05189FF5B30033040D /* MTBookListViewController.h */,
-				CE4D3D06189FF5B30033040D /* MTBookListViewController.m */,
-				CEACBC5518A3E5D3008A3FA1 /* MTBookCollectionViewController.h */,
-				CEACBC5618A3E5D3008A3FA1 /* MTBookCollectionViewController.m */,
-				CE4D3D08189FF6D80033040D /* MTFileViewController.h */,
-				CE4D3D09189FF6D80033040D /* MTFileViewController.m */,
-				CE4D3D0B18A075C80033040D /* MTBookmark.h */,
-				CE4D3D0C18A075C80033040D /* MTBookmark.m */,
-				CEACBC4918A1C78E008A3FA1 /* MTBook.h */,
-				CEACBC4A18A1C78E008A3FA1 /* MTBook.m */,
-				CEACBC4F18A1CB40008A3FA1 /* MTOpenedBook.h */,
-				CEACBC5018A1CB40008A3FA1 /* MTOpenedBook.m */,
-				CEACBC3F18A149B9008A3FA1 /* MTBookmarkListResponseSerializer.h */,
-				CEACBC4018A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m */,
-				CEACBC4618A1C757008A3FA1 /* MTBookListResponseSerializer.h */,
-				CEACBC4718A1C757008A3FA1 /* MTBookListResponseSerializer.m */,
-				CEACBC4C18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.h */,
-				CEACBC4D18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m */,
-				CE4CEF4718C95ED3008C599D /* MTAuthorization.h */,
-				CE4CEF4818C95ED3008C599D /* MTAuthorization.m */,
-				CE4CEF4A18C9633A008C599D /* MTAuthorizationFailure.h */,
-				CE4CEF4B18C9633A008C599D /* MTAuthorizationFailure.m */,
-				CE4CEF4418C95E8D008C599D /* MTAuthorizationResponseSerializer.h */,
-				CE4CEF4518C95E8D008C599D /* MTAuthorizationResponseSerializer.m */,
-				CE7624D118D5BECE00AA5AA3 /* MTAuthorizationRepository.h */,
-				CE7624D218D5BECE00AA5AA3 /* MTAuthorizationRepository.m */,
+				CE4D3CFF189FEDCC0033040D /* MTGBookmarkViewController.h */,
+				CE4D3D00189FEDCC0033040D /* MTGBookmarkViewController.m */,
+				CE4D3D02189FEE0E0033040D /* MTGLoginViewController.h */,
+				CE4D3D03189FEE0E0033040D /* MTGLoginViewController.m */,
+				CEACBC5218A3E08B008A3FA1 /* MTGBookmarkTabBarController.h */,
+				CEACBC5318A3E08B008A3FA1 /* MTGBookmarkTabBarController.m */,
+				CE4D3D05189FF5B30033040D /* MTGBookListViewController.h */,
+				CE4D3D06189FF5B30033040D /* MTGBookListViewController.m */,
+				CEACBC5518A3E5D3008A3FA1 /* MTGBookCollectionViewController.h */,
+				CEACBC5618A3E5D3008A3FA1 /* MTGBookCollectionViewController.m */,
+				CE4D3D08189FF6D80033040D /* MTGFileViewController.h */,
+				CE4D3D09189FF6D80033040D /* MTGFileViewController.m */,
+				CE4D3D0B18A075C80033040D /* MTGBookmark.h */,
+				CE4D3D0C18A075C80033040D /* MTGBookmark.m */,
+				CEACBC4918A1C78E008A3FA1 /* MTGBook.h */,
+				CEACBC4A18A1C78E008A3FA1 /* MTGBook.m */,
+				CEACBC4F18A1CB40008A3FA1 /* MTGOpenedBook.h */,
+				CEACBC5018A1CB40008A3FA1 /* MTGOpenedBook.m */,
+				CEACBC3F18A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.h */,
+				CEACBC4018A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.m */,
+				CEACBC4618A1C757008A3FA1 /* MTGBookListResponseSerializer.h */,
+				CEACBC4718A1C757008A3FA1 /* MTGBookListResponseSerializer.m */,
+				CEACBC4C18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.h */,
+				CEACBC4D18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.m */,
+				CE4CEF4718C95ED3008C599D /* MTGAuthorization.h */,
+				CE4CEF4818C95ED3008C599D /* MTGAuthorization.m */,
+				CE4CEF4A18C9633A008C599D /* MTGAuthorizationFailure.h */,
+				CE4CEF4B18C9633A008C599D /* MTGAuthorizationFailure.m */,
+				CE4CEF4418C95E8D008C599D /* MTGAuthorizationResponseSerializer.h */,
+				CE4CEF4518C95E8D008C599D /* MTGAuthorizationResponseSerializer.m */,
+				CE7624D118D5BECE00AA5AA3 /* MTGAuthorizationRepository.h */,
+				CE7624D218D5BECE00AA5AA3 /* MTGAuthorizationRepository.m */,
 				CE02E07A1870185100094EFD /* Images.xcassets */,
 				CE02E0661870185100094EFD /* Supporting Files */,
 			);
@@ -400,25 +400,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE02E06C1870185100094EFD /* main.m in Sources */,
-				CEACBC4E18A1CA76008A3FA1 /* MTOpenedBookResponseSerializer.m in Sources */,
-				CE4CEF4918C95ED3008C599D /* MTAuthorization.m in Sources */,
-				CE02E0701870185100094EFD /* MTAppDelegate.m in Sources */,
-				CE7624D318D5BECE00AA5AA3 /* MTAuthorizationRepository.m in Sources */,
-				CE4D3D01189FEDCC0033040D /* MTBookmarkViewController.m in Sources */,
-				CEACBC5718A3E5D3008A3FA1 /* MTBookCollectionViewController.m in Sources */,
-				CEACBC4B18A1C78E008A3FA1 /* MTBook.m in Sources */,
-				CE4D3D04189FEE0E0033040D /* MTLoginViewController.m in Sources */,
-				CEACBC4818A1C757008A3FA1 /* MTBookListResponseSerializer.m in Sources */,
-				CE4CEF4C18C9633A008C599D /* MTAuthorizationFailure.m in Sources */,
-				CE4D3D07189FF5B30033040D /* MTBookListViewController.m in Sources */,
-				CEACBC4118A149B9008A3FA1 /* MTBookmarkListResponseSerializer.m in Sources */,
-				CE4D3D0A189FF6D80033040D /* MTFileViewController.m in Sources */,
-				CEACBC5118A1CB40008A3FA1 /* MTOpenedBook.m in Sources */,
-				CEACBC5418A3E08B008A3FA1 /* MTBookmarkTabBarController.m in Sources */,
+				CEACBC4E18A1CA76008A3FA1 /* MTGOpenedBookResponseSerializer.m in Sources */,
+				CE4CEF4918C95ED3008C599D /* MTGAuthorization.m in Sources */,
+				CE02E0701870185100094EFD /* MTGAppDelegate.m in Sources */,
+				CE7624D318D5BECE00AA5AA3 /* MTGAuthorizationRepository.m in Sources */,
+				CE4D3D01189FEDCC0033040D /* MTGBookmarkViewController.m in Sources */,
+				CEACBC5718A3E5D3008A3FA1 /* MTGBookCollectionViewController.m in Sources */,
+				CEACBC4B18A1C78E008A3FA1 /* MTGBook.m in Sources */,
+				CE4D3D04189FEE0E0033040D /* MTGLoginViewController.m in Sources */,
+				CEACBC4818A1C757008A3FA1 /* MTGBookListResponseSerializer.m in Sources */,
+				CE4CEF4C18C9633A008C599D /* MTGAuthorizationFailure.m in Sources */,
+				CE4D3D07189FF5B30033040D /* MTGBookListViewController.m in Sources */,
+				CEACBC4118A149B9008A3FA1 /* MTGBookmarkListResponseSerializer.m in Sources */,
+				CE4D3D0A189FF6D80033040D /* MTGFileViewController.m in Sources */,
+				CEACBC5118A1CB40008A3FA1 /* MTGOpenedBook.m in Sources */,
+				CEACBC5418A3E08B008A3FA1 /* MTGBookmarkTabBarController.m in Sources */,
 				CEACBC4518A1B822008A3FA1 /* static.m in Sources */,
-				CE4CEF4618C95E8D008C599D /* MTAuthorizationResponseSerializer.m in Sources */,
+				CE4CEF4618C95E8D008C599D /* MTGAuthorizationResponseSerializer.m in Sources */,
 				CE4D3D1518A07A630033040D /* NSArray+Function.m in Sources */,
-				CE4D3D0D18A075C80033040D /* MTBookmark.m in Sources */,
+				CE4D3D0D18A075C80033040D /* MTGBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
