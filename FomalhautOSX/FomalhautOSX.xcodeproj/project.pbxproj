@@ -13,7 +13,7 @@
 		CE02E0261870180400094EFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E0251870180400094EFD /* main.m */; };
 		CE02E02A1870180400094EFD /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0281870180400094EFD /* Credits.rtf */; };
 		CE02E02D1870180400094EFD /* MTGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E02C1870180400094EFD /* MTGDocument.m */; };
-		CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */; };
+		CE02E0361870180400094EFD /* MTGDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE02E0341870180400094EFD /* MTGDocument.xcdatamodeld */; };
 		CE02E0381870180400094EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE02E0371870180400094EFD /* Images.xcassets */; };
 		CE02E03F1870180400094EFD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02E03E1870180400094EFD /* XCTest.framework */; };
 		CE02E0401870180400094EFD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02E0191870180400094EFD /* Cocoa.framework */; };
@@ -102,7 +102,7 @@
 		CE02E0291870180400094EFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		CE02E02B1870180400094EFD /* MTGDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTGDocument.h; sourceTree = "<group>"; };
 		CE02E02C1870180400094EFD /* MTGDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTGDocument.m; sourceTree = "<group>"; };
-		CE02E0351870180400094EFD /* MTDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTDocument.xcdatamodel; sourceTree = "<group>"; };
+		CE02E0351870180400094EFD /* MTGDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTGDocument.xcdatamodel; sourceTree = "<group>"; };
 		CE02E0371870180400094EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE02E03D1870180400094EFD /* FomalhautOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FomalhautOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE02E03E1870180400094EFD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,14 +114,14 @@
 		CE02E12C18713ED200094EFD /* MTGOSXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGOSXMainWindowController.h; sourceTree = "<group>"; };
 		CE02E12D18713ED200094EFD /* MTGOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTGOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGOSXMainWindowController.xib; sourceTree = "<group>"; };
-		CE30355F18C777350045DE7F /* MTDocument 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 6.xcdatamodel"; sourceTree = "<group>"; };
+		CE30355F18C777350045DE7F /* MTGDocument 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 6.xcdatamodel"; sourceTree = "<group>"; };
 		CE30356018C778110045DE7F /* MTGSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSession.h; sourceTree = "<group>"; };
 		CE30356118C778110045DE7F /* MTGSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSession.m; sourceTree = "<group>"; };
 		CE4CEF4118C8C3DE008C599D /* MTGSession+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTGSession+Addition.h"; sourceTree = "<group>"; };
 		CE4CEF4218C8C3DE008C599D /* MTGSession+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MTGSession+Addition.m"; sourceTree = "<group>"; };
 		CE4D3D0F18A07A2E0033040D /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE4D3D1018A07A2E0033040D /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
-		CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 3.xcdatamodel"; sourceTree = "<group>"; };
+		CE5233A71886DE95006DF2C2 /* MTGDocument 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 3.xcdatamodel"; sourceTree = "<group>"; };
 		CE67D8B11880E4F40069A3D5 /* MTGPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGPage.h; sourceTree = "<group>"; };
 		CE67D8B21880E4F40069A3D5 /* MTGPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGPage.m; sourceTree = "<group>"; };
 		CE67D8B41880E5400069A3D5 /* MTGZipEntryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGZipEntryPage.h; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		CE67D8EC1882BAAB0069A3D5 /* MTGAcknowledgementWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGAcknowledgementWindowController.m; sourceTree = "<group>"; };
 		CE67D8ED1882BAAB0069A3D5 /* MTGAcknowledgementWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGAcknowledgementWindowController.xib; sourceTree = "<group>"; };
 		CE67D8F01882BCC40069A3D5 /* acknowledgements.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = acknowledgements.rtf; sourceTree = "<group>"; };
-		CE67D8F51884177C0069A3D5 /* MTDocument 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 2.xcdatamodel"; sourceTree = "<group>"; };
+		CE67D8F51884177C0069A3D5 /* MTGDocument 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 2.xcdatamodel"; sourceTree = "<group>"; };
 		CE789F9418792893005E928E /* list.html.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.html.mustache; sourceTree = "<group>"; };
 		CE789F9818792B87005E928E /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
 		CE789F9918792B87005E928E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		CE789FE31880491F005E928E /* MTGBookWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGBookWindowController.h; sourceTree = "<group>"; };
 		CE789FE41880491F005E928E /* MTGBookWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGBookWindowController.m; sourceTree = "<group>"; };
 		CE789FE51880491F005E928E /* MTGBookWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGBookWindowController.xib; sourceTree = "<group>"; };
-		CE82143518954D7E0080A63A /* MTDocument 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 5.xcdatamodel"; sourceTree = "<group>"; };
+		CE82143518954D7E0080A63A /* MTGDocument 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 5.xcdatamodel"; sourceTree = "<group>"; };
 		CE97ED1518841D120008DB37 /* MTSmartBookmark+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTSmartBookmark+Addition.h"; sourceTree = "<group>"; };
 		CE97ED1618841D120008DB37 /* MTSmartBookmark+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MTSmartBookmark+Addition.m"; sourceTree = "<group>"; };
 		CE97ED1818841D280008DB37 /* MTNormalBookmark+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTNormalBookmark+Addition.h"; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		CE97ED1F18841DCC0008DB37 /* MTGSmartBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSmartBookmark.m; sourceTree = "<group>"; };
 		CE9E236F1871565F0069BED0 /* MTGFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGFileArrayController.h; sourceTree = "<group>"; };
 		CE9E23701871565F0069BED0 /* MTGFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGFileArrayController.m; sourceTree = "<group>"; };
-		CEACF9851889796B00211A9D /* MTDocument 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTDocument 4.xcdatamodel"; sourceTree = "<group>"; };
+		CEACF9851889796B00211A9D /* MTGDocument 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 4.xcdatamodel"; sourceTree = "<group>"; };
 		CEC67C3418D9EE8C0027D898 /* Model5to6.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model5to6.xcmappingmodel; sourceTree = "<group>"; };
 		CEDA6AB418954FA3007B5F9D /* MTGFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGFile.h; sourceTree = "<group>"; };
 		CEDA6AB518954FA3007B5F9D /* MTGFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGFile.m; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 				CE67D8D4188261780069A3D5 /* NSImage+Resize.h */,
 				CE67D8D5188261780069A3D5 /* NSImage+Resize.m */,
 				CE02E0371870180400094EFD /* Images.xcassets */,
-				CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */,
+				CE02E0341870180400094EFD /* MTGDocument.xcdatamodeld */,
 				CE789F931879287A005E928E /* templates */,
 				CE02E0201870180400094EFD /* Supporting Files */,
 				CEC67C3418D9EE8C0027D898 /* Model5to6.xcmappingmodel */,
@@ -635,7 +635,7 @@
 				CE30356218C778110045DE7F /* MTGSession.m in Sources */,
 				CE67D8B31880E4F40069A3D5 /* MTGPage.m in Sources */,
 				CEE2DC8C188455ED0082D5BB /* MTGBookmarkOutlineView.m in Sources */,
-				CE02E0361870180400094EFD /* MTDocument.xcdatamodeld in Sources */,
+				CE02E0361870180400094EFD /* MTGDocument.xcdatamodeld in Sources */,
 				CEDA6AB618954FA3007B5F9D /* MTGFile.m in Sources */,
 				CE789FC5187C6590005E928E /* MTGZeroWidthSplitView.m in Sources */,
 			);
@@ -866,18 +866,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CE02E0341870180400094EFD /* MTDocument.xcdatamodeld */ = {
+		CE02E0341870180400094EFD /* MTGDocument.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CE30355F18C777350045DE7F /* MTDocument 6.xcdatamodel */,
-				CE82143518954D7E0080A63A /* MTDocument 5.xcdatamodel */,
-				CE67D8F51884177C0069A3D5 /* MTDocument 2.xcdatamodel */,
-				CE5233A71886DE95006DF2C2 /* MTDocument 3.xcdatamodel */,
-				CEACF9851889796B00211A9D /* MTDocument 4.xcdatamodel */,
-				CE02E0351870180400094EFD /* MTDocument.xcdatamodel */,
+				CE30355F18C777350045DE7F /* MTGDocument 6.xcdatamodel */,
+				CE82143518954D7E0080A63A /* MTGDocument 5.xcdatamodel */,
+				CE67D8F51884177C0069A3D5 /* MTGDocument 2.xcdatamodel */,
+				CE5233A71886DE95006DF2C2 /* MTGDocument 3.xcdatamodel */,
+				CEACF9851889796B00211A9D /* MTGDocument 4.xcdatamodel */,
+				CE02E0351870180400094EFD /* MTGDocument.xcdatamodel */,
 			);
-			currentVersion = CE30355F18C777350045DE7F /* MTDocument 6.xcdatamodel */;
-			path = MTDocument.xcdatamodeld;
+			currentVersion = CE30355F18C777350045DE7F /* MTGDocument 6.xcdatamodel */;
+			path = MTGDocument.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
