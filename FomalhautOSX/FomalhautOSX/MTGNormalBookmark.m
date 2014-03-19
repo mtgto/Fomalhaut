@@ -16,8 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGNormalBookmark.h"
+#import "MTGFile.h"
 
-@interface MTGSmartBookmark (Addition)
+
+@implementation MTGNormalBookmark
+
+@dynamic name;
+@dynamic uuid;
+@dynamic created;
+@dynamic entries;
 
 @end

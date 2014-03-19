@@ -16,8 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Cocoa;
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGHelpersController : NSArrayController
 
 @end

@@ -16,8 +16,33 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGZipEntryPage.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGZipEntryPage()
+
+@property (nonatomic, strong) ZZArchiveEntry *entry;
+
+@end
+
+@implementation MTGZipEntryPage
+
+- (id)initWithZipEntry:(ZZArchiveEntry *)entry {
+    if (self = [super init]) {
+        self.entry = entry;
+    }
+    return self;
+}
+
+- (NSString *)fileName {
+    return [self.entry fileName];
+}
+
+- (NSData *)data {
+    return [self.entry newData];
+}
+
+- (NSImage *)image {
+    return [[NSImage alloc] initWithData:[self.entry newData]];
+}
 
 @end

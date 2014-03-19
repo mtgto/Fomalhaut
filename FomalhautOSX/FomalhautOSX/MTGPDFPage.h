@@ -16,8 +16,11 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGPage.h"
+#import <Quartz/Quartz.h>
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGPDFPage : MTGPage
+
+- (id)initWithPDFPage:(PDFPage *)pdfPage;
 
 @end

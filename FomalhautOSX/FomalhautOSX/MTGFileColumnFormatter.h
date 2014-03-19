@@ -16,8 +16,8 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Foundation;
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGFileColumnFormatter : NSFormatter
 
 @end

@@ -16,8 +16,26 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGBookmarkAll.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGBookmarkAll
+
++ (MTGBookmarkAll *)sharedInstance {
+    static MTGBookmarkAll *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[self alloc] init];
+    });
+
+    return _sharedInstance;
+}
+
+- (NSString *)displayName {
+    return @"All";
+}
+
+- (NSPredicate *)predicate {
+    return [NSPredicate predicateWithValue:YES];
+}
 
 @end

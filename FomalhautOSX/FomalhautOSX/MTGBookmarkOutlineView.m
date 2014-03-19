@@ -16,8 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import "MTGBookmarkOutlineView.h"
+#import "MTGNormalBookmark.h"
 #import "MTGSmartBookmark.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGBookmarkOutlineView
+
+- (NSMenu*)menuForEvent:(NSEvent*)theEvent
+{
+    NSInteger row = [self selectedRow];
+    if (row >= 0) {
+        if ([[self itemAtRow:row] isKindOfClass:[MTGNormalBookmark class]]) {
+            return self.normalBookmarkMenu;
+        } else if ([[self itemAtRow:row] isKindOfClass:[MTGSmartBookmark class]]) {
+            return self.smartBookmarkMenu;
+        }
+    }
+    return nil;
+}
 
 @end

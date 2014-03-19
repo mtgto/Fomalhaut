@@ -16,8 +16,24 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface MTGSmartBookmark (Addition)
+@class MTGFile;
+
+@interface MTGNormalBookmark : NSManagedObject
+
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * uuid;
+@property (nonatomic) NSTimeInterval created;
+@property (nonatomic, retain) NSSet *entries;
+@end
+
+@interface MTGNormalBookmark (CoreDataGeneratedAccessors)
+
+- (void)addEntriesObject:(MTGFile *)value;
+- (void)removeEntriesObject:(MTGFile *)value;
+- (void)addEntries:(NSSet *)values;
+- (void)removeEntries:(NSSet *)values;
 
 @end

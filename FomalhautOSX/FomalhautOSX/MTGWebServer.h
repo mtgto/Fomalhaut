@@ -16,8 +16,12 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import <Foundation/Foundation.h>
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGWebServer : NSObject
+
+- (BOOL)start:(UInt16)port error:(NSError *__autoreleasing*)error;
+
+- (void)stop;
 
 @end

@@ -16,8 +16,13 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Cocoa;
+#import "MTGFileArrayController.h"
+#import "MTGBookmarkOutlineView.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGOSXMainWindowController : NSWindowController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSMenuDelegate>
+@property (strong) IBOutlet MTGFileArrayController *fileArrayController;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet MTGBookmarkOutlineView *bookmarkOutlineView;
 
 @end

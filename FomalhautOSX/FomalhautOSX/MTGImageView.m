@@ -16,8 +16,16 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGImageView.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGImageView
+
+// You need to override mouseDown: to - mouseUp: be called.
+- (void)mouseDown:(NSEvent *)theEvent {
+}
+
+- (void)mouseUp:(NSEvent *)theEvent {
+    [[self nextResponder] mouseUp:theEvent];
+}
 
 @end

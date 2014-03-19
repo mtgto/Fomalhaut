@@ -16,8 +16,23 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGPage.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGPage
+
+- (NSString *)fileName {
+    DDLogError(@"You need to implement `- (NSString *)fileName`.");
+    return nil;
+}
+
+- (NSData *)data {
+    DDLogError(@"You need to implement `- (NSData *)data`.");
+    return nil;
+}
+
+- (NSImage *)image {
+    DDLogError(@"You need to implement `- (NSImage *)image`.");
+    return nil;
+}
 
 @end

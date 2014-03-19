@@ -18,6 +18,16 @@
 
 #import "MTGSmartBookmark.h"
 
-@interface MTGSmartBookmark (Addition)
+
+@implementation MTGSmartBookmark
+
+@dynamic uuid;
+@dynamic name;
+@dynamic predicate;
+@dynamic created;
+
+- (NSString *)displayName {
+    return self.name;
+}
 
 @end

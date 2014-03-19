@@ -16,8 +16,27 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGAcknowledgementWindowController.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGAcknowledgementWindowController ()
+
+@property (unsafe_unretained) IBOutlet NSTextView *textView;
+
+@end
+
+@implementation MTGAcknowledgementWindowController
+
+- (id)init
+{
+    return [super initWithWindowNibName:@"MTGAcknowledgementWindowController"];
+}
+
+- (void)windowDidLoad
+{
+    [super windowDidLoad];
+    
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    [self.textView readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"acknowledgements" ofType:@"rtf"]];
+}
 
 @end

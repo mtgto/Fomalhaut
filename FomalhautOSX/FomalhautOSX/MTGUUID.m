@@ -16,8 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGUUID.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGUUID
+
++ (NSString *)generateUUID {
+    CFUUIDRef uuidRef = CFUUIDCreate(NULL);
+    NSString *uuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(NULL, uuidRef));
+    CFRelease(uuidRef);
+    return uuidString;
+}
 
 @end

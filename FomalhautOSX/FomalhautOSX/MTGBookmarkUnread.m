@@ -16,8 +16,26 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGBookmarkUnread.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGBookmarkUnread
+
++ (MTGBookmarkUnread *)sharedInstance {
+    static MTGBookmarkUnread *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[self alloc] init];
+    });
+
+    return _sharedInstance;
+}
+
+- (NSString *)displayName {
+    return @"Unread";
+}
+
+- (NSPredicate *)predicate {
+    return [NSPredicate predicateWithFormat:@"readCount = 0"];
+}
 
 @end

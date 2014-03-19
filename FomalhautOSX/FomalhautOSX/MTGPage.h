@@ -16,8 +16,14 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import <Foundation/Foundation.h>
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGPage : NSObject
+
+- (NSString *)fileName;
+
+- (NSData *)data;
+
+- (NSImage *)image;
 
 @end

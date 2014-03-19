@@ -16,8 +16,16 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Foundation;
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGHelper : NSObject
+
+@property (nonatomic, readonly, strong) NSString *name;
+
+@property (nonatomic, readonly, strong) NSImage *image;
+
+@property (nonatomic, readonly, strong) NSString *applicationIdentifier;
+
+- (id)initWithApplicationIdentifier:(NSString *)applicationIdentifier;
 
 @end

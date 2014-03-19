@@ -16,8 +16,11 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Foundation;
+#import "MTBookmark.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGBookmarkUnread : NSObject<MTGBookmark>
+
++ (MTGBookmarkUnread *)sharedInstance;
 
 @end

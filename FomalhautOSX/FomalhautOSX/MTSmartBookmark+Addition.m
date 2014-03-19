@@ -17,13 +17,13 @@
  */
 
 #import "MTSmartBookmark+Addition.h"
-#import "MTUUID.h"
+#import "MTGUUID.h"
 
-@implementation MTSmartBookmark (Addition)
+@implementation MTGSmartBookmark (Addition)
 
 - (void)awakeFromInsert {
     [super awakeFromInsert];
-    self.uuid = [MTUUID generateUUID];
+    self.uuid = [MTGUUID generateUUID];
     self.created = [NSDate timeIntervalSinceReferenceDate];
 }
 

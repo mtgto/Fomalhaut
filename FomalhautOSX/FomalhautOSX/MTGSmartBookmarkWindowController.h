@@ -16,8 +16,12 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import <Cocoa/Cocoa.h>
 #import "MTGSmartBookmark.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGSmartBookmarkWindowController : NSWindowController
+
+@property (nonatomic, strong) MTGSmartBookmark *bookmark;
+//@property (nonatomic, strong) NSPredicate *predicate;
 
 @end

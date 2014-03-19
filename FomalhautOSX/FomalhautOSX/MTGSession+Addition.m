@@ -16,8 +16,13 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGSession+Addition.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGSession (Addition)
+
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    self.created = [NSDate timeIntervalSinceReferenceDate];
+}
 
 @end

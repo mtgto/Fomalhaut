@@ -17,15 +17,15 @@
  */
 
 #import "MTNormalBookmark+Addition.h"
-#import "MTUUID.h"
-#import "MTFile.h"
+#import "MTGUUID.h"
+#import "MTGFile.h"
 #import "NSArray+Function.h"
 
-@implementation MTNormalBookmark (Addition)
+@implementation MTGNormalBookmark (Addition)
 
 - (void)awakeFromInsert {
     [super awakeFromInsert];
-    self.uuid = [MTUUID generateUUID];
+    self.uuid = [MTGUUID generateUUID];
     self.created = [NSDate timeIntervalSinceReferenceDate];
 }
 

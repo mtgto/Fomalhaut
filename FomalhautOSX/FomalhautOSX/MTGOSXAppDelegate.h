@@ -16,8 +16,12 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Foundation;
+#import "MTGWebServer.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGOSXAppDelegate : NSObject <NSApplicationDelegate>
+
+@property (weak) IBOutlet MTGWebServer *server;
+@property (weak) IBOutlet NSMenuItem *startServerMenuItem;
 
 @end

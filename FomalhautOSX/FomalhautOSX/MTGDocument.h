@@ -14,10 +14,21 @@
 
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@import Cocoa;
+
+@interface MTGDocument : NSDocument
+
+/**
+ * retrieve the sorted array of MTPage instances.
  */
+- (NSArray *)getPages;
 
-#import "MTGSmartBookmark.h"
+- (NSUInteger)numberOfPages;
 
-@interface MTGSmartBookmark (Addition)
+- (NSData *)dataOfIndex:(NSUInteger)index;
+
+- (NSData *)dataOfIndex:(NSUInteger)index withSize:(CGSize)size;
 
 @end

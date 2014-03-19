@@ -19,7 +19,7 @@
 #import <Foundation/Foundation.h>
 @import Foundation;
 
-@protocol MTBookmark <NSObject>
+@protocol MTGBookmark <NSObject>
 
 - (NSString *)displayName;
 

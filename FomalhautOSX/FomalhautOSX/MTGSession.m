@@ -16,8 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGSession.h"
 
-@interface MTGSmartBookmark (Addition)
+
+@implementation MTGSession
+
+@dynamic token;
+@dynamic created;
+@dynamic authorized;
+@dynamic secret;
+@dynamic note;
 
 @end

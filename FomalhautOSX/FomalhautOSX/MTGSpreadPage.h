@@ -16,8 +16,18 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+@import Foundation;
+#import "MTGPage.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGSpreadPage : NSObject
+
+@property (readonly, strong) MTGPage *firstPage;
+
+/**
+ * It may be nil.
+ */
+@property (readonly, strong) MTGPage *secondPage;
+
+- (id)initWithFirstPage:(MTGPage *)firstPage secondPage:(MTGPage *)secondPage;
 
 @end

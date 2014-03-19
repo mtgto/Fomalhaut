@@ -16,8 +16,11 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGZeroWidthSplitView.h"
 
-@interface MTGSmartBookmark (Addition)
+@implementation MTGZeroWidthSplitView
 
+- (CGFloat)dividerThickness { return 0.0; }
+
+- (void)drawDividerInRect:(NSRect)aRect { }
 @end

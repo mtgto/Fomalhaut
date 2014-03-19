@@ -21,7 +21,7 @@
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSDocumentClass</key>
-			<string>MTZipDocument</string>
+			<string>MTGZipDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>Binary</string>
 		</dict>
@@ -37,7 +37,7 @@
 			<key>LSTypeIsPackage</key>
 			<integer>0</integer>
 			<key>NSDocumentClass</key>
-			<string>MTPDFDocument</string>
+			<string>MTGPDFDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

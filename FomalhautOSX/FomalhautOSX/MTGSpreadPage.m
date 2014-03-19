@@ -16,8 +16,24 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGSpreadPage.h"
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGSpreadPage()
+
+@property (strong) MTGPage *firstPage;
+
+@property (strong) MTGPage *secondPage;
+
+@end
+
+@implementation MTGSpreadPage
+
+- (id)initWithFirstPage:(MTGPage *)firstPage secondPage:(MTGPage *)secondPage {
+    if (self = [super init]) {
+        self.firstPage = firstPage;
+        self.secondPage = secondPage;
+    }
+    return self;
+}
 
 @end

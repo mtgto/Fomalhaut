@@ -16,8 +16,16 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGFile.h"
 
-@interface MTGSmartBookmark (Addition)
+enum MTFileState {
+    MTFileNormal = 0,
+    MTFileUnread = 1,
+    MTFileNotExists = 2,
+};
+
+@interface MTGFile (Addition) 
+
++ (MTGFile *)createEntityWithURL:(NSURL *)url;
 
 @end

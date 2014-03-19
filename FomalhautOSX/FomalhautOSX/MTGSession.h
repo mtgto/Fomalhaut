@@ -16,8 +16,16 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface MTGSmartBookmark (Addition)
+
+@interface MTGSession : NSManagedObject
+
+@property (nonatomic, retain) NSString * token;
+@property (nonatomic) NSTimeInterval created;
+@property (nonatomic) BOOL authorized;
+@property (nonatomic, retain) NSString * secret;
+@property (nonatomic, retain) NSString * note;
 
 @end

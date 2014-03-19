@@ -16,8 +16,11 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MTGSmartBookmark.h"
+#import "MTGPage.h"
+#import <zipzap/zipzap.h>
 
-@interface MTGSmartBookmark (Addition)
+@interface MTGZipEntryPage : MTGPage
+
+- (id)initWithZipEntry:(ZZArchiveEntry *)entry;
 
 @end
