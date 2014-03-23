@@ -18,13 +18,26 @@
 
 #import "MTGSession.h"
 
+@interface MTGSession()
+
+@property (nonatomic, copy) NSString *token;
+
+@property (nonatomic, copy) NSString *note;
+
+@end
 
 @implementation MTGSession
 
-@dynamic token;
-@dynamic created;
-@dynamic authorized;
-@dynamic secret;
-@dynamic note;
+- (id)initWithToken:(NSString *)token note:(NSString *)note {
+    if (self = [super init]) {
+        self.token = token;
+        self.note = note;
+    }
+    return self;
+}
+
+- (id)initWithToken:(NSString *)token {
+    return [self initWithToken:token note:nil];
+}
 
 @end

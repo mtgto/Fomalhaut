@@ -19,5 +19,6 @@ target 'FomalhautOSX', :exclusive => false do
   pod 'zipzap', '~> 6.0'
   pod 'RoutingHTTPServer', '~> 1.0.0'
   pod 'GRMustache', '~> 6.9.2'
+  pod 'SSKeychain', '~> 1.2.1'
 end
 

@@ -25,6 +25,7 @@
 #import "MTGSmartBookmark.h"
 #import "NSArray+Function.h"
 #import "MTGSession.h"
+#import "MTGSessionRepository.h"
 
 NSString *const API_ERROR_MESSAGE_KEY = @"message";
 
@@ -41,6 +42,12 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
 @property (strong) RoutingHTTPServer *server;
 @property (strong) MTGDocument *selectedDocument;
 @property (strong) NSDateFormatter *dateFormatter;
+@property (strong) MTGSessionRepository *sessionRepository;
+
+/**
+ * key is <secret> string.
+ */
+@property (strong) NSMutableDictionary *unauthorizedSessions;
 
 - (NSSortDescriptor *)sortDescriptorByRequest:(RouteRequest *)request;
 
@@ -54,6 +61,8 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
     if (self = [super init]) {
         self.dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S%z" allowNaturalLanguage:NO];
         [self.dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+        self.sessionRepository = [MTGSessionRepository sharedInstance];
+        self.unauthorizedSessions = [NSMutableDictionary dictionary];
         self.server = [[RoutingHTTPServer alloc] init];
         [self.server setDefaultHeader:@"Server" value:[NSString stringWithFormat:@"Fomalhaut/%@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
         [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
@@ -166,10 +175,9 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
             NSString *secret = params[@"secret"];
             NSError *error = nil;
             if (secret) {
-                MTGSession *session = [MTGSession MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"secret == %@ AND authorized == NO", secret]];
+                MTGSession *session = self.unauthorizedSessions[secret];
                 if (session) {
-                    session.authorized = YES;
-                    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                    [self.sessionRepository store:session];
                     [response setStatusCode:201];
                     [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{@"token": session.token}
                                                                               options:0
@@ -181,40 +189,48 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
                                                                                 error:&error]];
                 }
             } else {
-                MTGSession *session = [MTGSession MR_createEntity];
-                session.secret = [NSString stringWithFormat:@"%04d", arc4random() % 10000];
-                session.token = [NSString stringWithFormat:@"%08x%08x%08x%08x", arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu)];
-                session.note = params[@"note"];
-                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                NSString *secret = [NSString stringWithFormat:@"%04d", arc4random() % 10000];
+                NSString *token = [NSString stringWithFormat:@"%08x%08x%08x%08x", arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu), arc4random_uniform(0xfffffffu)];
+                MTGSession *session = [[MTGSession alloc] initWithToken:token note:params[@"note"]];
+                self.unauthorizedSessions[secret] = session;
                 [response setStatusCode:401];
                 [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_NEED_SECRET}
                                                                           options:0
                                                                             error:&error]];
-                NSString *message = [NSString stringWithFormat:NSLocalizedString(@"ALERT_SECRET_TITLE_FORMAT", nil), session.note, session.secret];
+                NSString *message = [NSString stringWithFormat:NSLocalizedString(@"ALERT_SECRET_TITLE_FORMAT", nil), session.note, secret];
                 [self performSelectorOnMainThread:@selector(showAlertWithMessage:) withObject:message waitUntilDone:NO];
             }
         }];
         [self.server get:@"/api/v1/bookmarks" withBlock:^(RouteRequest *request, RouteResponse *response) {
-            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
-            NSArray *normalBookmarks = [[MTGNormalBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
-                MTGNormalBookmark *bookmark = (MTGNormalBookmark *)obj;
-                NSDate *created = [NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created];
-                return @{@"uuid": bookmark.uuid,
-                         @"name": bookmark.name,
-                         @"type": @"normal",
-                         @"created": [self.dateFormatter stringFromDate:created]};
-            }];
-            NSArray *smartBookmarks = [[MTGSmartBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
-                MTGSmartBookmark *bookmark = (MTGSmartBookmark *)obj;
-                return @{@"uuid": bookmark.uuid,
-                         @"name": bookmark.name,
-                         @"type": @"smart",
-                         @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created]]};
-            }];
             NSError *error = nil;
-            [response respondWithData:[NSJSONSerialization dataWithJSONObject:[normalBookmarks arrayByAddingObjectsFromArray:smartBookmarks]
-                                                                      options:0
-                                                                        error:&error]];
+            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+            NSString *token = [request param:@"access_token"];
+            if (![self.sessionRepository loadWithToken:token]) {
+                [response setStatusCode:401];
+                [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_INVALID_SECRET}
+                                                                          options:0
+                                                                            error:&error]];
+            } else {
+                NSArray *normalBookmarks = [[MTGNormalBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
+                    MTGNormalBookmark *bookmark = (MTGNormalBookmark *)obj;
+                    NSDate *created = [NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created];
+                    return @{@"uuid": bookmark.uuid,
+                             @"name": bookmark.name,
+                             @"type": @"normal",
+                             @"created": [self.dateFormatter stringFromDate:created]};
+                }];
+                NSArray *smartBookmarks = [[MTGSmartBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
+                    MTGSmartBookmark *bookmark = (MTGSmartBookmark *)obj;
+                    return @{@"uuid": bookmark.uuid,
+                             @"name": bookmark.name,
+                             @"type": @"smart",
+                             @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created]]};
+                }];
+                NSError *error = nil;
+                [response respondWithData:[NSJSONSerialization dataWithJSONObject:[normalBookmarks arrayByAddingObjectsFromArray:smartBookmarks]
+                                                                          options:0
+                                                                            error:&error]];
+            }
         }];
         [self.server get:@"/api/v1/bookmarks/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
             [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];

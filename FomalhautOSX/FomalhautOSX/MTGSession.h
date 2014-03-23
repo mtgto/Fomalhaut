@@ -17,15 +17,18 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
+@interface MTGSession : NSObject
 
-@interface MTGSession : NSManagedObject
+@property (nonatomic, readonly, copy) NSString *token;
 
-@property (nonatomic, retain) NSString * token;
-@property (nonatomic) NSTimeInterval created;
-@property (nonatomic) BOOL authorized;
-@property (nonatomic, retain) NSString * secret;
-@property (nonatomic, retain) NSString * note;
+/**
+ * Nullable string which explain itself
+ */
+@property (nonatomic, readonly, copy) NSString *note;
+
+- (id)initWithToken:(NSString *)token note:(NSString *)note;
+
+- (id)initWithToken:(NSString *)token;
 
 @end

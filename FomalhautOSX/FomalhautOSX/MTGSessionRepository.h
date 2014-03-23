@@ -16,8 +16,15 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import <Foundation/Foundation.h>
 #import "MTGSession.h"
 
-@interface MTGSession (Addition)
+@interface MTGSessionRepository : NSObject
+
++ (MTGSessionRepository *)sharedInstance;
+
+- (BOOL)store:(MTGSession *)session;
+
+- (MTGSession *)loadWithToken:(NSString *)token;
 
 @end

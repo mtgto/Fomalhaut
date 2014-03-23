@@ -23,13 +23,6 @@
         <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MTGFile" inverseName="bookmarks" inverseEntity="MTGFile" syncable="YES"/>
     </entity>
-    <entity name="MTGSession" syncable="YES">
-        <attribute name="authorized" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
-        <attribute name="created" attributeType="Date" syncable="YES"/>
-        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="secret" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="token" attributeType="String" indexed="YES" syncable="YES"/>
-    </entity>
     <entity name="MTGSmartBookmark" representedClassName="MTGSmartBookmark" syncable="YES">
         <attribute name="created" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" minValueString="1" syncable="YES"/>
@@ -40,6 +33,5 @@
         <element name="MTGFile" positionX="0" positionY="0" width="128" height="254"/>
         <element name="MTGNormalBookmark" positionX="0" positionY="0" width="128" height="105"/>
         <element name="MTGSmartBookmark" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="MTGSession" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>

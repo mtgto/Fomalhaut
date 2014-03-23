@@ -22,8 +22,8 @@
 		CE02E12818710DAA00094EFD /* MTGOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12718710DAA00094EFD /* MTGOSXAppDelegate.m */; };
 		CE02E12F18713ED200094EFD /* MTGOSXMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE02E12D18713ED200094EFD /* MTGOSXMainWindowController.m */; };
 		CE02E13018713ED200094EFD /* MTGOSXMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE02E12E18713ED200094EFD /* MTGOSXMainWindowController.xib */; };
-		CE30356218C778110045DE7F /* MTGSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30356118C778110045DE7F /* MTGSession.m */; };
-		CE4CEF4318C8C3DE008C599D /* MTGSession+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CEF4218C8C3DE008C599D /* MTGSession+Addition.m */; };
+		CE4B0C8318DEAC0300A4490F /* MTGSessionRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B0C8218DEAC0300A4490F /* MTGSessionRepository.m */; };
+		CE4B0C8618DEAC7900A4490F /* MTGSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B0C8518DEAC7900A4490F /* MTGSession.m */; };
 		CE4D3D1118A07A2E0033040D /* NSArray+Function.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4D3D1018A07A2E0033040D /* NSArray+Function.m */; };
 		CE67D8B31880E4F40069A3D5 /* MTGPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B21880E4F40069A3D5 /* MTGPage.m */; };
 		CE67D8B61880E5400069A3D5 /* MTGZipEntryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE67D8B51880E5400069A3D5 /* MTGZipEntryPage.m */; };
@@ -115,10 +115,10 @@
 		CE02E12D18713ED200094EFD /* MTGOSXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGOSXMainWindowController.m; sourceTree = "<group>"; };
 		CE02E12E18713ED200094EFD /* MTGOSXMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGOSXMainWindowController.xib; sourceTree = "<group>"; };
 		CE30355F18C777350045DE7F /* MTGDocument 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 6.xcdatamodel"; sourceTree = "<group>"; };
-		CE30356018C778110045DE7F /* MTGSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSession.h; sourceTree = "<group>"; };
-		CE30356118C778110045DE7F /* MTGSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSession.m; sourceTree = "<group>"; };
-		CE4CEF4118C8C3DE008C599D /* MTGSession+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTGSession+Addition.h"; sourceTree = "<group>"; };
-		CE4CEF4218C8C3DE008C599D /* MTGSession+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MTGSession+Addition.m"; sourceTree = "<group>"; };
+		CE4B0C8118DEAC0300A4490F /* MTGSessionRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSessionRepository.h; sourceTree = "<group>"; };
+		CE4B0C8218DEAC0300A4490F /* MTGSessionRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSessionRepository.m; sourceTree = "<group>"; };
+		CE4B0C8418DEAC7900A4490F /* MTGSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSession.h; sourceTree = "<group>"; };
+		CE4B0C8518DEAC7900A4490F /* MTGSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSession.m; sourceTree = "<group>"; };
 		CE4D3D0F18A07A2E0033040D /* NSArray+Function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Function.h"; sourceTree = "<group>"; };
 		CE4D3D1018A07A2E0033040D /* NSArray+Function.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Function.m"; sourceTree = "<group>"; };
 		CE5233A71886DE95006DF2C2 /* MTGDocument 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MTGDocument 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -347,10 +347,10 @@
 				CEDA6AB81896A48D007B5F9D /* MTGHelpersController.m */,
 				CEDA6ABA1896A513007B5F9D /* MTGHelper.h */,
 				CEDA6ABB1896A513007B5F9D /* MTGHelper.m */,
-				CE30356018C778110045DE7F /* MTGSession.h */,
-				CE30356118C778110045DE7F /* MTGSession.m */,
-				CE4CEF4118C8C3DE008C599D /* MTGSession+Addition.h */,
-				CE4CEF4218C8C3DE008C599D /* MTGSession+Addition.m */,
+				CE4B0C8418DEAC7900A4490F /* MTGSession.h */,
+				CE4B0C8518DEAC7900A4490F /* MTGSession.m */,
+				CE4B0C8118DEAC0300A4490F /* MTGSessionRepository.h */,
+				CE4B0C8218DEAC0300A4490F /* MTGSessionRepository.m */,
 				CE789FDA187F0D21005E928E /* RoutingConnection+Secure.h */,
 				CE789FDB187F0D21005E928E /* RoutingConnection+Secure.m */,
 				CE67D8D4188261780069A3D5 /* NSImage+Resize.h */,
@@ -608,6 +608,7 @@
 				CE67D8BC188105E20069A3D5 /* MTGSpreadPage.m in Sources */,
 				CE02E12818710DAA00094EFD /* MTGOSXAppDelegate.m in Sources */,
 				CE67D8B61880E5400069A3D5 /* MTGZipEntryPage.m in Sources */,
+				CE4B0C8618DEAC7900A4490F /* MTGSession.m in Sources */,
 				CEDA6AB91896A48D007B5F9D /* MTGHelpersController.m in Sources */,
 				CE97ED1718841D120008DB37 /* MTSmartBookmark+Addition.m in Sources */,
 				CE67D8C218823AA00069A3D5 /* MTGFileColumnFormatter.m in Sources */,
@@ -627,12 +628,11 @@
 				CE789FE21880450A005E928E /* MTGUUID.m in Sources */,
 				CE97ED1D18841DCA0008DB37 /* MTGNormalBookmark.m in Sources */,
 				CEDA6ABC1896A513007B5F9D /* MTGHelper.m in Sources */,
-				CE4CEF4318C8C3DE008C599D /* MTGSession+Addition.m in Sources */,
+				CE4B0C8318DEAC0300A4490F /* MTGSessionRepository.m in Sources */,
 				CE789FBF187C53C8005E928E /* MTGBookmarkAll.m in Sources */,
 				CE67D8C6188240F00069A3D5 /* MTGPDFDocument.m in Sources */,
 				CE67D8EE1882BAAB0069A3D5 /* MTGAcknowledgementWindowController.m in Sources */,
 				CE67D8D1188243990069A3D5 /* MTGPDFPage.m in Sources */,
-				CE30356218C778110045DE7F /* MTGSession.m in Sources */,
 				CE67D8B31880E4F40069A3D5 /* MTGPage.m in Sources */,
 				CEE2DC8C188455ED0082D5BB /* MTGBookmarkOutlineView.m in Sources */,
 				CE02E0361870180400094EFD /* MTGDocument.xcdatamodeld in Sources */,
