@@ -14,6 +14,15 @@ NSString *const SERVICE_NAME = @"FomalhautSession";
 // TODO: mutliple session support
 NSString *const ACCOUNT_NAME = @"CommonFomalhautAccount";
 
+@interface MTGSessionRepository()
+
+/**
+ * On-memory data store. keys mean token strings.
+ */
+@property (strong) NSMutableDictionary *sessions;
+
+@end
+
 @implementation MTGSessionRepository
 
 + (MTGSessionRepository *)sharedInstance {
@@ -41,6 +50,9 @@ NSString *const ACCOUNT_NAME = @"CommonFomalhautAccount";
 }
 
 - (MTGSession *)loadWithToken:(NSString *)token {
+    if (self.sessions[token]) {
+        return self.sessions[token];
+    }
     NSError *error = nil;
     NSArray *accounts = [SSKeychain accountsForService:SERVICE_NAME];
     if ([accounts count]) {
@@ -50,10 +62,15 @@ NSString *const ACCOUNT_NAME = @"CommonFomalhautAccount";
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[password dataUsingEncoding:NSUTF8StringEncoding]
                                                            options:0
                                                              error:&error];
-            if (!json) {
-                NSString *token = json[@"token"];
-                NSString *note = json[@"note"];
-                return [[MTGSession alloc] initWithToken:token note:note];
+            if (json) {
+                if ([token isEqualToString:json[@"token"]]) {
+                    MTGSession *session = [[MTGSession alloc] initWithToken:json[@"token"] note:json[@"note"]];
+                    self.sessions[token] = session;
+                    return session;
+                } else {
+                    DDLogWarn(@"Invalid token: %@", token);
+                    return nil;
+                }
             } else {
                 DDLogWarn(@"Failed to deserialize JSON from keychain: %@", error);
             }

@@ -33,3 +33,13 @@ NSString *const HELPER_VIEWER_INT_INDEX = @"helper.viewer.index";
 NSString *const FILE_TYPE = @"MTFile";
 
 NSString *const HELPER_TYPE = @"MTHelper";
+
+NSString *const API_ERROR_MESSAGE_KEY = @"message";
+
+NSString *const API_ERROR_MESSAGE_INVALID_TOKEN = @"Invalid token";
+
+NSString *const API_ERROR_MESSAGE_NEED_TOKEN = @"Need access token";
+
+NSString *const HTTP_HEADER_CONTENT_TYPE_KEY = @"Content-Type";
+
+NSString *const HTTP_HEADER_CONTENT_TYPE_JSON = @"application/json; charset=utf-8";

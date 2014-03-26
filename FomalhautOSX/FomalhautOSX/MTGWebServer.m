@@ -17,6 +17,7 @@
  */
 
 #import <RoutingHTTPServer/RoutingHTTPServer.h>
+#import "RoutingHTTPServer+Authorization.h"
 #import <GRMustache/GRMustache.h>
 #import "MTGWebServer.h"
 #import "MTGFile.h"
@@ -27,7 +28,7 @@
 #import "MTGSession.h"
 #import "MTGSessionRepository.h"
 
-NSString *const API_ERROR_MESSAGE_KEY = @"message";
+extern NSString *const API_ERROR_MESSAGE_KEY;
 
 NSString *const API_ERROR_MESSAGE_NOT_FOUND = @"Not found";
 
@@ -36,6 +37,10 @@ NSString *const API_ERROR_MESSAGE_INVALID_PARAM = @"Invalid parameter";
 NSString *const API_ERROR_MESSAGE_INVALID_SECRET = @"Invalid secret";
 
 NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
+
+extern NSString *const HTTP_HEADER_CONTENT_TYPE_KEY;
+
+extern NSString *const HTTP_HEADER_CONTENT_TYPE_JSON;
 
 @interface MTGWebServer()
 
@@ -66,7 +71,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
         self.server = [[RoutingHTTPServer alloc] init];
         [self.server setDefaultHeader:@"Server" value:[NSString stringWithFormat:@"Fomalhaut/%@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
         [self.server get:@"/" withBlock:^(RouteRequest *request, RouteResponse *response) {
-            [response setHeader:@"Content-Type" value:@"text/html"];
+            [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:@"text/html"];
             NSArray *files = [MTGFile MR_findAll];
             GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"list.html" bundle:[NSBundle mainBundle] error:nil];
             [response respondWithString:[template renderObject:@{@"items": files} error:nil]];
@@ -75,7 +80,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
             NSString *cssFileName = [request param:@"file"];
             NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:cssFileName withExtension:nil]];
             if ([cssFileName hasSuffix:@".css"] && data) {
-                [response setHeader:@"Content-Type" value:@"text/css"];
+                [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:@"text/css"];
                 [response respondWithData:data];
             } else {
                 [response setStatusCode:404];
@@ -87,7 +92,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
             NSString *jsFileName = [request param:@"file"];
             NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:jsFileName withExtension:nil]];
             if ([jsFileName hasSuffix:@".js"] && data) {
-                [response setHeader:@"Content-Type" value:@"application/javascript"];
+                [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:@"application/javascript"];
                 [response respondWithData:data];
             } else {
                 [response setStatusCode:404];
@@ -99,7 +104,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
             NSString *fontFileName = [request param:@"file"];
             NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:fontFileName withExtension:nil]];
             if ([fontFileName hasSuffix:@".woff"] && data) {
-                [response setHeader:@"Content-Type" value:@"application/x-font-woff"];
+                [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:@"application/x-font-woff"];
                 [response respondWithData:data];
             } else {
                 [response setStatusCode:404];
@@ -170,7 +175,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
 
         }];
         [self.server post:@"/api/v1/authorizations" withBlock:^(RouteRequest *request, RouteResponse *response) {
-            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+            [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:HTTP_HEADER_CONTENT_TYPE_JSON];
             NSDictionary *params = [self dictionaryWithPostData:request.body];
             NSString *secret = params[@"secret"];
             NSError *error = nil;
@@ -201,39 +206,30 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
                 [self performSelectorOnMainThread:@selector(showAlertWithMessage:) withObject:message waitUntilDone:NO];
             }
         }];
-        [self.server get:@"/api/v1/bookmarks" withBlock:^(RouteRequest *request, RouteResponse *response) {
+        [self.server get:@"/api/v1/bookmarks" withRepository:self.sessionRepository withBlock:^(RouteRequest *request, MTGSession *session, RouteResponse *response) {
             NSError *error = nil;
-            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
-            NSString *token = [request param:@"access_token"];
-            if (![self.sessionRepository loadWithToken:token]) {
-                [response setStatusCode:401];
-                [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_INVALID_SECRET}
-                                                                          options:0
-                                                                            error:&error]];
-            } else {
-                NSArray *normalBookmarks = [[MTGNormalBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
-                    MTGNormalBookmark *bookmark = (MTGNormalBookmark *)obj;
-                    NSDate *created = [NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created];
-                    return @{@"uuid": bookmark.uuid,
-                             @"name": bookmark.name,
-                             @"type": @"normal",
-                             @"created": [self.dateFormatter stringFromDate:created]};
-                }];
-                NSArray *smartBookmarks = [[MTGSmartBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
-                    MTGSmartBookmark *bookmark = (MTGSmartBookmark *)obj;
-                    return @{@"uuid": bookmark.uuid,
-                             @"name": bookmark.name,
-                             @"type": @"smart",
-                             @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created]]};
-                }];
-                NSError *error = nil;
-                [response respondWithData:[NSJSONSerialization dataWithJSONObject:[normalBookmarks arrayByAddingObjectsFromArray:smartBookmarks]
-                                                                          options:0
-                                                                            error:&error]];
-            }
+            [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:HTTP_HEADER_CONTENT_TYPE_JSON];
+            NSArray *normalBookmarks = [[MTGNormalBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
+                MTGNormalBookmark *bookmark = (MTGNormalBookmark *)obj;
+                NSDate *created = [NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created];
+                return @{@"uuid": bookmark.uuid,
+                         @"name": bookmark.name,
+                         @"type": @"normal",
+                         @"created": [self.dateFormatter stringFromDate:created]};
+            }];
+            NSArray *smartBookmarks = [[MTGSmartBookmark MR_findAllSortedBy:@"name" ascending:YES] mapWithBlocks:^id(id obj) {
+                MTGSmartBookmark *bookmark = (MTGSmartBookmark *)obj;
+                return @{@"uuid": bookmark.uuid,
+                         @"name": bookmark.name,
+                         @"type": @"smart",
+                         @"created": [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:bookmark.created]]};
+            }];
+            [response respondWithData:[NSJSONSerialization dataWithJSONObject:[normalBookmarks arrayByAddingObjectsFromArray:smartBookmarks]
+                                                                      options:0
+                                                                        error:&error]];
         }];
-        [self.server get:@"/api/v1/bookmarks/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
-            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+        [self.server get:@"/api/v1/bookmarks/:uuid" withRepository:self.sessionRepository withBlock:^(RouteRequest *request, MTGSession *session, RouteResponse *response) {
+            [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:HTTP_HEADER_CONTENT_TYPE_JSON];
             NSString *uuid = [request param:@"uuid"];
             NSSortDescriptor *sortDescriptor = [self sortDescriptorByRequest:request];
             if (!sortDescriptor) {
@@ -268,8 +264,8 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
                 [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_NOT_FOUND} options:0 error:nil]];
             }
         }];
-        [self.server get:@"/api/v1/books/all" withBlock:^(RouteRequest *request, RouteResponse *response) {
-            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+        [self.server get:@"/api/v1/books/all" withRepository:self.sessionRepository withBlock:^(RouteRequest *request, MTGSession *session, RouteResponse *response) {
+            [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:HTTP_HEADER_CONTENT_TYPE_JSON];
             NSSortDescriptor *sortDescriptor = [self sortDescriptorByRequest:request];
             if (!sortDescriptor) {
                 [response setStatusCode:400];
@@ -282,8 +278,8 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
             NSError *error = nil;
             [response respondWithData:[NSJSONSerialization dataWithJSONObject:files options:0 error:&error]];
         }];
-        [self.server get:@"/api/v1/books/:uuid" withBlock:^(RouteRequest *request, RouteResponse *response) {
-            [response setHeader:@"Content-Type" value:@"application/json; charset=utf-8"];
+        [self.server get:@"/api/v1/books/:uuid" withRepository:self.sessionRepository withBlock:^(RouteRequest *request, MTGSession *session, RouteResponse *response) {
+            [response setHeader:HTTP_HEADER_CONTENT_TYPE_KEY value:HTTP_HEADER_CONTENT_TYPE_JSON];
             NSString *uuid = [request param:@"uuid"];
             MTGFile *selectedFile = [MTGFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
             if (selectedFile) {
@@ -304,7 +300,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
                 [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_NOT_FOUND} options:0 error:nil]];
             }
         }];
-        [self.server get:@"/api/v1/books/:uuid/thumbnail" withBlock:^(RouteRequest *request, RouteResponse *response) {
+        [self.server get:@"/api/v1/books/:uuid/thumbnail" withRepository:self.sessionRepository withBlock:^(RouteRequest *request, MTGSession *session, RouteResponse *response) {
             NSString *uuid = [request param:@"uuid"];
             MTGFile *selectedFile = [MTGFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
             NSData *data = selectedFile.thumbnailData;
@@ -315,7 +311,7 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
                 [response respondWithData:[NSJSONSerialization dataWithJSONObject:@{API_ERROR_MESSAGE_KEY: API_ERROR_MESSAGE_NOT_FOUND} options:0 error:nil]];
             }
         }];
-        [self.server get:@"/api/v1/books/:uuid/image/:index" withBlock:^(RouteRequest *request, RouteResponse *response) {
+        [self.server get:@"/api/v1/books/:uuid/image/:index" withRepository:self.sessionRepository withBlock:^(RouteRequest *request, MTGSession *session, RouteResponse *response) {
             NSString *uuid = [request param:@"uuid"];
             NSInteger index = [[request param:@"index"] integerValue];
             MTGFile *selectedFile = [MTGFile MR_findFirstByAttribute:@"uuid" withValue:uuid];
@@ -397,10 +393,15 @@ NSString *const API_ERROR_MESSAGE_NEED_SECRET = @"Need a secret";
 }
 
 - (NSDictionary *)dictionaryWithPostData:(NSData *)data {
+    if ([data length] == 0) {
+        return @{};
+    }
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSArray *elements = [obj componentsSeparatedByString:@"="];
-        dict[[elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] = [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        if ([elements count] == 2) {
+            dict[[elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] = [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        }
     }];
     return [NSDictionary dictionaryWithDictionary:dict];
 }
